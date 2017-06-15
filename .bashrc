@@ -1,21 +1,13 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Alias definitions
+if [ -f ~/.bash_aliases ]; then
+	source ~/.bash_aliases
+fi
+
 # environment variables
 export EDITOR='vim'
-
-# aliases
-alias sudo='sudo '
-alias ls='LC_COLLATE=C ls --color=auto --group-directories-first'
-alias ll='ls -l'
-alias diff='diff --color=auto'
-alias mkdir='mkdir -p -v'
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias pacman='pacman --color=auto'
-alias cower='cower --color=auto'
-alias rm='rm -I'
 
 # set bash prompt (PS1)
 DEFAULT='\[\033[0m\]'
