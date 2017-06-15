@@ -1,6 +1,7 @@
 alias sudo='sudo '
 alias ls='LC_COLLATE=C ls --color=auto --group-directories-first'
 alias ll='ls -l'
+alias la='ls -lA'
 alias diff='diff --color=auto'
 alias mkdir='mkdir -p -v'
 alias grep='grep --color=auto'
