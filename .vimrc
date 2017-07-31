@@ -19,6 +19,8 @@ highlight LineNr cterm=NONE ctermfg=DarkGrey
 
 " search as characters are entered
 set incsearch
+" live match highlighting
+set showmatch
 " highlight search matches
 "set hlsearch
 
