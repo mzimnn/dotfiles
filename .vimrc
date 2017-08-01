@@ -27,3 +27,6 @@ set showmatch
 " make tabs and trailing spaces visible
 set list
 set listchars=tab:»\ ,trail:·,nbsp:⎵
+
+" show command in bottom bar
+set showcmd
