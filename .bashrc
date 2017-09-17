@@ -9,6 +9,11 @@ fi
 # environment variables
 export EDITOR='vim'
 
+KSSHASKPASS_PATH='/usr/bin/ksshaskpass'
+if [ -f $KSSHASKPASS_PATH ]; then
+    export SSH_ASKPASS=$KSSHASKPASS_PATH
+fi
+
 # set bash prompt (PS1)
 DEFAULT='\[\033[0m\]'
 RED='\[\033[1;31m\]'
