@@ -28,4 +28,4 @@ if [ -f /usr/share/git/completion/git-prompt.sh ]; then
     branch='$(__git_ps1 " (%s)")'
 fi
 
-PS1="$(get_user_color)\u:$GREEN\w$YELLOW$branch$(get_user_color) \\$ $DEFAULT"
+PS1="$(get_user_color)\u:$GREEN\w$YELLOW$branch$(get_user_color) \$ $DEFAULT"
