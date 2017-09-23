@@ -10,17 +10,25 @@ fi
 export EDITOR='vim'
 
 # set bash prompt (PS1)
-DEFAULT='\[\033[0m\]'
-RED='\[\033[1;31m\]'
-GREEN='\[\033[1;32m\]'
-YELLOW='\[\033[1;33m\]'
-CYAN='\[\033[1;36m\]'
+DEFAULT='\033[0m'
+RED='\033[1;31m'
+GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+CYAN='\033[1;36m'
 
 function get_user_color() {
     case "$(whoami)" in
-        root) echo "$RED" ;;
-        *)    echo "$CYAN" ;;
+        root) echo "\[$RED\]" ;;
+        *)    echo "\[$GREEN\]" ;;
     esac
+}
+
+function get_exit_status_color() {
+    if [ "$?" -eq 0 ]; then
+        printf "$GREEN"
+    else
+        printf "$RED"
+    fi
 }
 
 if [ -f /usr/share/git/completion/git-prompt.sh ]; then
@@ -28,4 +36,4 @@ if [ -f /usr/share/git/completion/git-prompt.sh ]; then
     branch='$(__git_ps1 " (%s)")'
 fi
 
-PS1="$(get_user_color)\u:$GREEN\w$YELLOW$branch$(get_user_color) \$ $DEFAULT"
+PS1="$(get_user_color)\u\[$DEFAULT\]:\[$YELLOW\]\w\[$CYAN\]$branch\$(get_exit_status_color) \$ \[$DEFAULT\]"
