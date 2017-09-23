@@ -17,7 +17,7 @@ YELLOW='\[\033[1;33m\]'
 CYAN='\[\033[1;36m\]'
 
 function get_user_color() {
-    case `whoami` in
+    case "$(whoami)" in
         root) echo "$RED" ;;
         *)    echo "$CYAN" ;;
     esac
