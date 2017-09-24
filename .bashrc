@@ -8,6 +8,7 @@ fi
 
 # environment variables
 export EDITOR='vim'
+HISTCONTROL=ignoredups
 
 # set bash prompt (PS1)
 DEFAULT='\033[0m'
