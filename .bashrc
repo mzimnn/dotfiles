@@ -32,9 +32,30 @@ function get_exit_status_color() {
     fi
 }
 
+function char_to_int() {
+    printf '%d' "'$1"
+}
+
+function word_to_int() {
+    local word="$1"
+    local sum=0
+
+    for (( i=0; i < "${#word}"; ++i )); do
+        sum=$((sum + $(char_to_int "${word:$i:1}")))
+    done
+
+    echo "$sum"
+}
+
+function word_to_color() {
+    local MAX_COLOR_CODE=232 # excluded
+    local color_value="$(($(word_to_int "$1") % $MAX_COLOR_CODE))";
+    echo "\[\033[38;5;${color_value}m\]"
+}
+
 if [ -f /usr/share/git/completion/git-prompt.sh ]; then
     source /usr/share/git/completion/git-prompt.sh
     branch='$(__git_ps1 " (%s)")'
 fi
 
-PS1="$(get_user_color)\u@\h\[$DEFAULT\]:\[$YELLOW\]\w\[$CYAN\]$branch\$(get_exit_status_color) \$ \[$DEFAULT\]"
+PS1="$(get_user_color)\u\[$DEFAULT\]@$(word_to_color $(hostname))\h\[$DEFAULT\]:\[$YELLOW\]\w\[$CYAN\]$branch\$(get_exit_status_color) \$ \[$DEFAULT\]"
