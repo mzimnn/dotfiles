@@ -6,6 +6,9 @@ if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
 fi
 
+# shell options
+shopt -s cdspell
+
 # environment variables
 export EDITOR='vim'
 HISTCONTROL=ignoredups
