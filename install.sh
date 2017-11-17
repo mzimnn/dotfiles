@@ -3,6 +3,7 @@
 files=(
     '.bash_aliases'
     '.bashrc'
+    '.gitconfig'
     '.vimrc'
 )
 
