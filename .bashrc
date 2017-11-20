@@ -61,4 +61,4 @@ if [ -f /usr/share/git/completion/git-prompt.sh ]; then
     branch='$(__git_ps1 " (%s)")'
 fi
 
-PS1="$(get_user_color)\u\[$DEFAULT\]@$(word_to_color $(hostname))\h\[$DEFAULT\]:\[$YELLOW\]\w\[$CYAN\]$branch\[\$(get_exit_status_color)\]\n\$ \[$DEFAULT\]"
+PS1="$(get_user_color)\u\[$DEFAULT\]@$(word_to_color $(hostname))\h\[$DEFAULT\]:\[$YELLOW\]\w\[$CYAN\]$branch\[\$(get_exit_status_color)\]\n\\$ \[$DEFAULT\]"
