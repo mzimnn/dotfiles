@@ -1,4 +1,5 @@
 alias sudo='sudo '
+alias watch='watch '
 alias ls='LC_COLLATE=C ls --color=auto --group-directories-first'
 alias ll='ls -l'
 alias la='ls -lA'
