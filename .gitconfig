@@ -1,8 +1,7 @@
-[user]
-	name = <missing>
-	email = <missing>
 [alias]
 	last = log -1 HEAD
 	amend = commit --amend
 [diff]
 	wsErrorHighlight = all
+[include]
+	path = ~/.gitconfig.local
