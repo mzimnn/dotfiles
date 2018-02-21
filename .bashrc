@@ -7,6 +7,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # shell options
+set -o vi
 shopt -s cdspell
 
 # environment variables
