@@ -30,3 +30,6 @@ set listchars=tab:»\ ,trail:·,nbsp:⎵
 
 " show command in bottom bar
 set showcmd
+
+" set text width
+autocmd FileType gitcommit setlocal textwidth=72
