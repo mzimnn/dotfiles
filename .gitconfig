@@ -1,6 +1,8 @@
 [alias]
 	amend = commit --amend
 	co = checkout
+	d = diff
+	ds = diff --staged
 	last = log -1 HEAD
 [diff]
 	wsErrorHighlight = all
