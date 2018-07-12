@@ -21,14 +21,14 @@ GREEN='\033[1;32m'
 YELLOW='\033[1;33m'
 CYAN='\033[1;36m'
 
-function get_user_color() {
+get_user_color() {
     case "$(whoami)" in
         root) echo "\[$RED\]" ;;
         *)    echo "\[$GREEN\]" ;;
     esac
 }
 
-function get_exit_status_color() {
+get_exit_status_color() {
     if [ "$?" -eq 0 ]; then
         printf "$GREEN"
     else
@@ -36,11 +36,11 @@ function get_exit_status_color() {
     fi
 }
 
-function char_to_int() {
+char_to_int() {
     printf '%d' "'$1"
 }
 
-function word_to_int() {
+word_to_int() {
     local word="$1"
     local sum=0
 
@@ -51,7 +51,7 @@ function word_to_int() {
     echo "$sum"
 }
 
-function word_to_color() {
+word_to_color() {
     local MAX_COLOR_CODE=232 # excluded
     local color_value="$(($(word_to_int "$1") % $MAX_COLOR_CODE))";
     echo "\[\033[38;5;${color_value}m\]"
