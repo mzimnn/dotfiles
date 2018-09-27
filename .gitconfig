@@ -1,9 +1,15 @@
 [alias]
 	amend = commit --amend
+	b = branch -a
+	cm = commit
 	co = checkout
 	d = diff
 	ds = diff --staged
+	f = fetch -v
+	l = log
 	last = log -1 HEAD
+	s = status
+	sh = show
 [diff]
 	wsErrorHighlight = all
 [include]
