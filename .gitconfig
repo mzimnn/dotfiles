@@ -1,6 +1,6 @@
 [alias]
 	amend = commit --amend
-	b = branch -a
+	b = branch
 	cm = commit
 	co = checkout
 	d = diff
