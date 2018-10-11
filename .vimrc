@@ -33,3 +33,6 @@ set showcmd
 
 " set text width
 autocmd FileType gitcommit setlocal textwidth=72
+
+" mapping
+nnoremap <Leader>h :set hlsearch!<Esc>
