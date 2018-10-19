@@ -36,3 +36,4 @@ autocmd FileType gitcommit setlocal textwidth=72
 
 " mapping
 nnoremap <Leader>h :set hlsearch!<Esc>
+nnoremap <Leader>t :term<Esc><C-W>L
