@@ -10,6 +10,12 @@
 	last = log -1 HEAD
 	s = status
 	sh = show
+
+	# un-/ignore files locally
+	ignore = update-index --skip-worktree
+	ls-ignored = !git ls-files -v | grep '^S' | cut -c3-
+	unignore = update-index --no-skip-worktree
+	unignore-all = !git ls-ignored | xargs git unignore
 [diff]
 	wsErrorHighlight = all
 [include]
