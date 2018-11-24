@@ -2,6 +2,7 @@
 
 files=(
     '.bash_aliases'
+    '.bash_profile'
     '.bashrc'
     '.gitconfig'
     '.vimrc'
