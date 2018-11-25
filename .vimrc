@@ -21,8 +21,6 @@ highlight LineNr cterm=NONE ctermfg=DarkGrey
 set incsearch
 " live match highlighting
 set showmatch
-" highlight search matches
-"set hlsearch
 
 " make tabs and trailing spaces visible
 set list
