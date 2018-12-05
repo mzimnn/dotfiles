@@ -10,6 +10,7 @@ fi
 set -o vi
 shopt -s autocd
 shopt -s cdspell
+shopt -s globstar
 
 # environment variables
 export EDITOR='vim'
