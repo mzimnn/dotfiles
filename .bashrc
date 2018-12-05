@@ -8,6 +8,7 @@ fi
 
 # shell options
 set -o vi
+shopt -s autocd
 shopt -s cdspell
 
 # environment variables
