@@ -13,3 +13,7 @@ alias pacman='pacman --color=auto'
 alias rm='rm -I'
 alias sudo='sudo '
 alias watch='watch '
+
+if [ -d ~/Development ]; then
+    alias d='cd ~/Development/'
+fi
