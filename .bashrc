@@ -1,10 +1,18 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Alias definitions
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
-fi
+files=(
+    /usr/share/git/completion/git-prompt.sh
+    ~/.bash_aliases
+)
+
+for file in "${files[@]}"
+do
+    [ -f "$file" ] && source "$file"
+done
+
+unset file
+unset files
 
 # shell options
 set -o vi
@@ -60,8 +68,7 @@ word_to_color() {
     echo "\[\033[38;5;${color_value}m\]"
 }
 
-if [ -f /usr/share/git/completion/git-prompt.sh ]; then
-    source /usr/share/git/completion/git-prompt.sh
+if [ "$(type -t __git_ps1)" = 'function' ]; then
     branch='$(__git_ps1 " (%s)")'
 fi
 
