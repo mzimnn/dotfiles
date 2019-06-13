@@ -20,5 +20,7 @@
 	wsErrorHighlight = all
 [include]
 	path = ~/.gitconfig.local
+[pull]
+	rebase = true
 [rebase]
 	abbreviateCommands = true
