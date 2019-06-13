@@ -11,6 +11,7 @@ set -o vi
 shopt -s autocd
 shopt -s cdspell
 shopt -s globstar
+shopt -s histappend
 
 # environment variables
 export EDITOR='vim'
