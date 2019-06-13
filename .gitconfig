@@ -16,6 +16,8 @@
 	ls-ignored = !git ls-files -v | grep '^S' | cut -c3-
 	unignore = update-index --no-skip-worktree
 	unignore-all = !git ls-ignored | xargs git unignore
+[commit]
+	verbose = true
 [diff]
 	wsErrorHighlight = all
 [include]
