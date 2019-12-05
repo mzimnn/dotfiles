@@ -27,3 +27,5 @@
 	rebase = true
 [rebase]
 	abbreviateCommands = true
+[stash]
+	showPatch = true
