@@ -5,7 +5,7 @@
 	co = checkout
 	d = diff
 	ds = diff --staged
-	f = fetch -v
+	f = fetch -v --prune
 	l = log
 	last = log -1 HEAD
 	s = status
