@@ -14,6 +14,7 @@
 
 	# un-/ignore files locally
 	ignore = update-index --skip-worktree
+	ignore-all = !git status --porcelain | grep '^ M' | cut -c4- | xargs git ignore
 	ls-ignored = !git ls-files -v | grep '^S' | cut -c3-
 	unignore = update-index --no-skip-worktree
 	unignore-all = !git ls-ignored | xargs git unignore
