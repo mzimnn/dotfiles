@@ -1,6 +1,7 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 alias diff='diff --color=auto'
+alias g='git'
 alias grep='grep --color=auto'
 alias la='ls -lA'
 alias ll='ls -l'
@@ -14,3 +15,6 @@ alias watch='watch '
 if [ -d ~/Development ]; then
     alias d='cd ~/Development/'
 fi
+
+# Enable bash completion for alias
+__git_complete g __git_main
