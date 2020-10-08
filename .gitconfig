@@ -1,4 +1,5 @@
 [alias]
+	aliases = !git config --list | grep '^alias' | sort
 	amend = commit --amend
 	b = branch
 	cm = commit
