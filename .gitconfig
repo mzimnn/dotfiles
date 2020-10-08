@@ -11,7 +11,7 @@
 	last = log -1 HEAD
 	s = status
 	sh = show
-	tree = log --oneline --graph HEAD
+	tree = log --oneline --graph
 
 	# un-/hide files locally
 	hide = update-index --skip-worktree
