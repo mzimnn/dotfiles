@@ -12,12 +12,12 @@
 	sh = show
 	tree = log --oneline --graph HEAD
 
-	# un-/ignore files locally
-	ignore = update-index --skip-worktree
-	ignore-all = !git status --porcelain | grep '^ M' | cut -c4- | xargs git ignore
-	ls-ignored = !git ls-files -v | grep '^S' | cut -c3-
-	unignore = update-index --no-skip-worktree
-	unignore-all = !git ls-ignored | xargs git unignore
+	# un-/hide files locally
+	hide = update-index --skip-worktree
+	hide-all = !git status --porcelain | grep '^ M' | cut -c4- | xargs git hide
+	ls-hidden = !git ls-files -v | grep '^S' | cut -c3-
+	unhide = update-index --no-skip-worktree
+	unhide-all = !git ls-hidden | xargs git unhide
 [commit]
 	verbose = true
 [diff]
