@@ -25,6 +25,9 @@
 (global-display-line-numbers-mode 1)
 (setq display-line-numbers-type 'visual)
 
+;; show current column
+(setq column-number-mode t)
+
 ;; hide welcome screen
 (setq inhibit-startup-screen t)
 
