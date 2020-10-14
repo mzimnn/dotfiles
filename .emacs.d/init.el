@@ -16,6 +16,10 @@
 (require 'evil)
 (evil-mode 1)
 
+;; customize TODO keywords
+(setq org-todo-keywords
+    '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)" )))
+
 ;; move customization settings into own file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (if (file-exists-p custom-file)
