@@ -16,6 +16,9 @@
 (require 'evil)
 (evil-mode 1)
 
+;; hide emphasis markers
+(setq org-hide-emphasis-markers t)
+
 ;; customize TODO keywords
 (setq org-todo-keywords
     '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)" )))
