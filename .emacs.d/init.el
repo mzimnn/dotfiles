@@ -38,6 +38,9 @@
 ;; hide welcome screen
 (setq inhibit-startup-screen t)
 
+;; specify when to wrap lines
+(setq-default fill-column 80)
+
 ;; use Command key as Meta key
 (setq mac-option-modifier 'super)
 (setq mac-command-modifier 'meta)
