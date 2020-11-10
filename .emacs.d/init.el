@@ -16,6 +16,9 @@
 (require 'evil)
 (evil-mode 1)
 
+;; enable Org Indent mode
+(setq org-startup-indented t)
+
 ;; hide emphasis markers
 (setq org-hide-emphasis-markers t)
 
