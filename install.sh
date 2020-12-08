@@ -5,6 +5,7 @@ files=(
     '.bash_profile'
     '.bash_prompt'
     '.bashrc'
+    '.config/sway/config'
     '.emacs.d/init.el'
     '.gitconfig'
     '.vimrc'
