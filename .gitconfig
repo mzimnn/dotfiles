@@ -6,6 +6,7 @@
 	cm = commit
 	co = checkout
 	d = diff
+	diff-upstream = diff HEAD@{upstream} HEAD
 	ds = diff --staged
 	f = fetch -v --prune
 	j = jump
