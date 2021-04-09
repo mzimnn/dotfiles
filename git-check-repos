@@ -2,6 +2,10 @@
 
 set -eu
 
+usage () {
+    echo "usage: git check-repos [-h] [<path>]"
+}
+
 list_git_repo_paths () {
     find "$1" -type d -name '.git' | xargs -I{} dirname "{}"
 }
@@ -25,6 +29,16 @@ get_status_upstream_branch () {
 }
 
 main () {
+    while getopts ':h' o
+    do
+        case "$o" in
+            h)
+                usage
+                exit 0
+                ;;
+        esac
+    done
+
     while read repo_path
     do
         echo "$(get_status_upstream_branch "$repo_path")" "$repo_path"
