@@ -36,6 +36,10 @@ main () {
                 usage
                 exit 0
                 ;;
+            *)
+                usage
+                exit 0
+                ;;
         esac
     done
 
