@@ -52,6 +52,12 @@ main () {
 
     while read repo_path
     do
+        # Check if $repo_path points to a valid Git repo
+        if ! git -C "$repo_path" rev-parse --git-dir 2>/dev/null >&2
+        then
+            continue
+        fi
+
         if [ "$do_fetch" -eq 1 ]
         then
             git -C "$repo_path" fetch
