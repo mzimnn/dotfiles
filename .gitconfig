@@ -29,6 +29,8 @@
 	wsErrorHighlight = all
 [include]
 	path = ~/.gitconfig.local
+[init]
+	defaultBranch = master
 [pull]
 	rebase = true
 [rebase]
