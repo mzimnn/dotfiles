@@ -3,7 +3,7 @@
 set -eu
 
 usage () {
-    echo "usage: git check-repos [-h] [<path>]"
+    echo "usage: git check-repos [-f|-h] [<path>]"
 }
 
 list_git_repo_paths () {
@@ -29,9 +29,14 @@ get_status_upstream_branch () {
 }
 
 main () {
-    while getopts ':h' o
+    local do_fetch=0
+
+    while getopts ':fh' o
     do
         case "$o" in
+            f)
+                do_fetch=1
+                ;;
             h)
                 usage
                 exit 0
@@ -43,8 +48,15 @@ main () {
         esac
     done
 
+    shift "$((OPTIND-1))"
+
     while read repo_path
     do
+        if [ "$do_fetch" -eq 1 ]
+        then
+            git -C "$repo_path" fetch
+        fi
+
         echo "$(get_status_upstream_branch "$repo_path")" "$repo_path"
     done < <(list_git_repo_paths "${1:-"$HOME"}")
 }
