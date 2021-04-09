@@ -1,0 +1,34 @@
+#!/bin/sh
+
+set -eu
+
+list_git_repo_paths () {
+    find "$1" -type d -name '.git' | xargs -I{} dirname "{}"
+}
+
+get_status_upstream_branch () {
+    # Check if local branch has a upstream branch
+    if git -C "$1" rev-parse @{u} 2>/dev/null >&2
+    then
+        if [ "$(git -C "$1" rev-parse HEAD)" = "$(git -C "$1" rev-parse @{u})" ]
+        then
+            # Local branch is up-to-date
+            echo 'U'
+        else
+            # Local branch and upstream branch differ
+            echo 'D'
+        fi
+    else
+        # No upstream branch set
+        echo 'N'
+    fi
+}
+
+main () {
+    while read repo_path
+    do
+        echo "$(get_status_upstream_branch "$repo_path")" "$repo_path"
+    done < <(list_git_repo_paths "${1:-"$HOME"}")
+}
+
+main "$@"
