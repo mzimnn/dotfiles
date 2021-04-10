@@ -2,6 +2,13 @@
 
 set -eu
 
+COLOR_NORMAL=''
+COLOR_RESET='\033[0m'
+COLOR_BLUE='\033[34m'
+COLOR_GREEN='\033[32m'
+COLOR_RED='\033[31m'
+COLOR_YELLOW='\033[33m'
+
 STATUS_BRANCH_DIFFERS='d'
 STATUS_BRANCH_NOT_SET='n'
 STATUS_BRANCH_UPDATED='u'
@@ -9,8 +16,10 @@ STATUS_BRANCH_UPDATED='u'
 STATUS_WORKTREE_CLEAN=' '
 STATUS_WORKTREE_CHANGES='w'
 
+is_piped=0
+
 usage () {
-    echo 'usage: git check-repos [(-a|-A)|-f|-h|-u|-v] [<path>]'
+    echo 'usage: git check-repos [(-a|-A)|-c|-f|-h|-u|-v] [<path>]'
     echo
     echo 'Search for Git repositories within the given path. Is no path'
     echo "provided then the user's home directory is searched."
@@ -41,6 +50,7 @@ usage () {
     echo 'Available options:'
     echo ' -a  do not suppress up-to-date repositories'
     echo ' -A  additionally show repositories which are marked to be skipped'
+    echo ' -c  enforce colorization of output'
     echo ' -f  fetch from remote of each repository'
     echo ' -h  show this help message'
     echo ' -u  try to update the repositories (fast-forward only)'
@@ -50,6 +60,10 @@ usage () {
 error () {
     echo "error: $1" >&2
     exit 1
+}
+
+to_lower () {
+    echo "$1" | tr '[A-Z]' '[a-z]'
 }
 
 to_upper () {
@@ -89,10 +103,49 @@ get_status_worktree () {
     fi
 }
 
+want_colored () {
+    # Only colorize if command is not piped or it's enforced
+    if [ "$is_piped" -eq 0 ] || [ "$1" -eq 1 ]
+    then
+        printf "$2%s$COLOR_RESET" "$3"
+    else
+        printf '%s' "$3"
+    fi
+}
+
+get_status_branch_color () {
+    case "$(to_lower "$1")" in
+        "$STATUS_BRANCH_DIFFERS")
+            printf "$COLOR_RED"
+            ;;
+        "$STATUS_BRANCH_NOT_SET")
+            printf "$COLOR_YELLOW"
+            ;;
+        "$STATUS_BRANCH_UPDATED")
+            printf "$COLOR_GREEN"
+            ;;
+    esac
+}
+
+get_status_worktree_color () {
+    case "$(to_lower "$1")" in
+        "$STATUS_WORKTREE_CHANGES")
+            printf "$COLOR_RED"
+            ;;
+        "$STATUS_WORKTREE_CLEAN")
+            printf "$COLOR_NORMAL"
+            ;;
+    esac
+}
+
 print_repo_info () {
-    printf "%s" "$1$2 $3 "
+    want_colored "$5" "$(get_status_branch_color "$1")" "$1"
+    want_colored "$5" "$(get_status_worktree_color "$2")" "$2"
+    printf ' '
+    printf '%s' "$3"
+    printf ' '
     [ -n "$4" ] && printf '['
-    printf "%s" "$4"
+    want_colored "$5" "$COLOR_BLUE" "$4"
     [ -n "$4" ] && printf ']'
     echo
 }
@@ -102,9 +155,10 @@ main () {
     local do_update=0
     local show_all=0
     local show_all_and_skipped=0
+    local use_color=0
     local verbose=0
 
-    while getopts ':aAfhuv' o
+    while getopts ':aAcfhuv' o
     do
         case "$o" in
             a)
@@ -112,6 +166,9 @@ main () {
                 ;;
             A)
                 show_all_and_skipped=1
+                ;;
+            c)
+                use_color=1
                 ;;
             f)
                 do_fetch=1
@@ -141,6 +198,13 @@ main () {
     fi
 
     local skip_repo='false'
+
+    # It's not possible to do this check in the while loop below because itself
+    # is in a pipe. It would always state to be in a pipe.
+    if [ ! -t 1 ]
+    then
+        is_piped=1
+    fi
 
     list_git_repo_paths "${1:-"$HOME"}" |
     while read repo_path
@@ -201,7 +265,7 @@ main () {
         fi
 
         print_repo_info "$status_upstream_branch" "$status_worktree" \
-                        "$repo_path" "$branch_name"
+                        "$repo_path" "$branch_name" "$use_color"
     done | sort
 }
 
