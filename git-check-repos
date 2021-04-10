@@ -145,7 +145,7 @@ main () {
         fi
 
         echo "$status_upstream_branch$status_worktree $repo_path $branch_name"
-    done < <(list_git_repo_paths "${1:-"$HOME"}")
+    done < <(list_git_repo_paths "${1:-"$HOME"}") | sort
 }
 
 main "$@"
