@@ -117,7 +117,7 @@ main () {
         if [ "$do_fetch" -eq 1 ]
         then
             # Allow fetch to fail, maybe the remote is not accessible
-            git -C "$repo_path" fetch || true
+            git -C "$repo_path" fetch --quiet || true
         fi
 
         local status_upstream_branch="$(get_status_upstream_branch "$repo_path")"
