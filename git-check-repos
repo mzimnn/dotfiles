@@ -10,7 +10,7 @@ STATUS_WORKTREE_CLEAN=' '
 STATUS_WORKTREE_CHANGES='w'
 
 usage () {
-    echo "usage: git check-repos [(-a|-A)|-f|-h|-u|-v] [<path>]"
+    echo 'usage: git check-repos [(-a|-A)|-f|-h|-u|-v] [<path>]'
 }
 
 error () {
