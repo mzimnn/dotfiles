@@ -10,7 +10,7 @@ STATUS_WORKTREE_CLEAN=' '
 STATUS_WORKTREE_CHANGES='w'
 
 usage () {
-    echo "usage: git check-repos [(-a|-A)|-f|-h|-v] [<path>]"
+    echo "usage: git check-repos [(-a|-A)|-f|-h|-u|-v] [<path>]"
 }
 
 error () {
@@ -57,11 +57,12 @@ get_status_worktree () {
 
 main () {
     local do_fetch=0
+    local do_update=0
     local show_all=0
     local show_all_and_skipped=0
     local verbose=0
 
-    while getopts ':aAfhv' o
+    while getopts ':aAfhuv' o
     do
         case "$o" in
             a)
@@ -76,6 +77,9 @@ main () {
             h)
                 usage
                 exit 0
+                ;;
+            u)
+                do_update=1
                 ;;
             v)
                 verbose=1
@@ -123,6 +127,15 @@ main () {
 
         local status_upstream_branch="$(get_status_upstream_branch "$repo_path")"
         local status_worktree="$(get_status_worktree "$repo_path")"
+
+        if [ "$status_upstream_branch" = "$STATUS_BRANCH_DIFFERS" ] &&
+           [ "$do_update" -eq 1 ]
+        then
+            if git -C "$repo_path" merge --quiet --ff-only @{u} 2>/dev/null
+            then
+                status_upstream_branch="$(get_status_upstream_branch "$repo_path")"
+            fi
+        fi
 
         if [ "$status_upstream_branch" = "$STATUS_BRANCH_UPDATED" ] &&
            [ "$status_worktree" = "$STATUS_WORKTREE_CLEAN" ] &&
