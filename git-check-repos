@@ -10,7 +10,7 @@ STATUS_WORKTREE_CLEAN=' '
 STATUS_WORKTREE_CHANGES='W'
 
 usage () {
-    echo "usage: git check-repos [-a|-f|-h] [<path>]"
+    echo "usage: git check-repos [-a|-A|-f|-h] [<path>]"
 }
 
 list_git_repo_paths () {
@@ -50,11 +50,16 @@ main () {
     local do_fetch=0
     local show_all=0
 
-    while getopts ':afh' o
+    while getopts ':aAfh' o
     do
         case "$o" in
             a)
+                # Show all repos excluding skipped ones
                 show_all=1
+                ;;
+            A)
+                # Show all repos including skipped ones
+                show_all=2
                 ;;
             f)
                 do_fetch=1
@@ -75,10 +80,11 @@ main () {
     while read repo_path
     do
         # Check if $repo_path points to a valid Git repo and it is not
-        # configured to be skipped
+        # configured to be skipped (except if "-A" is provided)
         if ! git -C "$repo_path" rev-parse --git-dir 2>/dev/null >&2 ||
-           [ "$(git -C "$repo_path" config \
-                    --local --type bool --get checkrepos.skip)" = 'true' ]
+           ( [ "$(git -C "$repo_path" config \
+                    --local --type bool --get checkrepos.skip)" = 'true' ] &&
+             ! [ "$show_all" -eq 2 ] )
         then
             continue
         fi
