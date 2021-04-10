@@ -10,7 +10,12 @@ STATUS_WORKTREE_CLEAN=' '
 STATUS_WORKTREE_CHANGES='w'
 
 usage () {
-    echo "usage: git check-repos [-a|-A|-f|-h|-v] [<path>]"
+    echo "usage: git check-repos [(-a|-A)|-f|-h|-v] [<path>]"
+}
+
+error () {
+    echo "error: $1" >&2
+    exit 1
 }
 
 to_upper () {
@@ -53,18 +58,17 @@ get_status_worktree () {
 main () {
     local do_fetch=0
     local show_all=0
+    local show_all_and_skipped=0
     local verbose=0
 
     while getopts ':aAfhv' o
     do
         case "$o" in
             a)
-                # Show all repos excluding skipped ones
                 show_all=1
                 ;;
             A)
-                # Show all repos including skipped ones
-                show_all=2
+                show_all_and_skipped=1
                 ;;
             f)
                 do_fetch=1
@@ -85,6 +89,11 @@ main () {
 
     shift "$((OPTIND-1))"
 
+    if [ "$show_all" -eq 1 ] && [ "$show_all_and_skipped" -eq  1 ]
+    then
+        error '-a and -A are mutually exclusive'
+    fi
+
     local skip_repo='false'
 
     while read repo_path
@@ -99,7 +108,7 @@ main () {
 
             # Check if it is configured to be skipped (except if "-A" is
             # provided)
-            if [ "$skip_repo" = 'true' ] && ! [ "$show_all" -eq 2 ]
+            if [ "$skip_repo" = 'true' ] && [ "$show_all_and_skipped" -eq 0 ]
             then
                 continue
             fi
@@ -116,7 +125,8 @@ main () {
 
         if [ "$status_upstream_branch" = "$STATUS_BRANCH_UPDATED" ] &&
            [ "$status_worktree" = "$STATUS_WORKTREE_CLEAN" ] &&
-           [ "$show_all" -eq 0 ]
+           [ "$show_all" -eq 0 ] &&
+           [ "$show_all_and_skipped" -eq 0 ]
         then
             continue
         fi
