@@ -96,6 +96,7 @@ main () {
 
     local skip_repo='false'
 
+    list_git_repo_paths "${1:-"$HOME"}" |
     while read repo_path
     do
         # Check if $repo_path points to a valid Git repo
@@ -145,7 +146,7 @@ main () {
         fi
 
         echo "$status_upstream_branch$status_worktree $repo_path $branch_name"
-    done < <(list_git_repo_paths "${1:-"$HOME"}") | sort
+    done | sort
 }
 
 main "$@"
