@@ -52,8 +52,11 @@ main () {
 
     while read repo_path
     do
-        # Check if $repo_path points to a valid Git repo
-        if ! git -C "$repo_path" rev-parse --git-dir 2>/dev/null >&2
+        # Check if $repo_path points to a valid Git repo and it is not
+        # configured to be skipped
+        if ! git -C "$repo_path" rev-parse --git-dir 2>/dev/null >&2 ||
+           [ "$(git -C "$repo_path" config \
+                    --local --type bool --get checkrepos.skip)" = 'true' ]
         then
             continue
         fi
