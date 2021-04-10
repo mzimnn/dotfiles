@@ -90,7 +90,11 @@ get_status_worktree () {
 }
 
 print_repo_info () {
-    echo "$1$2 $3 $4"
+    printf "%s" "$1$2 $3 "
+    [ -n "$4" ] && printf '['
+    printf "%s" "$4"
+    [ -n "$4" ] && printf ']'
+    echo
 }
 
 main () {
@@ -193,7 +197,7 @@ main () {
 
         if [ "$verbose" -eq 1 ]
         then
-            branch_name="[$(git -C "$repo_path" branch --show-current)]"
+            branch_name="$(git -C "$repo_path" branch --show-current)"
         fi
 
         print_repo_info "$status_upstream_branch" "$status_worktree" \
