@@ -28,6 +28,17 @@ get_status_upstream_branch () {
     fi
 }
 
+get_status_worktree () {
+    if [ -z "$(git -C "$1" status --porcelain)" ]
+    then
+        # Everything is committed
+        echo ' '
+    else
+        # Something is in the working tree
+        echo 'W'
+    fi
+}
+
 main () {
     local do_fetch=0
 
@@ -67,7 +78,8 @@ main () {
             git -C "$repo_path" fetch || true
         fi
 
-        echo "$(get_status_upstream_branch "$repo_path")" "$repo_path"
+        echo "$(get_status_upstream_branch "$repo_path")$(get_status_worktree "$repo_path")" \
+             "$repo_path"
     done < <(list_git_repo_paths "${1:-"$HOME"}")
 }
 
