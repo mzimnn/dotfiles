@@ -2,6 +2,13 @@
 
 set -eu
 
+STATUS_BRANCH_DIFFERS='D'
+STATUS_BRANCH_NOT_SET='N'
+STATUS_BRANCH_UPDATED='U'
+
+STATUS_WORKTREE_CLEAN=' '
+STATUS_WORKTREE_CHANGES='W'
+
 usage () {
     echo "usage: git check-repos [-f|-h] [<path>]"
 }
@@ -17,14 +24,14 @@ get_status_upstream_branch () {
         if [ "$(git -C "$1" rev-parse HEAD)" = "$(git -C "$1" rev-parse @{u})" ]
         then
             # Local branch is up-to-date
-            echo 'U'
+            echo "$STATUS_BRANCH_UPDATED"
         else
             # Local branch and upstream branch differ
-            echo 'D'
+            echo "$STATUS_BRANCH_DIFFERS"
         fi
     else
         # No upstream branch set
-        echo 'N'
+        echo "$STATUS_BRANCH_NOT_SET"
     fi
 }
 
@@ -32,10 +39,10 @@ get_status_worktree () {
     if [ -z "$(git -C "$1" status --porcelain)" ]
     then
         # Everything is committed
-        echo ' '
+        echo "$STATUS_WORKTREE_CLEAN"
     else
         # Something is in the working tree
-        echo 'W'
+        echo "$STATUS_WORKTREE_CHANGES"
     fi
 }
 
