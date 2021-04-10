@@ -23,7 +23,7 @@ to_upper () {
 }
 
 list_git_repo_paths () {
-    find "$1" -type d -name '.git' | xargs -I{} dirname "{}"
+    find -L "$1" -type d -name '.git' | xargs -I{} dirname "{}"
 }
 
 get_status_upstream_branch () {
