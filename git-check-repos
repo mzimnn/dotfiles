@@ -89,6 +89,10 @@ get_status_worktree () {
     fi
 }
 
+print_repo_info () {
+    echo "$1$2 $3 $4"
+}
+
 main () {
     local do_fetch=0
     local do_update=0
@@ -192,7 +196,8 @@ main () {
             branch_name="[$(git -C "$repo_path" branch --show-current)]"
         fi
 
-        echo "$status_upstream_branch$status_worktree $repo_path $branch_name"
+        print_repo_info "$status_upstream_branch" "$status_worktree" \
+                        "$repo_path" "$branch_name"
     done | sort
 }
 
