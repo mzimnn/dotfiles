@@ -10,7 +10,7 @@ STATUS_WORKTREE_CLEAN=' '
 STATUS_WORKTREE_CHANGES='W'
 
 usage () {
-    echo "usage: git check-repos [-f|-h] [<path>]"
+    echo "usage: git check-repos [-a|-f|-h] [<path>]"
 }
 
 list_git_repo_paths () {
@@ -48,10 +48,14 @@ get_status_worktree () {
 
 main () {
     local do_fetch=0
+    local show_all=0
 
-    while getopts ':fh' o
+    while getopts ':afh' o
     do
         case "$o" in
+            a)
+                show_all=1
+                ;;
             f)
                 do_fetch=1
                 ;;
@@ -85,8 +89,17 @@ main () {
             git -C "$repo_path" fetch || true
         fi
 
-        echo "$(get_status_upstream_branch "$repo_path")$(get_status_worktree "$repo_path")" \
-             "$repo_path"
+        local status_upstream_branch="$(get_status_upstream_branch "$repo_path")"
+        local status_worktree="$(get_status_worktree "$repo_path")"
+
+        if [ "$status_upstream_branch" = "$STATUS_BRANCH_UPDATED" ] &&
+           [ "$status_worktree" = "$STATUS_WORKTREE_CLEAN" ] &&
+           [ "$show_all" -eq 0 ]
+        then
+            continue
+        fi
+
+        echo "$status_upstream_branch$status_worktree $repo_path"
     done < <(list_git_repo_paths "${1:-"$HOME"}")
 }
 
