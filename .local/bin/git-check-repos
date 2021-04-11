@@ -71,7 +71,9 @@ to_upper () {
 }
 
 list_git_repo_paths () {
-    find -L "$1" -type d -name '.git' -print0 | xargs -0 -I{} dirname "{}"
+    # Does a directory contain a .git/ directory then do not traverse it any
+    # further
+    find -L "$1" -type d -exec test -d {}/.git \; -prune -print
 }
 
 get_status_upstream_branch () {
