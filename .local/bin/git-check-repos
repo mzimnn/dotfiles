@@ -1,0 +1,272 @@
+#!/bin/sh
+
+set -eu
+
+COLOR_NORMAL=''
+COLOR_RESET='\033[0m'
+COLOR_BLUE='\033[34m'
+COLOR_GREEN='\033[32m'
+COLOR_RED='\033[31m'
+COLOR_YELLOW='\033[33m'
+
+STATUS_BRANCH_DIFFERS='d'
+STATUS_BRANCH_NOT_SET='n'
+STATUS_BRANCH_UPDATED='u'
+
+STATUS_WORKTREE_CLEAN=' '
+STATUS_WORKTREE_CHANGES='w'
+
+is_piped=0
+
+usage () {
+    echo 'usage: git check-repos [(-a|-A)|-c|-f|-h|-u|-v] [<path>]'
+    echo
+    echo 'Search for Git repositories within the given path. Is no path'
+    echo "provided then the user's home directory is searched."
+    echo
+    echo 'By default up-to-date repositories are suppressed from the output. A'
+    echo 'repository is considered up-to-date if the local branch matches its'
+    echo 'upstream branch.'
+    echo
+    echo 'Is the configuration variable "checkrepos.skip" set in a found'
+    echo 'repository then it will be ignored.'
+    echo
+    echo 'The paths of the found repositories are prefixed by two status fields'
+    echo 'in the output.'
+    echo
+    echo 'The first field indicates the relation of the local branch to its'
+    echo 'upstream branch. Possible values are:'
+    echo
+    echo " - $STATUS_BRANCH_DIFFERS = local and upstream branch differ"
+    echo " - $STATUS_BRANCH_NOT_SET = no upstream branch set"
+    echo " - $STATUS_BRANCH_UPDATED = local and upstream branch match"
+    echo
+    echo 'The second field indicates the state of the working tree. Possible'
+    echo 'values are:'
+    echo
+    echo " - $STATUS_WORKTREE_CHANGES = there are changes in the working tree"
+    echo " - $STATUS_WORKTREE_CLEAN = working tree is clean"
+    echo
+    echo 'Available options:'
+    echo ' -a  do not suppress up-to-date repositories'
+    echo ' -A  additionally show repositories which are marked to be skipped'
+    echo ' -c  enforce colorization of output'
+    echo ' -f  fetch from remote of each repository'
+    echo ' -h  show this help message'
+    echo ' -u  try to update the repositories (fast-forward only)'
+    echo ' -v  show additional information (e.g. current branch)'
+}
+
+error () {
+    echo "error: $1" >&2
+    exit 1
+}
+
+to_lower () {
+    echo "$1" | tr '[A-Z]' '[a-z]'
+}
+
+to_upper () {
+    echo "$1" | tr '[a-z]' '[A-Z]'
+}
+
+list_git_repo_paths () {
+    find -L "$1" -type d -name '.git' | xargs -I{} dirname "{}"
+}
+
+get_status_upstream_branch () {
+    # Check if local branch has a upstream branch
+    if git -C "$1" rev-parse @{u} 2>/dev/null >&2
+    then
+        if [ "$(git -C "$1" rev-parse HEAD)" = "$(git -C "$1" rev-parse @{u})" ]
+        then
+            # Local branch is up-to-date
+            echo "$STATUS_BRANCH_UPDATED"
+        else
+            # Local branch and upstream branch differ
+            echo "$STATUS_BRANCH_DIFFERS"
+        fi
+    else
+        # No upstream branch set
+        echo "$STATUS_BRANCH_NOT_SET"
+    fi
+}
+
+get_status_worktree () {
+    if [ -z "$(git -C "$1" status --porcelain)" ]
+    then
+        # Everything is committed
+        echo "$STATUS_WORKTREE_CLEAN"
+    else
+        # Something is in the working tree
+        echo "$STATUS_WORKTREE_CHANGES"
+    fi
+}
+
+want_colored () {
+    # Only colorize if command is not piped or it's enforced
+    if [ "$is_piped" -eq 0 ] || [ "$1" -eq 1 ]
+    then
+        printf "$2%s$COLOR_RESET" "$3"
+    else
+        printf '%s' "$3"
+    fi
+}
+
+get_status_branch_color () {
+    case "$(to_lower "$1")" in
+        "$STATUS_BRANCH_DIFFERS")
+            printf "$COLOR_RED"
+            ;;
+        "$STATUS_BRANCH_NOT_SET")
+            printf "$COLOR_YELLOW"
+            ;;
+        "$STATUS_BRANCH_UPDATED")
+            printf "$COLOR_GREEN"
+            ;;
+    esac
+}
+
+get_status_worktree_color () {
+    case "$(to_lower "$1")" in
+        "$STATUS_WORKTREE_CHANGES")
+            printf "$COLOR_RED"
+            ;;
+        "$STATUS_WORKTREE_CLEAN")
+            printf "$COLOR_NORMAL"
+            ;;
+    esac
+}
+
+print_repo_info () {
+    want_colored "$5" "$(get_status_branch_color "$1")" "$1"
+    want_colored "$5" "$(get_status_worktree_color "$2")" "$2"
+    printf ' '
+    printf '%s' "$3"
+    printf ' '
+    [ -n "$4" ] && printf '['
+    want_colored "$5" "$COLOR_BLUE" "$4"
+    [ -n "$4" ] && printf ']'
+    echo
+}
+
+main () {
+    local do_fetch=0
+    local do_update=0
+    local show_all=0
+    local show_all_and_skipped=0
+    local use_color=0
+    local verbose=0
+
+    while getopts ':aAcfhuv' o
+    do
+        case "$o" in
+            a)
+                show_all=1
+                ;;
+            A)
+                show_all_and_skipped=1
+                ;;
+            c)
+                use_color=1
+                ;;
+            f)
+                do_fetch=1
+                ;;
+            h)
+                usage
+                exit 0
+                ;;
+            u)
+                do_update=1
+                ;;
+            v)
+                verbose=1
+                ;;
+            *)
+                usage
+                exit 1
+                ;;
+        esac
+    done
+
+    shift "$((OPTIND-1))"
+
+    if [ "$show_all" -eq 1 ] && [ "$show_all_and_skipped" -eq  1 ]
+    then
+        error '-a and -A are mutually exclusive'
+    fi
+
+    local skip_repo='false'
+
+    # It's not possible to do this check in the while loop below because itself
+    # is in a pipe. It would always state to be in a pipe.
+    if [ ! -t 1 ]
+    then
+        is_piped=1
+    fi
+
+    list_git_repo_paths "${1:-"$HOME"}" |
+    while read repo_path
+    do
+        # Check if $repo_path points to a valid Git repo
+        if ! git -C "$repo_path" rev-parse --git-dir 2>/dev/null >&2
+        then
+            continue
+        else
+            skip_repo="$(git -C "$repo_path" config \
+                            --local --type bool --get checkrepos.skip || true)"
+
+            # Check if it is configured to be skipped (except if "-A" is
+            # provided)
+            if [ "$skip_repo" = 'true' ] && [ "$show_all_and_skipped" -eq 0 ]
+            then
+                continue
+            fi
+        fi
+
+        if [ "$do_fetch" -eq 1 ]
+        then
+            # Allow fetch to fail, maybe the remote is not accessible
+            git -C "$repo_path" fetch --quiet || true
+        fi
+
+        local status_upstream_branch="$(get_status_upstream_branch "$repo_path")"
+        local status_worktree="$(get_status_worktree "$repo_path")"
+
+        if [ "$status_upstream_branch" = "$STATUS_BRANCH_DIFFERS" ] &&
+           [ "$do_update" -eq 1 ]
+        then
+            if git -C "$repo_path" merge --quiet --ff-only @{u} 2>/dev/null
+            then
+                status_upstream_branch="$(get_status_upstream_branch "$repo_path")"
+            fi
+        fi
+
+        if [ "$status_upstream_branch" = "$STATUS_BRANCH_UPDATED" ] &&
+           [ "$status_worktree" = "$STATUS_WORKTREE_CLEAN" ] &&
+           [ "$show_all" -eq 0 ] &&
+           [ "$show_all_and_skipped" -eq 0 ]
+        then
+            continue
+        fi
+
+        local branch_name=''
+
+        if [ "$skip_repo" = 'true' ]
+        then
+            status_upstream_branch="$(to_upper "$status_upstream_branch")"
+            status_worktree="$(to_upper "$status_worktree")"
+        fi
+
+        if [ "$verbose" -eq 1 ]
+        then
+            branch_name="$(git -C "$repo_path" branch --show-current)"
+        fi
+
+        print_repo_info "$status_upstream_branch" "$status_worktree" \
+                        "$repo_path" "$branch_name" "$use_color"
+    done | sort
+}
+
+main "$@"
