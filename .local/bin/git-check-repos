@@ -71,7 +71,7 @@ to_upper () {
 }
 
 list_git_repo_paths () {
-    find -L "$1" -type d -name '.git' | xargs -I{} dirname "{}"
+    find -L "$1" -type d -name '.git' -print0 | xargs -0 -I{} dirname "{}"
 }
 
 get_status_upstream_branch () {
@@ -208,7 +208,7 @@ main () {
 
     # Use current directory if no path was provided
     list_git_repo_paths "${1:-.}" |
-    while read repo_path
+    while read -r repo_path
     do
         # Check if $repo_path points to a valid Git repo
         if ! git -C "$repo_path" rev-parse --git-dir 2>/dev/null >&2
