@@ -1,6 +1,16 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+is_installed () {
+    command -v "$1" >/dev/null
+}
+
+if is_installed tmux
+then
+    # if not inside a tmux session, start a new session
+    [ -z "${TMUX}" ] && exec tmux
+fi
+
 files=(
     /usr/share/git/completion/git-prompt.sh
     /usr/share/z/z.sh
@@ -15,6 +25,7 @@ done
 
 unset file
 unset files
+unset is_installed
 
 # shell options
 set -o vi
