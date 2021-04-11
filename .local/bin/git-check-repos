@@ -22,7 +22,7 @@ usage () {
     echo 'usage: git check-repos [(-a|-A)|-c|-f|-h|-u|-v] [<path>]'
     echo
     echo 'Search for Git repositories within the given path. Is no path'
-    echo "provided then the user's home directory is searched."
+    echo "provided then the current directory is searched."
     echo
     echo 'By default up-to-date repositories are suppressed from the output. A'
     echo 'repository is considered up-to-date if the local branch matches its'
@@ -206,7 +206,8 @@ main () {
         is_piped=1
     fi
 
-    list_git_repo_paths "${1:-"$HOME"}" |
+    # Use current directory if no path was provided
+    list_git_repo_paths "${1:-.}" |
     while read repo_path
     do
         # Check if $repo_path points to a valid Git repo
