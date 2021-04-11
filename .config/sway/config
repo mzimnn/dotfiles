@@ -58,6 +58,10 @@ input * {
     xkb_variant mac
 }
 
+input type:touchpad {
+    tap enabled
+}
+
 ### Key bindings
 #
 # Basics:
