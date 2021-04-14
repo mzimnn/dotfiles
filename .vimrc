@@ -10,6 +10,8 @@ set shiftwidth=4
 " when pressing tab, insert 4 spaces
 set expandtab
 
+" tell what background the terminal uses
+set background=dark
 " highlight current line
 set cursorline
 highlight CursorLine cterm=NONE ctermbg=235
