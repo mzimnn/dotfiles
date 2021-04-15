@@ -49,5 +49,5 @@
 (setq mac-command-modifier 'meta)
 
 ;; load theme
-(load-theme 'adwaita)
+(load-theme 'deeper-blue)
 
