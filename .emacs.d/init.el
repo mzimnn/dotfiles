@@ -51,3 +51,6 @@
 ;; load theme
 (load-theme 'deeper-blue)
 
+;; set default major mode
+(setq-default major-mode 'org-mode)
+(setq initial-major-mode 'org-mode)
