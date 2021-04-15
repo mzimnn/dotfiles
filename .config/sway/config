@@ -224,4 +224,4 @@ bar {
     }
 }
 
-include @sysconfdir@/sway/config.d/*
+include /etc/sway/config.d/*
