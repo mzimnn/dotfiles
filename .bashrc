@@ -14,8 +14,8 @@ fi
 files=(
     /usr/share/git/completion/git-prompt.sh
     /usr/share/z/z.sh
-    ~/.bash_aliases
-    ~/.bash_prompt
+    ~/.config/bash/aliases
+    ~/.config/bash/prompt
 )
 
 for file in "${files[@]}"

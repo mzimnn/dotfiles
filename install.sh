@@ -1,10 +1,10 @@
 #!/bin/bash
 
 files=(
-    '.bash_aliases'
     '.bash_profile'
-    '.bash_prompt'
     '.bashrc'
+    '.config/bash/aliases'
+    '.config/bash/prompt'
     '.config/sway/config'
     '.emacs.d/init.el'
     '.local/bin/git-check-repos'
