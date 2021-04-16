@@ -12,6 +12,7 @@ then
 fi
 
 files=(
+    /usr/share/bash-completion/completions/git
     /usr/share/git/completion/git-prompt.sh
     /usr/share/z/z.sh
     ~/.config/bash/aliases

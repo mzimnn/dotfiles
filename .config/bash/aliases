@@ -18,4 +18,7 @@ if [ -d ~/Development ]; then
 fi
 
 # Enable bash completion for alias
-__git_complete g __git_main
+if is_installed __git_complete && is_installed __git_main
+then
+    __git_complete g __git_main
+fi
