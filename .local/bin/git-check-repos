@@ -240,7 +240,8 @@ main () {
         if [ "$status_upstream_branch" = "$STATUS_BRANCH_DIFFERS" ] &&
            [ "$do_update" -eq 1 ]
         then
-            if git -C "$repo_path" merge --quiet --ff-only @{u} 2>/dev/null
+            if git -C "$repo_path" merge \
+                --quiet --ff-only --no-autostash @{u} 2>/dev/null
             then
                 status_upstream_branch="$(get_status_upstream_branch "$repo_path")"
             fi
