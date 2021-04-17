@@ -19,42 +19,42 @@ STATUS_WORKTREE_CHANGES='w'
 is_piped=0
 
 usage () {
-    echo 'usage: git check-repos [(-a|-A)|-c|-f|-h|-u|-v] [<path>]'
-    echo
-    echo 'Search for Git repositories within the given path. Is no path'
-    echo "provided then the current directory is searched."
-    echo
-    echo 'By default up-to-date repositories are suppressed from the output. A'
-    echo 'repository is considered up-to-date if the local branch matches its'
-    echo 'upstream branch.'
-    echo
-    echo 'Is the configuration variable "checkrepos.skip" set in a found'
-    echo 'repository then it will be ignored.'
-    echo
-    echo 'The paths of the found repositories are prefixed by two status fields'
-    echo 'in the output.'
-    echo
-    echo 'The first field indicates the relation of the local branch to its'
-    echo 'upstream branch. Possible values are:'
-    echo
-    echo " - $STATUS_BRANCH_DIFFERS = local and upstream branch differ"
-    echo " - $STATUS_BRANCH_NOT_SET = no upstream branch set"
-    echo " - $STATUS_BRANCH_UPDATED = local and upstream branch match"
-    echo
-    echo 'The second field indicates the state of the working tree. Possible'
-    echo 'values are:'
-    echo
-    echo " - $STATUS_WORKTREE_CHANGES = there are changes in the working tree"
-    echo " - $STATUS_WORKTREE_CLEAN = working tree is clean"
-    echo
-    echo 'Available options:'
-    echo ' -a  do not suppress up-to-date repositories'
-    echo ' -A  additionally show repositories which are marked to be skipped'
-    echo ' -c  enforce colorization of output'
-    echo ' -f  fetch from remote of each repository'
-    echo ' -h  show this help message'
-    echo ' -u  try to update the repositories (fast-forward only)'
-    echo ' -v  show additional information (e.g. current branch)'
+    cat <<EOF
+usage: git check-repos [(-a|-A)|-c|-f|-h|-u|-v] [<path>]
+
+Search for Git repositories within the given path. Is no path provided then the
+current directory is searched.
+
+By default up-to-date repositories are suppressed from the output. A repository
+is considered up-to-date if the local branch matches its upstream branch.
+
+Is the configuration variable "checkrepos.skip" set in a found repository then
+it will be ignored.
+
+The paths of the found repositories are prefixed by two status fields in the
+output.
+
+The first field indicates the relation of the local branch to its upstream
+branch. Possible values are:
+
+ - $STATUS_BRANCH_DIFFERS = local and upstream branch differ
+ - $STATUS_BRANCH_NOT_SET = no upstream branch set
+ - $STATUS_BRANCH_UPDATED = local and upstream branch match
+
+The second field indicates the state of the working tree. Possible values are:
+
+ - $STATUS_WORKTREE_CHANGES = there are changes in the working tree
+ - $STATUS_WORKTREE_CLEAN = working tree is clean
+
+Available options:
+ -a  do not suppress up-to-date repositories
+ -A  additionally show repositories which are marked to be skipped
+ -c  enforce colorization of output
+ -f  fetch from remote of each repository
+ -h  show this help message
+ -u  try to update the repositories (fast-forward only)
+ -v  show additional information (e.g. current branch)
+EOF
 }
 
 error () {
