@@ -9,6 +9,10 @@
   (package-refresh-contents)
   (package-install 'evil))
 
+;; disable CTRL-i to allow using tab in terminal
+(unless (display-graphic-p)
+  (setq evil-want-C-i-jump nil))
+
 ;; enable CTRL-u to scroll upwards
 (setq evil-want-C-u-scroll t)
 
