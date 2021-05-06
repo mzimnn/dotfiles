@@ -28,6 +28,7 @@
 
 ;; keybindings to invoke Org features
 (global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c l") 'org-store-link)
 
 ;; move customization settings into own file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
