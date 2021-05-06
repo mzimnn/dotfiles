@@ -31,9 +31,12 @@
 	path = ~/.gitconfig.local
 [init]
 	defaultBranch = master
+[merge]
+	autoStash = true
 [pull]
 	rebase = true
 [rebase]
 	abbreviateCommands = true
+	autoStash = true
 [stash]
 	showPatch = true
