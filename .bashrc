@@ -38,7 +38,7 @@ shopt -s histappend
 
 # environment variables
 export EDITOR='vim'
-HISTCONTROL=ignoredups
+HISTCONTROL=ignoreboth
 
 # Set LS_COLORS using `dircolors`
 eval $(dircolors -b)
