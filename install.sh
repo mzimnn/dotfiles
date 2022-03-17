@@ -6,10 +6,10 @@ files=(
     '.config/bash/aliases'
     '.config/bash/prompt'
     '.config/emacs/init.el'
+    '.config/git/config'
     '.config/sway/config'
     '.inputrc'
     '.local/bin/git-check-repos'
-    '.gitconfig'
     '.vimrc'
 )
 
