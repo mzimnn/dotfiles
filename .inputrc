@@ -1,3 +1,6 @@
+# Color common prefix of possible completions
+set colored-completion-prefix On
+
 # Color possible completions by file type
 set colored-stats On
 
