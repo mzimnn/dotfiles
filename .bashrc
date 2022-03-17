@@ -30,7 +30,6 @@ unset files
 unset is_installed
 
 # shell options
-set -o vi
 shopt -s autocd
 shopt -s cdspell
 shopt -s globstar

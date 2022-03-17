@@ -7,6 +7,7 @@ files=(
     '.config/bash/prompt'
     '.config/emacs/init.el'
     '.config/sway/config'
+    '.inputrc'
     '.local/bin/git-check-repos'
     '.gitconfig'
     '.vimrc'
