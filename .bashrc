@@ -28,7 +28,6 @@ done
 
 unset file
 unset files
-unset is_installed
 
 # shell options
 shopt -s autocd
@@ -41,4 +40,9 @@ export EDITOR='vim'
 HISTCONTROL=ignoreboth
 
 # Set LS_COLORS using `dircolors`
-eval $(dircolors -b)
+if is_installed dircolors
+then
+    eval $(dircolors -b)
+fi
+
+unset is_installed
