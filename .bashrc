@@ -5,7 +5,8 @@ is_installed () {
     command -v "$1" >/dev/null
 }
 
-if is_installed tmux
+# Debugging in VSCode is not possible if tmux is started
+if is_installed tmux && [ "$TERM_PROGRAM" != 'vscode' ]
 then
     # if not inside a tmux session, start a new session
     [ -z "${TMUX}" ] && exec tmux
