@@ -1,2 +1,5 @@
+# Color possible completions by file type
+set colored-stats On
+
 # Use vi-like keybindings
 set editing-mode vi
