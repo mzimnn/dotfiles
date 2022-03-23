@@ -15,5 +15,5 @@ files=(
 
 for file in "${files[@]}"; do
     mkdir -p "$HOME/$(dirname "$file")"
-    ln -s -i "$(realpath $(dirname "$0"))/$file" "$HOME/$file"
+    ln -s -i "$(realpath "$(dirname "$0")")/$file" "$HOME/$file"
 done
