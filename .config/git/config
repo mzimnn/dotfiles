@@ -12,6 +12,7 @@
 	j = jump
 	l = log
 	last = log -1 HEAD
+	r = rebase
 	s = status
 	sh = show
 	tree = log --oneline --graph
