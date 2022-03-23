@@ -15,10 +15,6 @@ alias rm='rm -I'
 alias sudo='sudo '
 alias watch='watch '
 
-if [ -d ~/Development ]; then
-    alias d='cd ~/Development/'
-fi
-
 # Enable bash completion for alias
 if is_installed __git_complete && is_installed __git_main
 then
