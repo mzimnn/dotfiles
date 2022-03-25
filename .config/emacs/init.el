@@ -40,7 +40,8 @@
     (load custom-file))
 
 ;; show relative line numbers
-(global-display-line-numbers-mode 1)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'text-mode-hook 'display-line-numbers-mode)
 (setq display-line-numbers-type 'visual)
 
 ;; show current column
