@@ -9,6 +9,11 @@
   (package-refresh-contents)
   (package-install 'evil))
 
+;; download Ledger-mode
+(unless (package-installed-p 'ledger-mode)
+  (package-refresh-contents)
+  (package-install 'ledger-mode))
+
 ;; download Magit
 (unless (package-installed-p 'magit)
   (package-refresh-contents)
