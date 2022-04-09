@@ -9,6 +9,11 @@
   (package-refresh-contents)
   (package-install 'evil))
 
+;; download Magit
+(unless (package-installed-p 'magit)
+  (package-refresh-contents)
+  (package-install 'magit))
+
 ;; disable CTRL-i to allow using tab in terminal
 (unless (display-graphic-p)
   (setq evil-want-C-i-jump nil))
@@ -53,6 +58,7 @@
 
 ;; specify when to wrap lines
 (setq-default fill-column 80)
+(add-hook 'git-commit-setup-hook (lambda () (setq fill-column 72)))
 
 ;; use Command key as Meta key
 (setq mac-option-modifier 'super)
