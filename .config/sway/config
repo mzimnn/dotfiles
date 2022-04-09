@@ -2,8 +2,8 @@
 
 ### Variables
 #
-# Use Alt key
-set $mod Mod1
+# Use Super key
+set $mod Mod4
 # Home row direction keys, like vim
 set $left h
 set $down j
