@@ -28,7 +28,7 @@
 
 ;; enable Evil
 (require 'evil)
-(evil-mode 1)
+(evil-mode -1)
 
 ;; enable Org Indent mode
 (setq org-startup-indented t)
