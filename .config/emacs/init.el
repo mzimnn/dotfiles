@@ -69,3 +69,8 @@
 
 ;; save bookmarks after each change
 (setq bookmark-save-flag 1)
+
+;; hide visual elements
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
