@@ -67,9 +67,5 @@
 ;; load theme
 (load-theme 'deeper-blue)
 
-;; set default major mode
-(setq-default major-mode 'org-mode)
-(setq initial-major-mode 'org-mode)
-
 ;; save bookmarks after each change
 (setq bookmark-save-flag 1)
