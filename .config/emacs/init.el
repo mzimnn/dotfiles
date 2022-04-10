@@ -16,7 +16,7 @@
 
 ;; install packages
 (mz/package-install-if-missing
-  '(evil ledger-mode magit))
+  '(evil ledger-mode magit solarized-theme))
 
 ;; disable CTRL-i to allow using tab in terminal
 (unless (display-graphic-p)
@@ -71,7 +71,14 @@
 (setq mac-command-modifier 'meta)
 
 ;; load theme
-(load-theme 'deeper-blue)
+(setq solarized-height-minus-1 1.0)
+(setq solarized-height-plus-1 1.0)
+(setq solarized-height-plus-2 1.0)
+(setq solarized-height-plus-3 1.0)
+(setq solarized-height-plus-4 1.0)
+(setq solarized-use-variable-pitch nil)
+(setq x-underline-at-descent-line t)
+(load-theme 'solarized-selenized-black t)
 
 ;; save bookmarks after each change
 (setq bookmark-save-flag 1)
