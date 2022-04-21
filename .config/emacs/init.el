@@ -78,6 +78,7 @@
 (setq bookmark-save-flag 1)
 
 ;; enable tab-bar-mode but hide the tab bar
+(setq tab-bar-new-tab-choice "*scratch*")
 (setq tab-bar-show nil)
 (tab-bar-mode 1)
 
