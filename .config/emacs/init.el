@@ -4,20 +4,19 @@
              '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
-;; download Evil
-(unless (package-installed-p 'evil)
-  (package-refresh-contents)
-  (package-install 'evil))
+(defun mz/package-install-if-missing (wanted-pkgs)
+  (let ((missing-pkgs ()))
+    (dolist (wanted-pkg wanted-pkgs)
+      (unless (package-installed-p wanted-pkg)
+      (setq missing-pkgs (cons wanted-pkg missing-pkgs))))
+    (when (consp missing-pkgs)
+      (package-refresh-contents)
+      (dolist (missing-pkg missing-pkgs)
+        (package-install missing-pkg)))))
 
-;; download Ledger-mode
-(unless (package-installed-p 'ledger-mode)
-  (package-refresh-contents)
-  (package-install 'ledger-mode))
-
-;; download Magit
-(unless (package-installed-p 'magit)
-  (package-refresh-contents)
-  (package-install 'magit))
+;; install packages
+(mz/package-install-if-missing
+  '(evil ledger-mode magit))
 
 ;; disable CTRL-i to allow using tab in terminal
 (unless (display-graphic-p)
