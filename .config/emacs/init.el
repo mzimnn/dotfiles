@@ -76,6 +76,11 @@
 ;; save bookmarks after each change
 (setq bookmark-save-flag 1)
 
+;; ignore case when completing
+(setq completion-ignore-case t)
+(setq read-file-name-completion-ignore-case t)
+(setq read-buffer-completion-ignore-case t)
+
 ;; enable tab-bar-mode but hide the tab bar
 (setq tab-bar-new-tab-choice "*scratch*")
 (setq tab-bar-show nil)
