@@ -90,3 +90,9 @@
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
+
+;; change keybindings in eww bookmarks mode
+(add-hook 'eww-bookmark-mode-hook
+          (lambda ()
+            (local-set-key "n" 'next-line)
+            (local-set-key "p" 'previous-line)))
