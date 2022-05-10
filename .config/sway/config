@@ -66,6 +66,12 @@ input type:touchpad {
 #
 # Basics:
 #
+    # Start Emacs
+    bindsym $mod+m exec emacs
+
+    # Start KeePassXC
+    bindsym $mod+p exec keepassxc
+
     # Start a terminal
     bindsym $mod+Return exec $term
 
