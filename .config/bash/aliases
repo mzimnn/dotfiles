@@ -1,3 +1,10 @@
+alias_if_supported () {
+    if $2 >/dev/null 2>&1
+    then
+	alias "$1"="$2"
+    fi
+}
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias diff='diff --color=auto'
@@ -14,6 +21,9 @@ alias pacman='pacman --color=auto'
 alias rm='rm -I'
 alias sudo='sudo '
 alias watch='watch '
+
+# -m is not supported by macOS' cal
+alias_if_supported 'cal' 'cal -m'
 
 # Enable bash completion for alias
 if is_installed __git_complete && is_installed __git_main
