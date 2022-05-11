@@ -88,6 +88,9 @@
 (setq read-file-name-completion-ignore-case t)
 (setq read-buffer-completion-ignore-case t)
 
+;; let a single space end a sentence
+(setq sentence-end-double-space nil)
+
 ;; enable tab-bar-mode but hide the tab bar
 (setq tab-bar-new-tab-choice "*scratch*")
 (setq tab-bar-show nil)
