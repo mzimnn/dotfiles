@@ -8,7 +8,7 @@
   (let ((missing-pkgs ()))
     (dolist (wanted-pkg wanted-pkgs)
       (unless (package-installed-p wanted-pkg)
-      (setq missing-pkgs (cons wanted-pkg missing-pkgs))))
+        (setq missing-pkgs (cons wanted-pkg missing-pkgs))))
     (when (consp missing-pkgs)
       (package-refresh-contents)
       (dolist (missing-pkg missing-pkgs)
@@ -16,7 +16,7 @@
 
 ;; install packages
 (mz/package-install-if-missing
-  '(evil ledger-mode magit solarized-theme))
+ '(evil ledger-mode magit solarized-theme))
 
 ;; disable CTRL-i to allow using tab in terminal
 (unless (display-graphic-p)
@@ -37,7 +37,7 @@
 
 ;; customize TODO keywords
 (setq org-todo-keywords
-    '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)" )))
+      '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)" )))
 
 ;; keybindings to invoke Org features
 (global-set-key (kbd "C-c a") 'org-agenda)
