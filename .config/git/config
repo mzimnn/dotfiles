@@ -15,6 +15,7 @@
 	r = rebase
 	s = status
 	sh = show
+	sw = switch
 	tree = log --oneline --graph
 
 	# un-/hide files locally
