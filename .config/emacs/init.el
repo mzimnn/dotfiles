@@ -106,3 +106,9 @@
           (lambda ()
             (local-set-key "n" 'next-line)
             (local-set-key "p" 'previous-line)))
+
+;; change keybindings in help mode
+(add-hook 'help-mode-hook
+          (lambda ()
+            (local-set-key "n" 'next-line)
+            (local-set-key "p" 'previous-line)))
