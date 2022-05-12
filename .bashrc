@@ -8,7 +8,7 @@ is_installed () {
 # Debugging in VSCode is not possible if tmux is started
 if is_installed tmux && [ "$TERM_PROGRAM" != 'vscode' ]
 then
-    # if not inside a tmux session, start a new session
+    # If not inside a tmux session, start a new session
     [ -z "${TMUX}" ] && exec tmux
 fi
 
@@ -29,13 +29,13 @@ done
 unset file
 unset files
 
-# shell options
+# Shell options
 shopt -s autocd
 shopt -s cdspell
 shopt -s globstar
 shopt -s histappend
 
-# environment variables
+# Environment variables
 export EDITOR='vim'
 HISTCONTROL=ignoreboth
 
