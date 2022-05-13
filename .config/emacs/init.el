@@ -80,6 +80,22 @@
 (setq x-underline-at-descent-line t)
 (load-theme 'solarized-selenized-black t)
 
+;; improve visual appearance of tab bar
+(require 'solarized-palettes)
+(custom-set-faces
+ `(tab-bar
+   ((t (:background ,(alist-get
+                      'base02
+                      solarized-selenized-black-color-palette-alist)))))
+ `(tab-bar-tab
+   ((t (:box (:line-width (6 . 2) :color ,(face-attribute
+                                           'tab-bar-tab
+                                           :background))))))
+ `(tab-bar-tab-inactive
+   ((t (:box (:line-width (6 . 2) :color ,(face-attribute
+                                           'tab-bar-tab-inactive
+                                           :background)))))))
+
 ;; save bookmarks after each change
 (setq bookmark-save-flag 1)
 
@@ -91,9 +107,12 @@
 ;; let a single space end a sentence
 (setq sentence-end-double-space nil)
 
-;; enable tab-bar-mode but hide the tab bar
+;; enable tab-bar-mode
+(setq tab-bar-close-button-show nil)
+(setq tab-bar-format
+      '(tab-bar-format-history tab-bar-format-tabs tab-bar-separator))
 (setq tab-bar-new-tab-choice "*scratch*")
-(setq tab-bar-show nil)
+(setq tab-bar-show 1)
 (tab-bar-mode 1)
 
 ;; hide visual elements
