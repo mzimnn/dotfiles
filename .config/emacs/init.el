@@ -15,8 +15,9 @@
         (package-install missing-pkg)))))
 
 ;; install packages
-(mz/package-install-if-missing
- '(evil ledger-mode magit solarized-theme))
+(setq package-selected-packages
+      '(evil ledger-mode magit solarized-theme))
+(mz/package-install-if-missing package-selected-packages)
 
 ;; disable CTRL-i to allow using tab in terminal
 (unless (display-graphic-p)
