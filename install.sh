@@ -8,6 +8,7 @@ files=(
     '.config/emacs/init.el'
     '.config/git/config'
     '.config/sway/config'
+    '.config/tmux/tmux.conf'
     '.inputrc'
     '.local/bin/git-check-repos'
     '.vimrc'
