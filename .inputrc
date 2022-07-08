@@ -4,5 +4,8 @@ set colored-completion-prefix On
 # Color possible completions by file type
 set colored-stats On
 
+# Ignore case when completing
+set completion-ignore-case On
+
 # Use vi-like keybindings
 set editing-mode vi
