@@ -38,7 +38,7 @@
 
 ;; customize TODO keywords
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)" )))
+      '((sequence "TODO(t)" "HOLD(h)" "WAIT(w)" "|" "DONE(d)" )))
 
 ;; keybindings to invoke Org features
 (global-set-key (kbd "C-c a") 'org-agenda)
