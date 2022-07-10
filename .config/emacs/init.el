@@ -100,6 +100,9 @@
 ;; save bookmarks after each change
 (setq bookmark-save-flag 1)
 
+;; set weekday on which a week begins
+(setq calendar-week-start-day 1)
+
 ;; ignore case when completing
 (setq completion-ignore-case t)
 (setq read-file-name-completion-ignore-case t)
