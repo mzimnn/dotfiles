@@ -211,9 +211,9 @@
   (interactive)
   ;; magit-commit-assert checks if there are any staged changes, if not it
   ;; prompts the user if he/she wants to stage all unstaged changes. The
-  ;; function magit-commit-create also invokes the this assertion but this has
-  ;; to be done before the commit message is generated. Only then all staged
-  ;; files are included in the commit message.
+  ;; function magit-commit-create also invokes this assertion but this has to be
+  ;; done before the commit message is generated. Only then all staged files are
+  ;; included in the commit message.
   (when (magit-commit-assert ())
     (magit-commit-create
      `("-m"
