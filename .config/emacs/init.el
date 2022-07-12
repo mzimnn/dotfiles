@@ -124,6 +124,14 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 
+;; change keybindings in eww mode
+(add-hook 'eww-mode-hook
+          (lambda ()
+            (local-set-key "n" 'next-line)
+            (local-set-key "p" 'previous-line)
+            (local-set-key "N" 'eww-next-url)
+            (local-set-key "P" 'eww-previous-url)))
+
 ;; change keybindings in eww bookmarks mode
 (add-hook 'eww-bookmark-mode-hook
           (lambda ()
@@ -135,6 +143,14 @@
           (lambda ()
             (local-set-key "n" 'next-line)
             (local-set-key "p" 'previous-line)))
+
+;; change keybindings in Info mode
+(add-hook 'Info-mode-hook
+          (lambda ()
+            (local-set-key "n" 'next-line)
+            (local-set-key "p" 'previous-line)
+            (local-set-key "N" 'Info-next)
+            (local-set-key "P" 'Info-prev)))
 
 ;; auto-generate an instant commit message
 (defun mz/retrieve-git-status-lines ()
