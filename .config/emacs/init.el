@@ -16,7 +16,7 @@
 
 ;; install packages
 (setq package-selected-packages
-      '(evil ledger-mode magit solarized-theme))
+      '(diff-hl evil ledger-mode magit solarized-theme))
 (mz/package-install-if-missing package-selected-packages)
 
 ;; disable CTRL-i to allow using tab in terminal
@@ -118,6 +118,17 @@
 (setq tab-bar-new-tab-choice "*scratch*")
 (setq tab-bar-show 1)
 (tab-bar-mode 1)
+
+;; highlight uncommitted changes
+;; TODO: Enable diff-hl-margin-mode if Emacs runs in the terminal. It's not easy
+;; though to check that. For example it is not possible to just call
+;; display-graphic-p here, since Emacs can also be started as a daemon. In that
+;; case this function would always return nil.
+(setq diff-hl-show-staged-changes nil)
+(global-diff-hl-mode)
+(diff-hl-flydiff-mode)
+(add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
+(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 
 ;; hide visual elements
 (menu-bar-mode -1)
