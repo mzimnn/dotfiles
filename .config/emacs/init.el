@@ -135,6 +135,10 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 
+;; enable commands which are disabled by default
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+
 ;; change keybindings in eww mode
 (add-hook 'eww-mode-hook
           (lambda ()
