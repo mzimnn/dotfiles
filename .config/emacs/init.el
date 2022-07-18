@@ -52,10 +52,16 @@
 (if (file-exists-p custom-file)
     (load custom-file))
 
+(defun mz/enable-minor-modes-for-editing ()
+  "Enable minor modes which are beneficial for editing files."
+  (display-line-numbers-mode)
+  (whitespace-mode))
+
+(add-hook 'conf-mode-hook 'mz/enable-minor-modes-for-editing)
+(add-hook 'prog-mode-hook 'mz/enable-minor-modes-for-editing)
+(add-hook 'text-mode-hook 'mz/enable-minor-modes-for-editing)
+
 ;; show relative line numbers
-(add-hook 'conf-mode-hook 'display-line-numbers-mode)
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
-(add-hook 'text-mode-hook 'display-line-numbers-mode)
 (setq display-line-numbers-type 'visual)
 
 ;; show current column
@@ -101,6 +107,18 @@
    ((t (:box (:line-width (6 . 2) :color ,(face-attribute
                                            'tab-bar-tab-inactive
                                            :background)))))))
+
+;; show spaces and tabs
+(setq whitespace-style
+      '(face tabs spaces trailing space-mark tab-mark))
+(custom-set-faces
+ `(whitespace-tab
+   ((t (:foreground ,(mz/get-theme-color 'base01)
+        :inverse-video unspecified))))
+ `(whitespace-trailing
+   ((t (:foreground unspecified
+        :background ,(mz/get-theme-color 'red)
+        :inverse-video unspecified)))))
 
 ;; save bookmarks after each change
 (setq bookmark-save-flag 1)
