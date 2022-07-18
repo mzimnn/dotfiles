@@ -5,6 +5,7 @@
 (package-initialize)
 
 (defun mz/package-install-if-missing (wanted-pkgs)
+  "Install packages defined in WANTED-PKGS if they are missing."
   (let ((missing-pkgs ()))
     (dolist (wanted-pkg wanted-pkgs)
       (unless (package-installed-p wanted-pkg)
