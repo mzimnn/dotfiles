@@ -81,14 +81,18 @@
 (setq solarized-use-variable-pitch nil)
 (setq x-underline-at-descent-line t)
 (load-theme 'solarized-selenized-black t)
+(require 'solarized-palettes)
+;; TODO: use corresponding color palette of loaded theme
+(setq mz/color-palette solarized-selenized-black-color-palette-alist)
+
+(defun mz/get-theme-color (color)
+  "Return value of COLOR defined in `mz/color-palette'."
+  (alist-get color mz/color-palette))
 
 ;; improve visual appearance of tab bar
-(require 'solarized-palettes)
 (custom-set-faces
  `(tab-bar
-   ((t (:background ,(alist-get
-                      'base02
-                      solarized-selenized-black-color-palette-alist)))))
+   ((t (:background ,(mz/get-theme-color 'base02)))))
  `(tab-bar-tab
    ((t (:box (:line-width (6 . 2) :color ,(face-attribute
                                            'tab-bar-tab
