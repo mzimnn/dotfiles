@@ -169,14 +169,14 @@
 
 ;; auto-generate an instant commit message
 (defun mz/retrieve-git-status-lines ()
-  "Parses the output of `git status --porcelain' into a list."
+  "Parse the output of `git status --porcelain' into a list."
   (mapcar (lambda (status-line)
             (list (substring status-line 0 2)
                   (substring status-line 3)))
           (magit-git-lines "status" "--porcelain")))
 
 (defun mz/keep-staged-status-lines (status-lines)
-  "Only keeps STATUS-LINES which are staged."
+  "Only keep STATUS-LINES which are staged."
   (seq-filter (lambda (status-line)
                 ;; See git-status(1) for more information about the status codes
                 (seq-contains-p '("M" "T" "A" "D" "R" "C")
@@ -184,18 +184,18 @@
               status-lines))
 
 (defun mz/get-paths-from-status-lines (status-lines)
-  "Retrieves the paths of the STATUS-LINES."
+  "Retrieve the paths of the STATUS-LINES."
   (mapcan (lambda (status-line)
             (cdr status-line))
           status-lines))
 
 (defun mz/sort-alphabetically (strings)
-  "Sorts STRINGS in alphabetical order."
+  "Sort STRINGS in alphabetical order."
   (sort strings (lambda (str1 str2)
                   (string-lessp (downcase str1) (downcase str2)))))
 
 (defun mz/convert-to-instant-commit-msg (filenames)
-  "Converts FILENAMES into an instant commit message."
+  "Convert FILENAMES into an instant commit message."
   (if (length= filenames 0)
       nil
     (concat "Changes in "
@@ -207,7 +207,7 @@
                     " and " (car (last filenames))))))))
 
 (defun mz/git-instant-commit ()
-  "Commits staged changes with an instant commit message."
+  "Commit staged changes with an instant commit message."
   (interactive)
   ;; magit-commit-assert checks if there are any staged changes, if not it
   ;; prompts the user if he/she wants to stage all unstaged changes. The
