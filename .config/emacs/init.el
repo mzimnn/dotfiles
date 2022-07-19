@@ -55,14 +55,18 @@
 (if (file-exists-p custom-file)
     (load custom-file))
 
-(defun mz/enable-minor-modes-for-editing ()
-  "Enable minor modes which are beneficial for editing files."
+(defun mz/adjust-environment-for-editing ()
+  "Enable useful minor modes and set useful variables for editing."
   (display-line-numbers-mode)
-  (whitespace-mode))
+  (whitespace-mode)
+  (setq truncate-lines t))
 
-(add-hook 'conf-mode-hook 'mz/enable-minor-modes-for-editing)
-(add-hook 'prog-mode-hook 'mz/enable-minor-modes-for-editing)
-(add-hook 'text-mode-hook 'mz/enable-minor-modes-for-editing)
+(add-hook 'conf-mode-hook 'mz/adjust-environment-for-editing)
+(add-hook 'prog-mode-hook 'mz/adjust-environment-for-editing)
+(add-hook 'text-mode-hook 'mz/adjust-environment-for-editing)
+
+;; truncate lines if they do not fit on the screen
+(add-hook 'dired-mode-hook (lambda () (setq truncate-lines 1)))
 
 ;; show relative line numbers
 (setq display-line-numbers-type 'visual)
