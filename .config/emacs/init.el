@@ -120,6 +120,9 @@
         :background ,(mz/get-theme-color 'red)
         :inverse-video unspecified)))))
 
+;; ensure region only highlights text
+(custom-set-faces '(region ((t (:extend nil)))))
+
 ;; save bookmarks after each change
 (setq bookmark-save-flag 1)
 
