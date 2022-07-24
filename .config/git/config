@@ -41,4 +41,5 @@
 	abbreviateCommands = true
 	autoStash = true
 [stash]
+	showIncludeUntracked = true
 	showPatch = true
