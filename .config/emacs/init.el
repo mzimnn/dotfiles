@@ -144,6 +144,13 @@
 ;; let a single space end a sentence
 (setq sentence-end-double-space nil)
 
+;; wrap lines after column 80
+(setq shr-max-width 80)
+;; do not render colors
+(setq shr-use-colors nil)
+;; always use monospaced fonts
+(setq shr-use-fonts nil)
+
 ;; enable tab-bar-mode
 (setq tab-bar-close-button-show nil)
 (setq tab-bar-format
