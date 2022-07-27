@@ -5,6 +5,7 @@
 	b = branch
 	cm = commit
 	co = checkout
+	cr = check-repos
 	d = diff
 	diff-upstream = diff HEAD@{upstream} HEAD
 	ds = diff --staged
