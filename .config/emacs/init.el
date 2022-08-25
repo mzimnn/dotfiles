@@ -207,6 +207,15 @@
             (local-set-key "N" 'Info-next)
             (local-set-key "P" 'Info-prev)))
 
+(defun mz/scroll-half-window-height (&optional arg)
+  "Set `next-screen-context-lines' to half window height.
+
+It can be used to advice `scroll-down' and `scroll-up'."
+  (setq next-screen-context-lines (max 1 (/ (1- (window-height)) 2))))
+
+(advice-add 'scroll-down :before #'mz/scroll-half-window-height)
+(advice-add 'scroll-up :before #'mz/scroll-half-window-height)
+
 ;; auto-generate an instant commit message
 (defun mz/retrieve-git-status-lines ()
   "Parse the output of `git status --porcelain' into a list."
