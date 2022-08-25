@@ -151,6 +151,9 @@
 ;; always use monospaced fonts
 (setq shr-use-fonts nil)
 
+;; allow repeating commands more easily
+(repeat-mode)
+
 ;; enable tab-bar-mode
 (setq tab-bar-close-button-show nil)
 (setq tab-bar-format
