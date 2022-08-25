@@ -173,6 +173,9 @@
 (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 
+;; only show default argument in unchanged minibuffer
+(minibuffer-electric-default-mode)
+
 ;; hide visual elements
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
