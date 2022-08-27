@@ -191,7 +191,9 @@
             (local-set-key "n" 'next-line)
             (local-set-key "p" 'previous-line)
             (local-set-key "N" 'eww-next-url)
-            (local-set-key "P" 'eww-previous-url)))
+            (local-set-key "P" 'eww-previous-url)
+            (local-set-key "V" 'eww-view-source)
+            (local-unset-key "v")))
 
 ;; change keybindings in eww bookmarks mode
 (add-hook 'eww-bookmark-mode-hook
