@@ -52,8 +52,7 @@
 
 ;; move customization settings into own file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(if (file-exists-p custom-file)
-    (load custom-file))
+(load custom-file t)
 
 (defun mz/adjust-environment-for-editing ()
   "Enable useful minor modes and set useful variables for editing."
