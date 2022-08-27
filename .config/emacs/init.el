@@ -54,6 +54,9 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file t)
 
+;; load machine-specific configurations
+(load (expand-file-name "local.el" user-emacs-directory) t)
+
 (defun mz/adjust-environment-for-editing ()
   "Enable useful minor modes and set useful variables for editing."
   (display-line-numbers-mode)
