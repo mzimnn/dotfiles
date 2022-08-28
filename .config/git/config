@@ -44,3 +44,5 @@
 [stash]
 	showIncludeUntracked = true
 	showPatch = true
+[status]
+	showStash = true
