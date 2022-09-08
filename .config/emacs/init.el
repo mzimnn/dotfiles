@@ -141,6 +141,8 @@
 (setq shr-use-colors nil)
 ;; always use monospaced fonts
 (setq shr-use-fonts nil)
+;; do not display images
+(setq shr-inhibit-images t)
 
 ;; allow repeating commands more easily
 (repeat-mode)
