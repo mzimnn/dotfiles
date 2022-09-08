@@ -17,19 +17,8 @@
 
 ;; install packages
 (setq package-selected-packages
-      '(diff-hl evil ledger-mode magit solarized-theme))
+      '(diff-hl ledger-mode magit solarized-theme))
 (mz/package-install-if-missing package-selected-packages)
-
-;; disable CTRL-i to allow using tab in terminal
-(unless (display-graphic-p)
-  (setq evil-want-C-i-jump nil))
-
-;; enable CTRL-u to scroll upwards
-(setq evil-want-C-u-scroll t)
-
-;; enable Evil
-(require 'evil)
-(evil-mode -1)
 
 ;; enable Org Indent mode
 (setq org-startup-indented t)
