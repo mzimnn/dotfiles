@@ -6,6 +6,7 @@ files=(
     '.config/bash/aliases'
     '.config/bash/prompt'
     '.config/emacs/init.el'
+    '.config/emacs/lisp/init-org.el'
     '.config/git/config'
     '.config/sway/config'
     '.config/tmux/tmux.conf'

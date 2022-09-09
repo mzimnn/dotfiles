@@ -20,22 +20,12 @@
       '(diff-hl ledger-mode magit solarized-theme))
 (mz/package-install-if-missing package-selected-packages)
 
-;; enable Org Indent mode
-(setq org-startup-indented t)
+;; use local directory to modularize this init file
+(add-to-list 'load-path (expand-file-name "lisp/" user-emacs-directory))
 
-;; hide emphasis markers
-(setq org-hide-emphasis-markers t)
+;; load separate init files
+(require 'init-org)
 
-;; customize TODO keywords
-(setq org-todo-keywords
-      '((sequence "TODO(t)" "HOLD(h)" "WAIT(w)" "|" "DONE(d)" )))
-
-;; use relative paths for links
-(setq org-link-file-path-type 'relative)
-
-;; keybindings to invoke Org features
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c l") 'org-store-link)
 ;; use much more powerful IBuffer mode to view buffers
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
