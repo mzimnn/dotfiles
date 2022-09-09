@@ -9,6 +9,7 @@ files=(
     '.config/emacs/lisp/init-eww.el'
     '.config/emacs/lisp/init-magit.el'
     '.config/emacs/lisp/init-org.el'
+    '.config/emacs/lisp/init-theme.el'
     '.config/git/config'
     '.config/sway/config'
     '.config/tmux/tmux.conf'
