@@ -1,0 +1,14 @@
+* My dotfiles
+
+You have stumbled upon yet another repository containing a bunch of dotfiles.
+
+** Installation
+
+To install my dotfiles, run this script in the top directory of this repository:
+
+#+begin_src shell
+./install.sh
+#+end_src
+
+This creates a symlink for each configuration file at the proper place on the
+filesystem.
