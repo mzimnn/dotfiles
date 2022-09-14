@@ -17,7 +17,6 @@ alias ll='ls -l'
 alias ls='LC_COLLATE=C ls --color=auto --group-directories-first -h'
 alias mkdir='mkdir -p -v'
 alias pacman='pacman --color=auto'
-alias rm='rm -I'
 alias sudo='sudo '
 alias watch='watch '
 
