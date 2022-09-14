@@ -8,6 +8,7 @@ files=(
     '.config/emacs/init.el'
     '.config/emacs/lisp/init-eww.el'
     '.config/emacs/lisp/init-magit.el'
+    '.config/emacs/lisp/init-misc.el'
     '.config/emacs/lisp/init-org.el'
     '.config/emacs/lisp/init-theme.el'
     '.config/git/config'
