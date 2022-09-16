@@ -20,8 +20,16 @@ files=(
 )
 
 for file in "${files[@]}"; do
+    source="$(realpath "$(dirname "$0")")/$file"
     target="$HOME/$file"
 
     mkdir -p "$(dirname "$target")"
-    ln -s -i "$(realpath "$(dirname "$0")")/$file" "$target"
+
+    if [ "$(readlink "$target")" = "$source" ]
+    then
+        # file is already symlinked
+        continue
+    fi
+
+    ln -s -i "$source" "$target"
 done
