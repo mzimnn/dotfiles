@@ -39,6 +39,7 @@ shopt -s histappend
 export EDITOR='vim'
 export MANPAGER='less -R --color=d+g --color=u+b'
 HISTCONTROL=ignoreboth
+HISTSIZE=10000
 
 # Set LS_COLORS using `dircolors`
 if is_installed dircolors
