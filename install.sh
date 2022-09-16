@@ -19,7 +19,8 @@ files=(
     '.vimrc'
 )
 
-for file in "${files[@]}"; do
+for file in "${files[@]}"
+do
     source="$(realpath "$(dirname "$0")")/$file"
     target="$HOME/$file"
 
