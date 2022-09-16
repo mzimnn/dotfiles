@@ -20,6 +20,8 @@ files=(
 )
 
 for file in "${files[@]}"; do
-    mkdir -p "$HOME/$(dirname "$file")"
-    ln -s -i "$(realpath "$(dirname "$0")")/$file" "$HOME/$file"
+    target="$HOME/$file"
+
+    mkdir -p "$(dirname "$target")"
+    ln -s -i "$(realpath "$(dirname "$0")")/$file" "$target"
 done
