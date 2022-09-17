@@ -1,27 +1,35 @@
 #!/bin/bash
 
-files=(
-    '.bash_profile'
-    '.bashrc'
-    '.config/bash/aliases'
-    '.config/bash/prompt'
-    '.config/emacs/init.el'
-    '.config/emacs/lisp/init-eww.el'
-    '.config/emacs/lisp/init-magit.el'
-    '.config/emacs/lisp/init-misc.el'
-    '.config/emacs/lisp/init-org.el'
-    '.config/emacs/lisp/init-theme.el'
-    '.config/git/config'
-    '.config/sway/config'
-    '.config/tmux/tmux.conf'
-    '.inputrc'
-    '.local/bin/git-check-repos'
-    '.vimrc'
+# files which should not be symlinked
+ignored_files=(
+    install.sh
+    README.org
 )
+
+is_file_ignored () {
+    for ignored_file in "${ignored_files[@]}"
+    do
+        if [ "$ignored_file" = "$1" ]
+        then
+            return 0
+        fi
+    done
+
+    return 1
+}
+
+base_dir="$(dirname "$(realpath "$0")")"
+
+readarray -t files < <(git -C "$base_dir" ls-files)
 
 for file in "${files[@]}"
 do
-    source="$(realpath "$(dirname "$0")")/$file"
+    if is_file_ignored "$file"
+    then
+        continue
+    fi
+
+    source="$base_dir/$file"
     target="$HOME/$file"
 
     mkdir -p "$(dirname "$target")"
