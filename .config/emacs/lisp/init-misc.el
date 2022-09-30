@@ -45,6 +45,9 @@
 ;; let a single space end a sentence
 (setq sentence-end-double-space nil)
 
+;; flash frame to represent a bell
+(setq visible-bell t)
+
 ;; allow repeating commands more easily
 (repeat-mode)
 
