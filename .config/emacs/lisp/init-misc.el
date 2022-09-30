@@ -48,6 +48,9 @@
 ;; flash frame to represent a bell
 (setq visible-bell t)
 
+;; replace selection with typed text
+(delete-selection-mode)
+
 ;; allow repeating commands more easily
 (repeat-mode)
 
