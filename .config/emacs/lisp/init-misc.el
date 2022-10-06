@@ -84,6 +84,7 @@
 ;; enable commands which are disabled by default
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
 
 ;; change keybindings in help mode
 (add-hook 'help-mode-hook
