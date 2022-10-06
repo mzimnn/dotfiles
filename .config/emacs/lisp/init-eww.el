@@ -8,9 +8,9 @@
 (setq shr-inhibit-images t)
 
 ;; use lightweight frontends which EWW can render better
-(setq mz/url-replace-host-map '(("reddit.com" . "libredd.it")
-                                ("old.reddit.com" . "libredd.it")
-                                ("www.reddit.com" . "libredd.it")))
+(setq mz/url-replace-host-map '(("reddit.com" . "libreddit.de")
+                                ("old.reddit.com" . "libreddit.de")
+                                ("www.reddit.com" . "libreddit.de")))
 
 (defun mz/url-replace-host (url)
   "Replace host of URL according to `mz/url-replace-host-map'."
