@@ -41,6 +41,11 @@ export MANPAGER='less -R --color=d+g --color=u+b'
 HISTCONTROL=ignoreboth
 HISTSIZE=10000
 
+if is_installed diff-so-fancy
+then
+    export GIT_PAGER='diff-so-fancy | less --tabs=5 -FRX'
+fi
+
 # Set LS_COLORS using `dircolors`
 if is_installed dircolors
 then
