@@ -46,6 +46,8 @@
 	first-run = false
 	markEmptyLines = false
 	stripLeadingSymbols = false
+[grep]
+	lineNumber = true
 [include]
 	path = ~/.config/git/config.local
 [init]
