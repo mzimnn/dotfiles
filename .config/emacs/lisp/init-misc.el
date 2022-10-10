@@ -1,5 +1,11 @@
 ;; use much more powerful IBuffer mode to view buffers
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+;; toggle focus mode
+(global-set-key (kbd "C-c f") #'olivetti-mode)
+
+;; hide mode line in focus mode
+(add-hook 'olivetti-mode-on-hook #'turn-on-hide-mode-line-mode)
+(add-hook 'olivetti-mode-off-hook #'turn-off-hide-mode-line-mode)
 
 (defun mz/adjust-environment-for-editing ()
   "Enable useful minor modes and set useful variables for editing."

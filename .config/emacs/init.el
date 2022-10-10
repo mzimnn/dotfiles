@@ -6,7 +6,7 @@
 
 ;; install packages
 (setq package-selected-packages
-      '(diff-hl ledger-mode magit solarized-theme))
+      '(diff-hl ledger-mode magit hide-mode-line olivetti solarized-theme))
 
 (unless (seq-every-p #'package-installed-p package-selected-packages)
   (package-refresh-contents)
