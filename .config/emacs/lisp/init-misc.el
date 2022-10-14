@@ -7,6 +7,14 @@
 (add-hook 'olivetti-mode-on-hook #'turn-on-hide-mode-line-mode)
 (add-hook 'olivetti-mode-off-hook #'turn-off-hide-mode-line-mode)
 
+(defun mz/insert-current-date ()
+  "Insert current date into buffer."
+  (interactive)
+  (insert (format-time-string "%Y-%m-%d")))
+
+;; insert current date
+(global-set-key (kbd "C-c d") #'mz/insert-current-date)
+
 (defun mz/adjust-environment-for-editing ()
   "Enable useful minor modes and set useful variables for editing."
   (display-line-numbers-mode)
