@@ -42,3 +42,6 @@ autocmd FileType gitcommit setlocal textwidth=72
 nnoremap <Leader>h :set hlsearch!<Esc>
 nnoremap <Leader>s :set spell!<Esc>
 nnoremap <Leader>t :term<Esc><C-W>L
+
+" allow saving file as root when starting vim without sudo
+cnoremap w!! w !sudo tee >/dev/null %
