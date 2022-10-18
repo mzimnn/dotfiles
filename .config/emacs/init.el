@@ -22,9 +22,9 @@
 (require 'init-org)
 (require 'init-theme)
 
+;; load machine-specific configurations
+(require 'init-local nil t)
+
 ;; move customization settings into own file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file t)
-
-;; load machine-specific configurations
-(load (expand-file-name "local.el" user-emacs-directory) t)
