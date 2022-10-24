@@ -87,6 +87,8 @@
 (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 
+;; automatically resize minibuffer to fit input text
+(setq resize-mini-windows t)
 ;; only show default argument in unchanged minibuffer
 (minibuffer-electric-default-mode)
 
