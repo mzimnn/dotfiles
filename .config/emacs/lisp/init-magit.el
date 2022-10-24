@@ -1,3 +1,6 @@
+;; don't ask when saving buffers automatically
+(setq magit-save-repository-buffers 'dontask)
+
 ;; auto-generate an instant commit message
 (defun mz/retrieve-git-status-lines ()
   "Parse the output of `git status --porcelain' into a list."
