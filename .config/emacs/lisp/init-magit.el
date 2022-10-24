@@ -1,3 +1,5 @@
+;; don't show relevant diff when committing
+(setq magit-commit-show-diff nil)
 ;; don't ask when saving buffers automatically
 (setq magit-save-repository-buffers 'dontask)
 
