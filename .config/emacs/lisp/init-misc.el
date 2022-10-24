@@ -2,6 +2,8 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 ;; toggle focus mode
 (global-set-key (kbd "C-c f") #'olivetti-mode)
+;; switch windows with ease
+(global-set-key (kbd "M-o") #'other-window)
 
 ;; hide mode line in focus mode
 (add-hook 'olivetti-mode-on-hook #'turn-on-hide-mode-line-mode)
