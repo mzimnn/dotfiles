@@ -41,6 +41,7 @@
 	verbose = true
 [diff]
 	colorMoved = true
+	colorMovedWS = allow-indentation-change
 	wsErrorHighlight = all
 [diff-so-fancy]
 	first-run = false
