@@ -28,7 +28,7 @@
 (add-hook 'text-mode-hook 'mz/adjust-environment-for-editing)
 
 ;; truncate lines if they do not fit on the screen
-(add-hook 'dired-mode-hook (lambda () (setq truncate-lines 1)))
+(add-hook 'dired-mode-hook (lambda () (setq truncate-lines t)))
 
 ;; show relative line numbers
 (setq display-line-numbers-type 'visual)
