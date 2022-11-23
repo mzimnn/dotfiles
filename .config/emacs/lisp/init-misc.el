@@ -118,6 +118,7 @@
             (local-set-key "N" 'Info-next)
             (local-set-key "P" 'Info-prev)))
 
+;; inspired by https://www.emacswiki.org/emacs/HalfScrolling
 (defun mz/scroll-half-window-height (&optional arg)
   "Set `next-screen-context-lines' to half window height.
 
