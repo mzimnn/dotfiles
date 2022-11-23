@@ -34,6 +34,26 @@
                 (cons url (cdr args))))
             '((name . "mz/url-replace-host")))
 
+(defun mz/url-get-content-length (url)
+  "Request URL and return value of header \"Content-Length\"."
+  (let ((url-request-method "HEAD"))
+    ;; TODO: use url-retrieve which is asynchronous
+    (with-current-buffer (url-retrieve-synchronously url t)
+      url-http-content-length)))
+
+(defun mz/url-display-content-length (url)
+  "Display content length of URL in echo area."
+  (interactive "sURL: ")
+  (let ((len (mz/url-get-content-length url)))
+    (message (if len
+                 (file-size-human-readable-iec len)
+               "Unknown size"))))
+
+(defun mz/eww-display-content-length ()
+  "In EWW, display content length of url under point."
+  (interactive)
+  (mz/url-display-content-length (shr-url-at-point nil)))
+
 ;; change keybindings in eww mode
 (add-hook 'eww-mode-hook
           (lambda ()
@@ -49,5 +69,7 @@
           (lambda ()
             (local-set-key "n" 'next-line)
             (local-set-key "p" 'previous-line)))
+
+(global-set-key (kbd "C-c e s") #'mz/eww-display-content-length)
 
 (provide 'init-eww)
