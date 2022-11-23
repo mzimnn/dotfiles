@@ -4,6 +4,9 @@
 ;; hide emphasis markers
 (setq org-hide-emphasis-markers t)
 
+;; allow usage of alphabetical lists
+(setq org-list-allow-alphabetical t)
+
 ;; customize TODO keywords
 (setq org-todo-keywords
       '((sequence "TODO(t)" "HOLD(h)" "WAIT(w)" "|" "DONE(d)" )))
