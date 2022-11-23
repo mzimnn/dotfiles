@@ -1,5 +1,9 @@
 ;; don't show relevant diff when committing
 (setq magit-commit-show-diff nil)
+;; highlight differences within a line
+(setq magit-diff-refine-hunk 'all)
+;; highlight whitespace changes
+(setq magit-diff-refine-ignore-whitespace nil)
 ;; don't ask when saving buffers automatically
 (setq magit-save-repository-buffers 'dontask)
 
