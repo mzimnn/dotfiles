@@ -2,6 +2,8 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 ;; toggle focus mode
 (global-set-key (kbd "C-c f") #'olivetti-mode)
+;; toggle whitespace mode
+(global-set-key (kbd "C-c w") #'whitespace-mode)
 ;; switch windows with ease
 (global-set-key (kbd "M-o") #'other-window)
 
