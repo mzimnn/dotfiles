@@ -10,7 +10,8 @@
 ;; use lightweight frontends which EWW can render better
 (setq mz/url-replace-host-map '(("reddit.com" . "libreddit.de")
                                 ("old.reddit.com" . "libreddit.de")
-                                ("www.reddit.com" . "libreddit.de")))
+                                ("www.reddit.com" . "libreddit.de")
+                                ("teddit.net" . "libreddit.de")))
 
 (defun mz/url-replace-host (url)
   "Replace host of URL according to `mz/url-replace-host-map'."
