@@ -61,6 +61,9 @@
 ;; let a single space end a sentence
 (setq sentence-end-double-space nil)
 
+;; follow version-controlled symbolic links without asking
+(setq vc-follow-symlinks t)
+
 ;; flash frame to represent a bell
 (setq visible-bell t)
 
