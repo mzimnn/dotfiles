@@ -70,6 +70,7 @@
             (local-set-key "n" 'next-line)
             (local-set-key "p" 'previous-line)))
 
-(global-set-key (kbd "C-c e s") #'mz/eww-display-content-length)
+(with-eval-after-load 'eww
+    (define-key eww-mode-map (kbd "M-s") #'mz/eww-display-content-length))
 
 (provide 'init-eww)
