@@ -22,6 +22,9 @@
 ;; toggle focus mode
 (keymap-global-set "C-c f" #'focus-mode)
 
+;; prettify JSON from clipboard
+(keymap-global-set "C-c j" #'mz/display-json-from-clipboard)
+
 ;; lookup word at point
 (keymap-global-set "C-c L" #'dictionary-lookup-definition)
 

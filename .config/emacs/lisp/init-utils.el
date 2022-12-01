@@ -44,4 +44,17 @@ If called with a prefix ARG, use European format of date."
         (end (if (use-region-p) (region-end) (line-end-position))))
     (comment-or-uncomment-region begin end)))
 
+(defun mz/display-json-from-clipboard ()
+  "Prettify JSON from clipboard and display it."
+  (interactive)
+  (message "Reading JSON from clipboard...")
+  (let ((inhibit-message t)
+        (buffer (generate-new-buffer "*json*")))
+    (with-current-buffer buffer
+      (clipboard-yank)
+      (json-pretty-print-buffer)
+      (js-json-mode))
+    (pop-to-buffer buffer))
+  (message "Reading JSON from clipboard...done"))
+
 (provide 'init-utils)
