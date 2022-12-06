@@ -72,6 +72,6 @@
             (local-set-key "p" 'previous-line)))
 
 (with-eval-after-load 'eww
-    (define-key eww-mode-map (kbd "M-s") #'mz/eww-display-content-length))
+  (define-key eww-mode-map (kbd "M-s") #'mz/eww-display-content-length))
 
 (provide 'init-eww)
