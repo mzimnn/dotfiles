@@ -20,6 +20,7 @@
 (require 'init-magit)
 (require 'init-misc)
 (require 'init-org)
+(require 'init-term)
 (require 'init-theme)
 
 ;; load machine-specific configurations
