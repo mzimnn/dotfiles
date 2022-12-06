@@ -19,6 +19,9 @@ the existing term buffer."
         (display-buffer buffer)
       (ansi-term "bash"))))
 
+(with-eval-after-load 'term
+  (define-key term-raw-map (kbd "M-o") #'other-window))
+
 (global-set-key (kbd "C-c t") #'mz/ansi-term)
 
 (provide 'init-term)
