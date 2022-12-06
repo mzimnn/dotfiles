@@ -7,6 +7,11 @@
 ;; switch windows with ease
 (global-set-key (kbd "M-o") #'other-window)
 
+;; use globally bound command instead of local one
+(add-hook 'ibuffer-mode-hook
+          (lambda ()
+            (local-unset-key (kbd "M-o")))) ; ibuffer-visit-buffer-1-window
+
 ;; hide mode line in focus mode
 (add-hook 'olivetti-mode-on-hook #'turn-on-hide-mode-line-mode)
 (add-hook 'olivetti-mode-off-hook #'turn-off-hide-mode-line-mode)
