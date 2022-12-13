@@ -16,6 +16,7 @@
 (add-to-list 'load-path (expand-file-name "lisp/" user-emacs-directory))
 
 ;; load separate init files
+(require 'init-dired)
 (require 'init-eww)
 (require 'init-magit)
 (require 'init-misc)
