@@ -30,7 +30,11 @@ set smartcase
 
 " make tabs and trailing spaces visible
 set list
-set listchars=tab:»\ ,trail:·,nbsp:⎵
+if &encoding == 'utf-8'
+    set listchars=tab:\\xbb\ ,trail:\\xb7,nbsp:\\u23b5
+else
+    set listchars=tab:>\ ,trail:.
+endif
 
 " show command in bottom bar
 set showcmd
