@@ -67,6 +67,9 @@ If called with a prefix ARG, use European format of date."
 (setq read-file-name-completion-ignore-case t)
 (setq read-buffer-completion-ignore-case t)
 
+;; type less backslashes
+(setq reb-re-syntax 'string)
+
 ;; let a single space end a sentence
 (setq sentence-end-double-space nil)
 
