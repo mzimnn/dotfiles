@@ -1,3 +1,6 @@
+;; do not indent coding in source code block
+(setq org-edit-src-content-indentation 0)
+
 ;; hide emphasis markers
 (setq org-hide-emphasis-markers t)
 
