@@ -7,6 +7,17 @@
 ;; don't ask when saving buffers automatically
 (setq magit-save-repository-buffers 'dontask)
 
+;; highlight uncommitted changes
+;; TODO: Enable diff-hl-margin-mode if Emacs runs in the terminal. It's not easy
+;; though to check that. For example it is not possible to just call
+;; display-graphic-p here, since Emacs can also be started as a daemon. In that
+;; case this function would always return nil.
+(setq diff-hl-show-staged-changes nil)
+(global-diff-hl-mode)
+(diff-hl-flydiff-mode)
+(add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
+(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+
 ;; auto-generate an instant commit message
 (defun mz/retrieve-git-status-lines ()
   "Parse the output of `git status --porcelain' into a list."

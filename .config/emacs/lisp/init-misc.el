@@ -93,17 +93,6 @@ If called with a prefix ARG, use European format of date."
 (setq tab-bar-show 1)
 (tab-bar-mode 1)
 
-;; highlight uncommitted changes
-;; TODO: Enable diff-hl-margin-mode if Emacs runs in the terminal. It's not easy
-;; though to check that. For example it is not possible to just call
-;; display-graphic-p here, since Emacs can also be started as a daemon. In that
-;; case this function would always return nil.
-(setq diff-hl-show-staged-changes nil)
-(global-diff-hl-mode)
-(diff-hl-flydiff-mode)
-(add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
-(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-
 ;; automatically resize minibuffer to fit input text
 (setq resize-mini-windows t)
 ;; only show default argument in unchanged minibuffer
