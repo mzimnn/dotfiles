@@ -16,10 +16,12 @@
 (add-hook 'olivetti-mode-on-hook #'turn-on-hide-mode-line-mode)
 (add-hook 'olivetti-mode-off-hook #'turn-off-hide-mode-line-mode)
 
-(defun mz/insert-current-date ()
-  "Insert current date into buffer."
-  (interactive)
-  (insert (format-time-string "%Y-%m-%d")))
+(defun mz/insert-current-date (&optional arg)
+  "Insert current date into buffer.
+
+If called with a prefix ARG, use European format of date."
+  (interactive "p")
+  (insert (format-time-string (if (= arg 4) "%d.%m.%Y" "%Y-%m-%d"))))
 
 ;; insert current date
 (global-set-key (kbd "C-c d") #'mz/insert-current-date)
