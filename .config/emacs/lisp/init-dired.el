@@ -9,4 +9,7 @@
 ;; probably not work on macOS and Windows.
 (setq dired-listing-switches "-alhv --group-directories-first")
 
+;; highlight files with uncommitted changes
+(add-hook 'dired-mode-hook #'diff-hl-dired-mode-unless-remote)
+
 (provide 'init-dired)
