@@ -62,6 +62,9 @@ If called with a prefix ARG, use European format of date."
 ;; set weekday on which a week begins
 (setq calendar-week-start-day 1)
 
+;; show number of matches in search prompt
+(setq isearch-lazy-count t)
+
 ;; ignore case when completing
 (setq completion-ignore-case t)
 (setq read-file-name-completion-ignore-case t)
