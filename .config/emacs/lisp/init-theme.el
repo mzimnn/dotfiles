@@ -30,7 +30,7 @@
 
 ;; show spaces and tabs
 (setq whitespace-style
-      '(face tabs spaces trailing space-mark tab-mark))
+      '(face space-before-tab tabs trailing tab-mark))
 (custom-set-faces
  `(whitespace-tab
    ((t (:foreground ,(mz/get-theme-color 'base01)
