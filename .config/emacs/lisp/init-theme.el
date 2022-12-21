@@ -43,4 +43,10 @@
 ;; ensure region only highlights text
 (custom-set-faces '(region ((t (:extend nil)))))
 
+;; colorize priorities in Org mode
+(custom-set-variables
+ '(org-priority-faces `((?A . ,(mz/get-theme-color 'red))
+                        (?B . ,(mz/get-theme-color 'blue))
+                        (?C . ,(mz/get-theme-color 'green)))))
+
 (provide 'init-theme)
