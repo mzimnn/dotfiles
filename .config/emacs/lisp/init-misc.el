@@ -4,8 +4,15 @@
 (global-set-key (kbd "C-c f") #'olivetti-mode)
 ;; toggle whitespace mode
 (global-set-key (kbd "C-c w") #'whitespace-mode)
+
+(defun mz/other-window-backwards ()
+  "Like `other-window' but in reverse."
+  (interactive)
+  (other-window -1))
+
 ;; switch windows with ease
 (global-set-key (kbd "M-o") #'other-window)
+(global-set-key (kbd "M-O") #'mz/other-window-backwards)
 
 ;; use globally bound command instead of local one
 (add-hook 'ibuffer-mode-hook
