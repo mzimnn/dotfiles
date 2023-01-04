@@ -12,4 +12,7 @@
 ;; highlight files with uncommitted changes
 (add-hook 'dired-mode-hook #'diff-hl-dired-mode-unless-remote)
 
+;; truncate lines if they do not fit on the screen
+(add-hook 'dired-mode-hook (lambda () (setq truncate-lines t)))
+
 (provide 'init-dired)
