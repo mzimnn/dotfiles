@@ -49,4 +49,4 @@
                         (?B . ,(mz/get-theme-color 'blue))
                         (?C . ,(mz/get-theme-color 'green)))))
 
-(provide 'init-theme)
+(provide 'init-visual)

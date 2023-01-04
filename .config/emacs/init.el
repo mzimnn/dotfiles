@@ -22,7 +22,7 @@
 (require 'init-misc)
 (require 'init-org)
 (require 'init-term)
-(require 'init-theme)
+(require 'init-visual)
 
 ;; load machine-specific configurations
 (require 'init-local nil t)
