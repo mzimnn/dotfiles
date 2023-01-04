@@ -108,11 +108,6 @@ If called with a prefix ARG, use European format of date."
 ;; only show default argument in unchanged minibuffer
 (minibuffer-electric-default-mode)
 
-;; hide visual elements
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-
 ;; enable commands which are disabled by default
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)

@@ -1,3 +1,8 @@
+;; hide visual elements
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+
 ;; load theme
 (setq solarized-height-minus-1 1.0)
 (setq solarized-height-plus-1 1.0)
