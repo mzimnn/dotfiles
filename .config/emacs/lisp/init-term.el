@@ -20,7 +20,7 @@ the existing term buffer."
       (ansi-term "bash"))))
 
 (with-eval-after-load 'term
-  (define-key term-raw-map (kbd "M-o") #'other-window))
+  (define-key term-raw-map (kbd "M-o") nil))
 
 (global-set-key (kbd "C-c t") #'mz/ansi-term)
 
