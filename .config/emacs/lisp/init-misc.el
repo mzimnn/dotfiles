@@ -2,8 +2,6 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 ;; toggle focus mode
 (global-set-key (kbd "C-c f") #'olivetti-mode)
-;; toggle whitespace mode
-(global-set-key (kbd "C-c w") #'whitespace-mode)
 
 (defun mz/other-window-backwards ()
   "Like `other-window' but in reverse."
