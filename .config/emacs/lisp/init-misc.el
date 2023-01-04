@@ -1,16 +1,7 @@
-;; use much more powerful IBuffer mode to view buffers
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-;; toggle focus mode
-(global-set-key (kbd "C-c f") #'olivetti-mode)
-
 (defun mz/other-window-backwards ()
   "Like `other-window' but in reverse."
   (interactive)
   (other-window -1))
-
-;; switch windows with ease
-(global-set-key (kbd "M-o") #'other-window)
-(global-set-key (kbd "M-O") #'mz/other-window-backwards)
 
 ;; use globally bound command instead of local one
 (with-eval-after-load 'ibuffer
@@ -26,9 +17,6 @@
 If called with a prefix ARG, use European format of date."
   (interactive "p")
   (insert (format-time-string (if (= arg 4) "%d.%m.%Y" "%Y-%m-%d"))))
-
-;; insert current date
-(global-set-key (kbd "C-c d") #'mz/insert-current-date)
 
 (defun mz/adjust-environment-for-editing ()
   "Enable useful minor modes and set useful variables for editing."

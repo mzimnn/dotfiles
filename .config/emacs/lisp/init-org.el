@@ -17,8 +17,4 @@
 ;; enable Org Indent mode
 (setq org-startup-indented t)
 
-;; keybindings to invoke Org features
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c l") 'org-store-link)
-
 (provide 'init-org)

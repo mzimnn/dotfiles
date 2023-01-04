@@ -23,6 +23,4 @@ the existing term buffer."
   (define-key term-raw-map (kbd "M-o") nil)
   (define-key term-raw-map (kbd "M-x") nil))
 
-(global-set-key (kbd "C-c t") #'mz/ansi-term)
-
 (provide 'init-term)
