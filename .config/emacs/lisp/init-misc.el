@@ -15,9 +15,8 @@
 (global-set-key (kbd "M-O") #'mz/other-window-backwards)
 
 ;; use globally bound command instead of local one
-(add-hook 'ibuffer-mode-hook
-          (lambda ()
-            (local-unset-key (kbd "M-o")))) ; ibuffer-visit-buffer-1-window
+(with-eval-after-load 'ibuffer
+  (define-key ibuffer-mode-map (kbd "M-o") nil)) ; ibuffer-visit-buffer-1-window
 
 ;; hide mode line in focus mode
 (add-hook 'olivetti-mode-on-hook #'turn-on-hide-mode-line-mode)
@@ -114,18 +113,16 @@ If called with a prefix ARG, use European format of date."
 (put 'narrow-to-region 'disabled nil)
 
 ;; change keybindings in help mode
-(add-hook 'help-mode-hook
-          (lambda ()
-            (local-set-key "n" 'next-line)
-            (local-set-key "p" 'previous-line)))
+(with-eval-after-load 'help-mode
+  (define-key help-mode-map "n" 'next-line)
+  (define-key help-mode-map "p" 'previous-line))
 
 ;; change keybindings in Info mode
-(add-hook 'Info-mode-hook
-          (lambda ()
-            (local-set-key "n" 'next-line)
-            (local-set-key "p" 'previous-line)
-            (local-set-key "N" 'Info-next)
-            (local-set-key "P" 'Info-prev)))
+(with-eval-after-load 'info
+  (define-key Info-mode-map "n" 'next-line)
+  (define-key Info-mode-map "p" 'previous-line)
+  (define-key Info-mode-map "N" 'Info-next)
+  (define-key Info-mode-map "P" 'Info-prev))
 
 ;; inspired by https://www.emacswiki.org/emacs/HalfScrolling
 (defun mz/scroll-half-window-height (&optional arg)

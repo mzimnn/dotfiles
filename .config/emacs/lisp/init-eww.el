@@ -55,23 +55,18 @@
   (interactive)
   (mz/url-display-content-length (shr-url-at-point nil)))
 
-;; change keybindings in eww mode
-(add-hook 'eww-mode-hook
-          (lambda ()
-            (local-set-key "n" 'next-line)
-            (local-set-key "p" 'previous-line)
-            (local-set-key "N" 'eww-next-url)
-            (local-set-key "P" 'eww-previous-url)
-            (local-set-key "V" 'eww-view-source)
-            (local-unset-key "v")))
-
-;; change keybindings in eww bookmarks mode
-(add-hook 'eww-bookmark-mode-hook
-          (lambda ()
-            (local-set-key "n" 'next-line)
-            (local-set-key "p" 'previous-line)))
-
 (with-eval-after-load 'eww
-  (define-key eww-mode-map (kbd "M-s") #'mz/eww-display-content-length))
+  ;; change keybindings in eww mode
+  (define-key eww-mode-map "n" 'next-line)
+  (define-key eww-mode-map "p" 'previous-line)
+  (define-key eww-mode-map "N" 'eww-next-url)
+  (define-key eww-mode-map "P" 'eww-previous-url)
+  (define-key eww-mode-map "V" 'eww-view-source)
+  (define-key eww-mode-map "v" nil)
+  (define-key eww-mode-map (kbd "M-s") #'mz/eww-display-content-length)
+
+  ;; change keybindings in eww bookmarks mode
+  (define-key eww-bookmark-mode-map "n" 'next-line)
+  (define-key eww-bookmark-mode-map "p" 'previous-line))
 
 (provide 'init-eww)
