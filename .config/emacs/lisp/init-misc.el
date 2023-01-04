@@ -94,6 +94,9 @@ If called with a prefix ARG, use European format of date."
 ;; allow repeating commands more easily
 (repeat-mode)
 
+;; guess indentation settings
+(dtrt-indent-global-mode)
+
 ;; enable tab-bar-mode
 (setq tab-bar-close-button-show nil)
 (setq tab-bar-format
