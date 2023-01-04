@@ -28,6 +28,5 @@
 ;; load machine-specific configurations
 (require 'init-local nil t)
 
-;; move customization settings into own file
+;; move customization settings into own file but do NOT load them
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(load custom-file t)
