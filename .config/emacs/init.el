@@ -10,7 +10,7 @@
 
 (unless (seq-every-p #'package-installed-p package-selected-packages)
   (package-refresh-contents)
-  (package-install-selected-packages))
+  (package-install-selected-packages t))
 
 ;; use local directory to modularize this init file
 (add-to-list 'load-path (expand-file-name "lisp/" user-emacs-directory))
