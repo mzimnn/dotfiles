@@ -47,6 +47,9 @@ HISTSIZE=10000
 if is_installed diff-so-fancy
 then
     export GIT_PAGER='diff-so-fancy | less --tabs=5 -FRX'
+    export GIT_CONFIG_COUNT=1
+    export GIT_CONFIG_KEY_0='interactive.diffFilter'
+    export GIT_CONFIG_VALUE_0='diff-so-fancy --patch'
 fi
 
 # Set LS_COLORS using `dircolors`
