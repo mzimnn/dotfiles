@@ -54,4 +54,7 @@
                         (?B . ,(mz/get-theme-color 'blue))
                         (?C . ,(mz/get-theme-color 'green)))))
 
+;; ensure point blinks forever
+(setq blink-cursor-blinks -1)
+
 (provide 'init-visual)
