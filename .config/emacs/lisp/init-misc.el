@@ -77,6 +77,9 @@ If called with a prefix ARG, use European format of date."
 ;; allow repeating commands more easily
 (repeat-mode)
 
+;; specify width of TAB character
+(setq-default tab-width 4)
+
 ;; guess indentation settings
 (dtrt-indent-global-mode)
 
