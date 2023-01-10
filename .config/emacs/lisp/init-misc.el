@@ -16,6 +16,8 @@
 
 If called with a prefix ARG, use European format of date."
   (interactive "p")
+  (when mark-active
+    (delete-region (region-beginning) (region-end)))
   (insert (format-time-string (if (= arg 4) "%d.%m.%Y" "%Y-%m-%d"))))
 
 (defun mz/adjust-environment-for-editing ()
