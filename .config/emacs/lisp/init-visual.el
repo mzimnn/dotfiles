@@ -1,3 +1,6 @@
+;; ensure point blinks forever
+(setq blink-cursor-blinks -1)
+
 ;; show current column
 (setq column-number-mode t)
 
@@ -62,8 +65,5 @@
  '(org-priority-faces `((?A . ,(mz/get-theme-color 'red))
                         (?B . ,(mz/get-theme-color 'blue))
                         (?C . ,(mz/get-theme-color 'green)))))
-
-;; ensure point blinks forever
-(setq blink-cursor-blinks -1)
 
 (provide 'init-visual)
