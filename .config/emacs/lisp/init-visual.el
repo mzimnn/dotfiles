@@ -1,3 +1,12 @@
+;; show current column
+(setq column-number-mode t)
+
+;; show relative line numbers
+(setq display-line-numbers-type 'visual)
+
+;; hide welcome screen
+(setq inhibit-startup-screen t)
+
 ;; hide visual elements
 (menu-bar-mode -1)
 (scroll-bar-mode -1)

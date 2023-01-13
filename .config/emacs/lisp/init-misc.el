@@ -30,15 +30,6 @@ If called with a prefix ARG, use European format of date."
 (add-hook 'prog-mode-hook 'mz/adjust-environment-for-editing)
 (add-hook 'text-mode-hook 'mz/adjust-environment-for-editing)
 
-;; show relative line numbers
-(setq display-line-numbers-type 'visual)
-
-;; show current column
-(setq column-number-mode t)
-
-;; hide welcome screen
-(setq inhibit-startup-screen t)
-
 ;; specify when to wrap lines
 (setq-default fill-column 80)
 (add-hook 'git-commit-setup-hook (lambda () (setq fill-column 72)))
