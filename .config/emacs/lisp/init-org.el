@@ -10,11 +10,11 @@
 ;; allow usage of alphabetical lists
 (setq org-list-allow-alphabetical t)
 
+;; enable Org Indent mode
+(setq org-startup-indented t)
+
 ;; customize TODO keywords
 (setq org-todo-keywords
       '((sequence "TODO(t)" "HOLD(h)" "WAIT(w)" "|" "DONE(d)" )))
-
-;; enable Org Indent mode
-(setq org-startup-indented t)
 
 (provide 'init-org)
