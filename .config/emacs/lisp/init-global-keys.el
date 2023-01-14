@@ -1,3 +1,6 @@
+;; describe character under point
+(global-set-key (kbd "C-h c") #'describe-char) ; describe-key-briefly
+
 ;; use much more powerful IBuffer mode to view buffers
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
