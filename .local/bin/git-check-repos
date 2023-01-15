@@ -22,14 +22,14 @@ usage () {
     cat <<EOF
 usage: git check-repos [(-a|-A)|-c|-f|-h|-u|-v] [<path>]
 
-Search for Git repositories within the given path. Is no path provided then the
-current directory is searched.
+Search for Git repositories within the given path. If no path is provided then
+the current directory is searched.
 
 By default up-to-date repositories are suppressed from the output. A repository
 is considered up-to-date if the local branch matches its upstream branch.
 
-Is the configuration variable "checkrepos.skip" set in a found repository then
-it will be ignored.
+If the configuration variable "checkrepos.skip" is set in a found repository
+then it will be ignored.
 
 The paths of the found repositories are prefixed by two status fields in the
 output.
