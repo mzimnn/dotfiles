@@ -29,6 +29,9 @@
   "Set custom faces."
   (modus-themes-with-colors
     (custom-set-faces
+     ;; ensure region only highlights text
+     '(region ((t (:extend nil))))
+
      ;; improve visual appearance of tab bar
      `(tab-bar-tab
        ((,c (:box (:line-width (6 . 2) :color ,bg-tab-current)))))
@@ -36,10 +39,7 @@
        ((,c (:box (:line-width (6 . 2) :color ,bg-tab-other)))))
 
      ;; adjust coloring of tabs and trailing whitespace
-     '(whitespace-tab ((t (:background unspecified))))
-
-     ;; ensure region only highlights text
-     '(region ((t (:extend nil)))))
+     '(whitespace-tab ((t (:background unspecified)))))
 
     ;; colorize priorities in Org mode
     (custom-set-variables
