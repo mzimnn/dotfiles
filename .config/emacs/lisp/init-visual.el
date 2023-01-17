@@ -45,9 +45,11 @@
                                            'tab-bar-tab-inactive
                                            :background)))))))
 
-;; show spaces and tabs
+;; show tabs and trailing whitespace
 (setq whitespace-style
       '(face space-before-tab tabs trailing tab-mark))
+
+;; adjust coloring of tabs and trailing whitespace
 (custom-set-faces
  `(whitespace-tab
    ((t (:foreground ,(mz/get-theme-color 'base01)
