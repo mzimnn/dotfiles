@@ -16,7 +16,7 @@
 
 If called with a prefix ARG, use European format of date."
   (interactive "p")
-  (when mark-active
+  (when (use-region-p)
     (delete-region (region-beginning) (region-end)))
   (insert (format-time-string (if (= arg 4) "%d.%m.%Y" "%Y-%m-%d"))))
 
