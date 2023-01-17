@@ -28,19 +28,18 @@
 (defun mz/set-custom-faces ()
   "Set custom faces."
   (modus-themes-with-colors
-    ;; improve visual appearance of tab bar
     (custom-set-faces
+     ;; improve visual appearance of tab bar
      `(tab-bar-tab
        ((,c (:box (:line-width (6 . 2) :color ,bg-tab-current)))))
      `(tab-bar-tab-inactive
-       ((,c (:box (:line-width (6 . 2) :color ,bg-tab-other))))))
+       ((,c (:box (:line-width (6 . 2) :color ,bg-tab-other)))))
 
-    ;; adjust coloring of tabs and trailing whitespace
-    (custom-set-faces
-     '(whitespace-tab ((t (:background unspecified)))))
+     ;; adjust coloring of tabs and trailing whitespace
+     '(whitespace-tab ((t (:background unspecified))))
 
-    ;; ensure region only highlights text
-    (custom-set-faces '(region ((t (:extend nil)))))
+     ;; ensure region only highlights text
+     '(region ((t (:extend nil)))))
 
     ;; colorize priorities in Org mode
     (custom-set-variables
