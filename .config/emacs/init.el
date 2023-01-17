@@ -4,7 +4,7 @@
 
 ;; install packages
 (setq package-selected-packages
-      '(diff-hl dtrt-indent ledger-mode magit hide-mode-line olivetti
+      '(diff-hl dtrt-indent hide-mode-line ledger-mode magit olivetti
                 solarized-theme))
 
 (unless (seq-every-p #'package-installed-p package-selected-packages)
