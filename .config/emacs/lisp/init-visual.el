@@ -32,40 +32,45 @@
   "Return value of COLOR defined in `mz/color-palette'."
   (alist-get color mz/color-palette))
 
-;; improve visual appearance of tab bar
-(custom-set-faces
- `(tab-bar
-   ((t (:background ,(mz/get-theme-color 'base02)))))
- `(tab-bar-tab
-   ((t (:box (:line-width (6 . 2) :color ,(face-attribute
-                                           'tab-bar-tab
-                                           :background))))))
- `(tab-bar-tab-inactive
-   ((t (:box (:line-width (6 . 2) :color ,(face-attribute
-                                           'tab-bar-tab-inactive
-                                           :background)))))))
-
 ;; show tabs and trailing whitespace
 (setq whitespace-style
       '(face space-before-tab tabs trailing tab-mark))
 
-;; adjust coloring of tabs and trailing whitespace
-(custom-set-faces
- `(whitespace-tab
-   ((t (:foreground ,(mz/get-theme-color 'base01)
-        :inverse-video unspecified))))
- `(whitespace-trailing
-   ((t (:foreground unspecified
-        :background ,(mz/get-theme-color 'red)
-        :inverse-video unspecified)))))
+(defun mz/set-custom-faces ()
+  "Set custom faces."
+  ;; improve visual appearance of tab bar
+  (custom-set-faces
+   `(tab-bar
+     ((t (:background ,(mz/get-theme-color 'base02)))))
+   `(tab-bar-tab
+     ((t (:box (:line-width (6 . 2) :color ,(face-attribute
+                                             'tab-bar-tab
+                                             :background))))))
+   `(tab-bar-tab-inactive
+     ((t (:box (:line-width (6 . 2) :color ,(face-attribute
+                                             'tab-bar-tab-inactive
+                                             :background)))))))
 
-;; ensure region only highlights text
-(custom-set-faces '(region ((t (:extend nil)))))
+  ;; adjust coloring of tabs and trailing whitespace
+  (custom-set-faces
+   `(whitespace-tab
+     ((t (:foreground ,(mz/get-theme-color 'base01)
+          :inverse-video unspecified))))
+   `(whitespace-trailing
+     ((t (:foreground unspecified
+          :background ,(mz/get-theme-color 'red)
+          :inverse-video unspecified)))))
 
-;; colorize priorities in Org mode
-(custom-set-variables
- '(org-priority-faces `((?A . ,(mz/get-theme-color 'red))
-                        (?B . ,(mz/get-theme-color 'blue))
-                        (?C . ,(mz/get-theme-color 'green)))))
+  ;; ensure region only highlights text
+  (custom-set-faces '(region ((t (:extend nil)))))
+
+  ;; colorize priorities in Org mode
+  (custom-set-variables
+   '(org-priority-faces `((?A . ,(mz/get-theme-color 'red))
+                          (?B . ,(mz/get-theme-color 'blue))
+                          (?C . ,(mz/get-theme-color 'green))))))
+
+;; load custom faces
+(mz/set-custom-faces)
 
 (provide 'init-visual)
