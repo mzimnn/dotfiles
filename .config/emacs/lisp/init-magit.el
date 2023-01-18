@@ -1,3 +1,6 @@
+;; highlight too long commit summary
+(setq git-commit-summary-max-length 50)
+
 ;; don't show relevant diff when committing
 (setq magit-commit-show-diff nil)
 ;; highlight differences within a line
