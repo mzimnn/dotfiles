@@ -36,6 +36,8 @@ else
     set listchars=tab:>\ ,trail:.
 endif
 
+" show line and column number
+set ruler
 " show command in bottom bar
 set showcmd
 
