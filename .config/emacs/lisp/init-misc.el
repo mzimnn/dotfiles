@@ -41,6 +41,14 @@ If called with a prefix ARG, use European format of date."
 ;; save bookmarks after each change
 (setq bookmark-save-flag 1)
 
+;; display ISO week numbers
+(setq calendar-intermonth-text
+      '(propertize
+        (format "%2d"
+                (car
+                 (calendar-iso-from-absolute
+                  (calendar-absolute-from-gregorian (list month day year)))))
+        'font-lock-face 'font-lock-function-name-face))
 ;; set weekday on which a week begins
 (setq calendar-week-start-day 1)
 
