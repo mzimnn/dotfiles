@@ -1,8 +1,3 @@
-(defun mz/other-window-backwards ()
-  "Like `other-window' but in reverse."
-  (interactive)
-  (other-window -1))
-
 ;; use globally bound command instead of local one
 (with-eval-after-load 'ibuffer
   (define-key ibuffer-mode-map (kbd "M-o") nil)) ; ibuffer-visit-buffer-1-window
@@ -10,15 +5,6 @@
 ;; hide mode line in focus mode
 (add-hook 'olivetti-mode-on-hook #'turn-on-hide-mode-line-mode)
 (add-hook 'olivetti-mode-off-hook #'turn-off-hide-mode-line-mode)
-
-(defun mz/insert-current-date (&optional arg)
-  "Insert current date into buffer.
-
-If called with a prefix ARG, use European format of date."
-  (interactive "p")
-  (when (use-region-p)
-    (delete-region (region-beginning) (region-end)))
-  (insert (format-time-string (if (= arg 4) "%d.%m.%Y" "%Y-%m-%d"))))
 
 (defun mz/adjust-environment-for-editing ()
   "Enable useful minor modes and set useful variables for editing."

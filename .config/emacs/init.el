@@ -14,6 +14,9 @@
 ;; use local directory to modularize this init file
 (add-to-list 'load-path (expand-file-name "lisp/" user-emacs-directory))
 
+;; load utility functions
+(require 'init-utils)
+
 ;; load separate init files
 (require 'init-dired)
 (require 'init-evil)
