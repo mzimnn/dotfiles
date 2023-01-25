@@ -4,7 +4,7 @@
 
 ;; install packages
 (setq package-selected-packages
-      '(diff-hl dtrt-indent hide-mode-line ledger-mode magit modus-themes
+      '(diff-hl dtrt-indent evil hide-mode-line ledger-mode magit modus-themes
                 olivetti))
 
 (unless (seq-every-p #'package-installed-p package-selected-packages)
@@ -16,6 +16,7 @@
 
 ;; load separate init files
 (require 'init-dired)
+(require 'init-evil)
 (require 'init-eww)
 (require 'init-magit)
 (require 'init-misc)
