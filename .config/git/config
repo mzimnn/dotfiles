@@ -55,6 +55,7 @@
 	defaultBranch = master
 [merge]
 	autoStash = true
+	conflictStyle = zdiff3
 [pull]
 	ff = only
 [rebase]
