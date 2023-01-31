@@ -1,7 +1,3 @@
-;; use globally bound command instead of local one
-(with-eval-after-load 'ibuffer
-  (define-key ibuffer-mode-map (kbd "M-o") nil)) ; ibuffer-visit-buffer-1-window
-
 ;; hide mode line in focus mode
 (add-hook 'olivetti-mode-on-hook #'turn-on-hide-mode-line-mode)
 (add-hook 'olivetti-mode-off-hook #'turn-off-hide-mode-line-mode)
@@ -92,6 +88,10 @@
 (with-eval-after-load 'help-mode
   (define-key help-mode-map "n" 'next-line)
   (define-key help-mode-map "p" 'previous-line))
+
+;; use globally bound command instead of local one
+(with-eval-after-load 'ibuffer
+  (define-key ibuffer-mode-map (kbd "M-o") nil)) ; ibuffer-visit-buffer-1-window
 
 ;; change keybindings in Info mode
 (with-eval-after-load 'info
