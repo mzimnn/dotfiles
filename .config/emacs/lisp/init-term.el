@@ -1,12 +1,3 @@
-(defun mz/find-buffers-by-mode (mode)
-  "Return all buffers which derive from MODE."
-  (let ((buffers ()))
-    (dolist (buffer (buffer-list))
-      (with-current-buffer buffer
-        (when (derived-mode-p mode)
-          (push buffer buffers))))
-    buffers))
-
 (defun mz/ansi-term (&optional arg)
   "Start a terminal-emulator using bash.
 
