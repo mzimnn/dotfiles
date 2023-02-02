@@ -22,6 +22,8 @@
 
 ;; only scroll current line horizontally
 (setq auto-hscroll-mode 'current-line)
+;; allow moving point to top-/bottom-most position when scrolling
+(setq scroll-error-top-bottom t)
 
 ;; save bookmarks after each change
 (setq bookmark-save-flag 1)
