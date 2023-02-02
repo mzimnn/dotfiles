@@ -6,6 +6,9 @@
 ;; use Emacs key bindings in insert state
 (setq evil-disable-insert-state-bindings t)
 
+;; display a vertical bar in Emacs state
+(setq evil-emacs-state-cursor 'bar)
+
 ;; certain commands should move point to start of line
 (setq evil-start-of-line t)
 
