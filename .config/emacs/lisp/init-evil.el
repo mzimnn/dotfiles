@@ -3,6 +3,9 @@
 (setq evil-motion-state-modes nil)
 (setq evil-insert-state-modes nil)
 
+;; use Emacs key bindings in insert state
+(setq evil-disable-insert-state-bindings t)
+
 ;; certain commands should move point to start of line
 (setq evil-start-of-line t)
 
