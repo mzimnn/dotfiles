@@ -20,6 +20,9 @@
 (setq mac-option-modifier 'super)
 (setq mac-command-modifier 'meta)
 
+;; only scroll current line horizontally
+(setq auto-hscroll-mode 'current-line)
+
 ;; save bookmarks after each change
 (setq bookmark-save-flag 1)
 
