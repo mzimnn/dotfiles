@@ -9,7 +9,7 @@
 	d = diff
 	diff-upstream = diff HEAD@{upstream} HEAD
 	ds = diff --staged
-	f = fetch -v --prune
+	f = fetch -v
 	j = jump
 	l = log
 	last = log -1 HEAD
@@ -47,6 +47,8 @@
 	first-run = false
 	markEmptyLines = false
 	stripLeadingSymbols = false
+[fetch]
+	prune = true
 [grep]
 	lineNumber = true
 [include]
