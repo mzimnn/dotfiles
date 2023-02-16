@@ -43,11 +43,6 @@
             (cdr status-line))
           status-lines))
 
-(defun mz/sort-alphabetically (strings)
-  "Sort STRINGS in alphabetical order."
-  (sort strings (lambda (str1 str2)
-                  (string-lessp (downcase str1) (downcase str2)))))
-
 (defun mz/convert-to-instant-commit-msg (filenames)
   "Convert FILENAMES into an instant commit message."
   (if (length= filenames 0)

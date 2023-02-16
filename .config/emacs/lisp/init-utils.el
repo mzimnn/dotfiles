@@ -21,4 +21,9 @@ If called with a prefix ARG, use European format of date."
     (delete-region (region-beginning) (region-end)))
   (insert (format-time-string (if (= arg 4) "%d.%m.%Y" "%Y-%m-%d"))))
 
+(defun mz/sort-alphabetically (strings)
+  "Sort STRINGS in alphabetical order."
+  (sort strings (lambda (str1 str2)
+                  (string-lessp (downcase str1) (downcase str2)))))
+
 (provide 'init-utils)
