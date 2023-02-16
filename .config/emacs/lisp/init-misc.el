@@ -2,15 +2,27 @@
 (add-hook 'olivetti-mode-on-hook #'turn-on-hide-mode-line-mode)
 (add-hook 'olivetti-mode-off-hook #'turn-off-hide-mode-line-mode)
 
-(defun mz/adjust-environment-for-editing ()
-  "Enable useful minor modes and set useful variables for editing."
+(defun mz/configure-conf-modes ()
+  "Configure modes which derive from `conf-mode'."
   (display-line-numbers-mode)
   (whitespace-mode)
   (setq truncate-lines t))
 
-(add-hook 'conf-mode-hook 'mz/adjust-environment-for-editing)
-(add-hook 'prog-mode-hook 'mz/adjust-environment-for-editing)
-(add-hook 'text-mode-hook 'mz/adjust-environment-for-editing)
+(defun mz/configure-prog-modes ()
+  "Configure modes which derive from `prog-mode'."
+  (display-line-numbers-mode)
+  (whitespace-mode)
+  (setq truncate-lines t))
+
+(defun mz/configure-text-modes ()
+  "Configure modes which derive from `text-mode'."
+  (display-line-numbers-mode)
+  (whitespace-mode)
+  (setq truncate-lines t))
+
+(add-hook 'conf-mode-hook #'mz/configure-conf-modes)
+(add-hook 'prog-mode-hook #'mz/configure-prog-modes)
+(add-hook 'text-mode-hook #'mz/configure-text-modes)
 
 ;; specify when to wrap lines
 (setq-default fill-column 80)
