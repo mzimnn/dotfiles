@@ -11,6 +11,7 @@
 (defun mz/configure-prog-modes ()
   "Configure modes which derive from `prog-mode'."
   (display-line-numbers-mode)
+  (hl-todo-mode)
   (whitespace-mode)
   (setq truncate-lines t))
 
