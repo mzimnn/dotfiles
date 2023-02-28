@@ -2,24 +2,24 @@
 (add-hook 'olivetti-mode-on-hook #'turn-on-hide-mode-line-mode)
 (add-hook 'olivetti-mode-off-hook #'turn-off-hide-mode-line-mode)
 
-(defun mz/configure-conf-modes ()
-  "Configure modes which derive from `conf-mode'."
+(defun mz/configure-modes-for-editing ()
+  "Configure modes for editing."
   (display-line-numbers-mode)
   (whitespace-mode)
   (setq truncate-lines t))
+
+(defun mz/configure-conf-modes ()
+  "Configure modes which derive from `conf-mode'."
+  (mz/configure-modes-for-editing))
 
 (defun mz/configure-prog-modes ()
   "Configure modes which derive from `prog-mode'."
-  (display-line-numbers-mode)
-  (hl-todo-mode)
-  (whitespace-mode)
-  (setq truncate-lines t))
+  (mz/configure-modes-for-editing)
+  (hl-todo-mode))
 
 (defun mz/configure-text-modes ()
   "Configure modes which derive from `text-mode'."
-  (display-line-numbers-mode)
-  (whitespace-mode)
-  (setq truncate-lines t))
+  (mz/configure-modes-for-editing))
 
 (add-hook 'conf-mode-hook #'mz/configure-conf-modes)
 (add-hook 'prog-mode-hook #'mz/configure-prog-modes)
