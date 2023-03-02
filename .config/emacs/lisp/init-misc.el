@@ -15,7 +15,9 @@
 (defun mz/configure-prog-modes ()
   "Configure modes which derive from `prog-mode'."
   (mz/configure-modes-for-editing)
-  (hl-todo-mode))
+  (hl-todo-mode)
+  (when (mz/ispell-program-installed-p)
+    (flyspell-prog-mode)))
 
 (defun mz/configure-text-modes ()
   "Configure modes which derive from `text-mode'."

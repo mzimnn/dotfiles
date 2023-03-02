@@ -26,4 +26,9 @@ If called with a prefix ARG, use European format of date."
   (sort strings (lambda (str1 str2)
                   (string-lessp (downcase str1) (downcase str2)))))
 
+(defun mz/ispell-program-installed-p ()
+  "Check if `ispell-program-name' is installed."
+  (require 'ispell)
+  (when (executable-find ispell-program-name) t))
+
 (provide 'init-utils)
