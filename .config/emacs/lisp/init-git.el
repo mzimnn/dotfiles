@@ -2,7 +2,7 @@
 (setq git-commit-summary-max-length 50)
 
 ;; specify when to wrap lines
-(add-hook 'git-commit-setup-hook (lambda () (setq fill-column 72)))
+(add-hook 'git-commit-mode-hook (lambda () (setq fill-column 72)))
 
 ;; don't show relevant diff when committing
 (setq magit-commit-show-diff nil)
