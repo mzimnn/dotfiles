@@ -86,6 +86,7 @@
 (setq-default tab-width 4)
 
 ;; guess indentation settings
+(setq dtrt-indent-verbosity 0)
 (dtrt-indent-global-mode)
 
 ;; enable tab-bar-mode
