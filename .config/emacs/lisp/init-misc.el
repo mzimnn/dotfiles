@@ -106,6 +106,10 @@
 (put 'upcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 
+;; change keybindings in Lisp interaction mode
+(with-eval-after-load 'elisp-mode
+  (define-key lisp-interaction-mode-map (kbd "C-j") nil))
+
 ;; change keybindings in help mode
 (with-eval-after-load 'help-mode
   (define-key help-mode-map "n" 'next-line)
