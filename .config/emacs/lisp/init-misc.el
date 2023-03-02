@@ -56,6 +56,9 @@
 ;; show number of matches in search prompt
 (setq isearch-lazy-count t)
 
+;; don't ask when saving personal dictionary
+(setq ispell-silently-savep t)
+
 ;; ignore case when completing
 (setq completion-ignore-case t)
 (setq read-file-name-completion-ignore-case t)
