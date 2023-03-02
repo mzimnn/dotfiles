@@ -21,7 +21,7 @@
 (require 'init-dired)
 (require 'init-evil)
 (require 'init-eww)
-(require 'init-magit)
+(require 'init-git)
 (require 'init-misc)
 (require 'init-org)
 (require 'init-term)

@@ -29,7 +29,6 @@
 
 ;; specify when to wrap lines
 (setq-default fill-column 80)
-(add-hook 'git-commit-setup-hook (lambda () (setq fill-column 72)))
 
 ;; use Command key as Meta key
 (setq mac-option-modifier 'super)

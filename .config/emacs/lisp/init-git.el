@@ -1,6 +1,9 @@
 ;; highlight too long commit summary
 (setq git-commit-summary-max-length 50)
 
+;; specify when to wrap lines
+(add-hook 'git-commit-setup-hook (lambda () (setq fill-column 72)))
+
 ;; don't show relevant diff when committing
 (setq magit-commit-show-diff nil)
 ;; highlight differences within a line
@@ -78,4 +81,4 @@
             (transient-append-suffix 'magit-commit "c"
               '("C" "Instant commit" mz/git-instant-commit))))
 
-(provide 'init-magit)
+(provide 'init-git)
