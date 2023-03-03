@@ -62,6 +62,9 @@
 ;; don't ask when saving personal dictionary
 (setq ispell-silently-savep t)
 
+;; don't show warnings during native compilation
+(setq native-comp-async-report-warnings-errors 'silent)
+
 ;; ignore case when completing
 (setq completion-ignore-case t)
 (setq read-file-name-completion-ignore-case t)
