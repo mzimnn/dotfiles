@@ -14,4 +14,7 @@ the existing term buffer."
   (define-key term-raw-map (kbd "M-o") nil)
   (define-key term-raw-map (kbd "M-x") nil))
 
+;; make URLs and email addresses clickable
+(add-hook 'term-mode-hook #'goto-address-mode)
+
 (provide 'init-term)

@@ -27,6 +27,9 @@
 (add-hook 'prog-mode-hook #'mz/configure-prog-modes)
 (add-hook 'text-mode-hook #'mz/configure-text-modes)
 
+;; make URLs and email addresses clickable
+(add-hook 'shell-mode-hook #'goto-address-mode)
+
 ;; specify when to wrap lines
 (setq-default fill-column 80)
 
