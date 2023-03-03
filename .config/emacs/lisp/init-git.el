@@ -1,3 +1,6 @@
+;; ensure Magit can be accessed via project.el
+(require 'magit-extras)
+
 ;; highlight too long commit summary
 (setq git-commit-summary-max-length 50)
 
