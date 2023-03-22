@@ -4,8 +4,12 @@
 ;; highlight too long commit summary
 (setq git-commit-summary-max-length 50)
 
-;; specify when to wrap lines
-(add-hook 'git-commit-mode-hook (lambda () (setq fill-column 72)))
+(defun mz/configure-git-commit-mode ()
+  "Configure `git-commit-mode'."
+  ;; specify when to wrap lines
+  (setq fill-column 72))
+
+(add-hook 'git-commit-mode-hook #'mz/configure-git-commit-mode)
 
 ;; don't show relevant diff when committing
 (setq magit-commit-show-diff nil)
