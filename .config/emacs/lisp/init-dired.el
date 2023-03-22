@@ -9,10 +9,13 @@
 ;; probably not work on macOS and Windows.
 (setq dired-listing-switches "-alhv --group-directories-first")
 
-;; highlight files with uncommitted changes
-(add-hook 'dired-mode-hook #'diff-hl-dired-mode-unless-remote)
+(defun mz/configure-dired-mode ()
+  "Configure `dired-mode'."
+  ;; truncate lines if they do not fit on the screen
+  (setq truncate-lines t)
+  ;; highlight files with uncommitted changes
+  (diff-hl-dired-mode-unless-remote))
 
-;; truncate lines if they do not fit on the screen
-(add-hook 'dired-mode-hook (lambda () (setq truncate-lines t)))
+(add-hook 'dired-mode-hook #'mz/configure-dired-mode)
 
 (provide 'init-dired)
