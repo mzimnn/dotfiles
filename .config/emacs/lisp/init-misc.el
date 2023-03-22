@@ -17,7 +17,8 @@
   "Configure modes which derive from `prog-mode'."
   (mz/configure-modes-for-editing)
   (hl-todo-mode)
-  (when (mz/ispell-program-installed-p)
+  (when (and (not buffer-read-only)
+             (mz/ispell-program-installed-p))
     (flyspell-prog-mode)))
 
 (defun mz/configure-text-modes ()
