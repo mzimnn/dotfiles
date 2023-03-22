@@ -4,8 +4,9 @@
 
 (defun mz/configure-modes-for-editing ()
   "Configure modes for editing."
-  (display-line-numbers-mode)
-  (whitespace-mode)
+  (unless buffer-read-only
+    (display-line-numbers-mode)
+    (whitespace-mode))
   (setq truncate-lines t))
 
 (defun mz/configure-conf-modes ()
