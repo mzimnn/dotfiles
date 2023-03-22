@@ -44,6 +44,11 @@
 ;; allow moving point to top-/bottom-most position when scrolling
 (setq scroll-error-top-bottom t)
 
+;; avoid polling when possible to save CPU cycles
+(setq auto-revert-avoid-polling t)
+;; don't display a message when a buffer has been reverted
+(setq auto-revert-verbose nil)
+
 ;; save bookmarks after each change
 (setq bookmark-save-flag 1)
 

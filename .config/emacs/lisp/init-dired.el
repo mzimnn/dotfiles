@@ -13,6 +13,8 @@
   "Configure `dired-mode'."
   ;; truncate lines if they do not fit on the screen
   (setq truncate-lines t)
+  ;; automatically update Dired buffer if something changed on the file system
+  (auto-revert-mode)
   ;; highlight files with uncommitted changes
   (diff-hl-dired-mode-unless-remote))
 
