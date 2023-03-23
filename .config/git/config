@@ -18,6 +18,7 @@
 	s = status
 	sh = show
 	sw = switch
+	tags = tag --list
 	tree = log --oneline --graph
 
 	# un-/hide files locally
