@@ -223,5 +223,11 @@ bar {
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
+#
+# Window configuration:
+#
+    # Make windows floating
+    for_window [app_id="mpv"] floating enable
+    for_window [app_id="org.keepassxc.KeePassXC"] floating enable
 
 include /etc/sway/config.d/*
