@@ -22,6 +22,7 @@
 (setq magit-diff-refine-ignore-whitespace nil)
 ;; don't ask when saving buffers automatically
 (setq magit-save-repository-buffers 'dontask)
+(setq vc-suppress-confirm t)
 
 ;; highlight uncommitted changes
 ;; TODO: Enable diff-hl-margin-mode if Emacs runs in the terminal. It's not easy
