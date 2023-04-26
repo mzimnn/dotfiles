@@ -120,6 +120,11 @@
 (put 'upcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 
+;; change keybindings in DocView mode
+(with-eval-after-load 'doc-view
+  (define-key doc-view-mode-map (kbd "<home>") #'doc-view-first-page)
+  (define-key doc-view-mode-map (kbd "<end>") #'doc-view-last-page))
+
 ;; change keybindings in Lisp interaction mode
 (with-eval-after-load 'elisp-mode
   (define-key lisp-interaction-mode-map (kbd "C-j") nil))
