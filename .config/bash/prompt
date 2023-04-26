@@ -1,3 +1,5 @@
+# -*- mode: sh; -*-
+
 # set bash prompt (PS1)
 DEFAULT='\033[0m'
 BLUE='\033[1;34m'
