@@ -24,6 +24,9 @@
 (setq magit-save-repository-buffers 'dontask)
 (setq vc-suppress-confirm t)
 
+;; follow version-controlled symbolic links without asking
+(setq vc-follow-symlinks t)
+
 ;; highlight uncommitted changes
 ;; TODO: Enable diff-hl-margin-mode if Emacs runs in the terminal. It's not easy
 ;; though to check that. For example it is not possible to just call
