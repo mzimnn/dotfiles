@@ -28,6 +28,7 @@
 ;; though to check that. For example it is not possible to just call
 ;; display-graphic-p here, since Emacs can also be started as a daemon. In that
 ;; case this function would always return nil.
+;; See: https://emacsredux.com/blog/2022/06/03/detecting-whether-emacs-is-running-in-terminal-or-gui-mode/
 (setq diff-hl-show-staged-changes nil)
 (global-diff-hl-mode)
 (diff-hl-flydiff-mode)
