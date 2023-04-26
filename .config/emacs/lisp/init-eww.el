@@ -7,6 +7,9 @@
 ;; do not display images
 (setq shr-inhibit-images t)
 
+;; change default search engine in EWW
+(setq eww-search-prefix "https://www.google.com/search?q=")
+
 ;; use lightweight frontends which EWW can render better
 (setq mz/url-replace-host-map '(("reddit.com" . "libreddit.de")
                                 ("old.reddit.com" . "libreddit.de")
