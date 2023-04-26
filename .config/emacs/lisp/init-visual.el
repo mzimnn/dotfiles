@@ -38,7 +38,7 @@
      `(tab-bar-tab-inactive
        ((,c (:box (:line-width (6 . 2) :color ,bg-tab-other)))))
 
-     ;; adjust coloring of tabs and trailing whitespace
+     ;; adjust coloring of tabs
      '(whitespace-tab ((t (:background unspecified)))))
 
     ;; colorize priorities in Org mode
