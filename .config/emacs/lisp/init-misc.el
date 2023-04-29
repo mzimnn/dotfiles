@@ -32,6 +32,9 @@
 ;; make URLs and email addresses clickable
 (add-hook 'shell-mode-hook #'goto-address-mode)
 
+;; add aliases
+(defalias 'cal #'calendar)
+
 ;; specify when to wrap lines
 (setq-default fill-column 80)
 
