@@ -33,10 +33,8 @@ If the configuration variable "checkrepos.skip" is set in a found repository
 then it will be ignored.
 
 The paths of the found repositories are prefixed by two status fields in the
-output.
-
-The first field indicates the relation of the local branch to its upstream
-branch. Possible values are:
+output. The first field indicates the relation of the local branch to its
+upstream branch. Possible values are:
 
  - $STATUS_BRANCH_DIFFERS = local and upstream branch differ
  - $STATUS_BRANCH_NOT_SET = no upstream branch set
