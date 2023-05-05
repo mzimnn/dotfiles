@@ -22,8 +22,8 @@ usage () {
     cat <<EOF
 usage: git check-repos [(-a|-A)|-c|-f|-h|-u|-v] [<path>]
 
-Search for Git repositories within the given path. If no path is provided then
-the current directory is searched.
+It searches for Git repositories within the given path. If no path is provided
+then the current directory is searched.
 
 By default up-to-date repositories are suppressed from the output. A repository
 is considered up-to-date if the local branch matches its upstream branch.
