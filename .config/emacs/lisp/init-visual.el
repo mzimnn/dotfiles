@@ -29,6 +29,9 @@
   "Set custom faces."
   (modus-themes-with-colors
     (custom-set-faces
+     ;; adjust coloring of holidays
+     `(holiday ((,c (:foreground ,yellow-warmer))))
+
      ;; ensure region only highlights text
      '(region ((t (:extend nil))))
 
