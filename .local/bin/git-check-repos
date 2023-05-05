@@ -233,7 +233,7 @@ main () {
             skip_repo="$(git -C "$repo_path" config \
                             --local --type bool --get checkrepos.skip || true)"
 
-            # Check if it is configured to be skipped (except if "-A" is
+            # Check if repository is configured to be skipped (except if "-A" is
             # provided)
             if [ "$skip_repo" = 'true' ] && [ "$show_all_and_skipped" -eq 0 ]
             then
