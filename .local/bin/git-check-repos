@@ -20,10 +20,11 @@ is_piped=0
 
 usage () {
     cat <<EOF
-usage: git check-repos [(-a|-A)|-c|-f|-h|-u|-v] [<path>]
+usage: git check-repos [(-a|-A)|-c|-f|-h|-u|-v] [(<file>|<path>)]
 
 It searches for Git repositories within the given path. If no path is provided
-then the current directory is searched.
+then the current directory is searched. Alternatively a file can be provided
+where each line specifies a path to a Git repository.
 
 By default up-to-date repositories are suppressed from the output. A repository
 is considered up-to-date if the local branch matches its upstream branch.
@@ -74,6 +75,15 @@ find_git_repo_paths () {
     # Does a directory contain a .git/ directory then do not traverse it any
     # further
     find -L "$1" -type d -exec test -d {}/.git \; -prune -print
+}
+
+list_git_repo_paths () {
+    if [ -f "$1" ]
+    then
+        cat "$1"
+    else
+        find_git_repo_paths "$1"
+    fi
 }
 
 get_status_upstream_branch () {
@@ -209,7 +219,7 @@ main () {
     fi
 
     # Use current directory if no path was provided
-    find_git_repo_paths "${1:-.}" |
+    list_git_repo_paths "${1:-.}" |
     while read -r repo_path
     do
         # Check if $repo_path points to a valid Git repo
