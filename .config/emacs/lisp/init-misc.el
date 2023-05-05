@@ -66,6 +66,9 @@
 ;; set weekday on which a week begins
 (setq calendar-week-start-day 1)
 
+;; do stop at start/end of buffer when moving to errors
+(setq flymake-wrap-around nil)
+
 ;; show number of matches in search prompt
 (setq isearch-lazy-count t)
 
@@ -128,6 +131,11 @@
 ;; change keybindings in Lisp interaction mode
 (with-eval-after-load 'elisp-mode
   (define-key lisp-interaction-mode-map (kbd "C-j") nil))
+
+;; change keybindings in Flymake mode
+(with-eval-after-load 'flymake
+  (define-key flymake-mode-map (kbd "M-n") 'flymake-goto-next-error)
+  (define-key flymake-mode-map (kbd "M-p") 'flymake-goto-prev-error))
 
 ;; change keybindings in help mode
 (with-eval-after-load 'help-mode
