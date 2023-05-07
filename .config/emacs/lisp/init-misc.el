@@ -32,9 +32,6 @@
 ;; make URLs and email addresses clickable
 (add-hook 'shell-mode-hook #'goto-address-mode)
 
-;; add aliases
-(defalias 'cal #'calendar)
-
 ;; specify when to wrap lines
 (setq-default fill-column 80)
 
@@ -54,19 +51,6 @@
 
 ;; save bookmarks after each change
 (setq bookmark-save-flag 1)
-
-;; display ISO week numbers
-(setq calendar-intermonth-text
-      '(propertize
-        (format "%2d"
-                (car
-                 (calendar-iso-from-absolute
-                  (calendar-absolute-from-gregorian (list month day year)))))
-        'font-lock-face 'font-lock-function-name-face))
-;; highlight holidays in calendar
-(setq calendar-mark-holidays-flag t)
-;; set weekday on which a week begins
-(setq calendar-week-start-day 1)
 
 ;; do stop at start/end of buffer when moving to errors
 (setq flymake-wrap-around nil)

@@ -18,6 +18,7 @@
 (require 'init-utils)
 
 ;; load separate init files
+(require 'init-calendar)
 (require 'init-dired)
 (require 'init-evil)
 (require 'init-eww)
