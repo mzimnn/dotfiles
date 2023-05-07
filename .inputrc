@@ -7,5 +7,5 @@ set colored-stats On
 # Ignore case when completing
 set completion-ignore-case On
 
-# Use vi-like keybindings
+# Use vi-like key bindings
 set editing-mode vi

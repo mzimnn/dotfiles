@@ -59,7 +59,7 @@
   (mz/url-display-content-length (shr-url-at-point nil)))
 
 (with-eval-after-load 'eww
-  ;; change keybindings in eww mode
+  ;; change key bindings in eww mode
   (define-key eww-mode-map "n" 'next-line)
   (define-key eww-mode-map "p" 'previous-line)
   (define-key eww-mode-map "N" 'eww-next-url)
@@ -68,7 +68,7 @@
   (define-key eww-mode-map "v" nil)
   (define-key eww-mode-map (kbd "M-s") #'mz/eww-display-content-length)
 
-  ;; change keybindings in eww bookmarks mode
+  ;; change key bindings in eww bookmarks mode
   (define-key eww-bookmark-mode-map "n" 'next-line)
   (define-key eww-bookmark-mode-map "p" 'previous-line))
 
