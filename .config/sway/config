@@ -172,6 +172,9 @@ input type:touchpad {
 
     # Hide title bar of windows
     default_border pixel 2
+
+    # Hide border if there is only one window
+    smart_borders on
 #
 # Scratchpad:
 #
