@@ -169,6 +169,9 @@ input type:touchpad {
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
+    # Hide title bar of windows
+    default_border pixel 2
 #
 # Scratchpad:
 #
