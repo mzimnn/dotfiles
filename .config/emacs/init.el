@@ -27,8 +27,8 @@
 (require 'init-term)
 (require 'init-visual)
 
-;; load global key bindings
-(require 'init-global-keys)
+;; load key bindings
+(require 'init-keys)
 
 ;; load machine-specific configurations
 (require 'init-local nil t)

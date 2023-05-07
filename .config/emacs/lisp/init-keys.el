@@ -21,4 +21,4 @@
 ;; start terminal
 (global-set-key (kbd "C-c t") #'mz/ansi-term)
 
-(provide 'init-global-keys)
+(provide 'init-keys)
