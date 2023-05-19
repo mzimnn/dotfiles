@@ -12,6 +12,9 @@
 ;; certain commands should move point to start of line
 (setq evil-start-of-line t)
 
+;; search for symbols instead of words
+(setq evil-symbol-word-search t)
+
 ;; enable CTRL-u to scroll upwards
 (setq evil-want-C-u-scroll t)
 
