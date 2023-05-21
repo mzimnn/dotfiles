@@ -17,7 +17,6 @@ fi
 
 files=(
     /usr/share/bash-completion/completions/git
-    /usr/share/fzf/key-bindings.bash
     /usr/share/git/completion/git-prompt.sh
     /usr/share/z/z.sh
     ~/.config/bash/aliases
@@ -32,6 +31,12 @@ done
 
 unset file
 unset files
+
+# Dump terminals (e.g. Emacs shell-mode) do not support these key bindings
+if [ "$TERM" != "dumb" ]
+then
+    source /usr/share/fzf/key-bindings.bash
+fi
 
 # Shell options
 shopt -s autocd
