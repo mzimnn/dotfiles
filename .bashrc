@@ -60,9 +60,6 @@ then
 fi
 
 # Set LS_COLORS using `dircolors`
-if is_installed dircolors
-then
-    eval $(dircolors -b)
-fi
+is_installed dircolors && eval $(dircolors -b)
 
 unset is_installed
