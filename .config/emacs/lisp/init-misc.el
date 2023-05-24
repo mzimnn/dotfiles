@@ -25,6 +25,10 @@
 (add-hook 'prog-mode-hook #'mz/configure-prog-modes)
 (add-hook 'text-mode-hook #'mz/configure-text-modes)
 
+;; center buffer content for some modes
+(dolist (hook '( Info-mode-hook man-common-hook ))
+  (add-hook hook #'olivetti-mode))
+
 ;; make URLs and email addresses clickable
 (add-hook 'shell-mode-hook #'goto-address-mode)
 
