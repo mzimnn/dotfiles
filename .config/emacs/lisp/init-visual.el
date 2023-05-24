@@ -18,7 +18,7 @@
 ;; load theme
 (require 'modus-themes)
 
-(setq modus-themes-to-toggle '(modus-vivendi-tinted modus-operandi-tinted))
+(setq modus-themes-to-toggle '(modus-operandi-tinted modus-vivendi-tinted))
 (load-theme (car modus-themes-to-toggle) t)
 
 ;; show tabs and trailing whitespace
