@@ -1,7 +1,3 @@
-;; hide mode line in focus mode
-(add-hook 'olivetti-mode-on-hook #'turn-on-hide-mode-line-mode)
-(add-hook 'olivetti-mode-off-hook #'turn-off-hide-mode-line-mode)
-
 (defun mz/configure-modes-for-editing ()
   "Configure modes for editing."
   (unless buffer-read-only

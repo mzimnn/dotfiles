@@ -14,6 +14,9 @@
 ;; use local directory to modularize this init file
 (add-to-list 'load-path (expand-file-name "lisp/" user-emacs-directory))
 
+;; load own modes
+(require 'focus-mode)
+
 ;; load utility functions
 (require 'init-utils)
 

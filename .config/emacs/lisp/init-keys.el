@@ -16,7 +16,7 @@
 (global-set-key (kbd "C-c d") #'mz/insert-current-date)
 
 ;; toggle focus mode
-(global-set-key (kbd "C-c f") #'olivetti-mode)
+(global-set-key (kbd "C-c f") #'focus-mode)
 
 ;; start terminal
 (global-set-key (kbd "C-c t") #'mz/ansi-term)
