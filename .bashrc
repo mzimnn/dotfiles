@@ -5,6 +5,10 @@ is_installed () {
     command -v "$1" >/dev/null
 }
 
+source_if_exists () {
+    [ -f "$1" ] && source "$1"
+}
+
 if is_installed tmux &&
    # Debugging in VSCode is not possible if tmux is started
    [ "$TERM_PROGRAM" != 'vscode' ] &&
@@ -26,7 +30,7 @@ files=(
 
 for file in "${files[@]}"
 do
-    [ -f "$file" ] && source "$file"
+    source_if_exists "$file"
 done
 
 unset file
@@ -35,7 +39,7 @@ unset files
 # Dump terminals (e.g. Emacs shell-mode) do not support these key bindings
 if [ "$TERM" != "dumb" ]
 then
-    source /usr/share/fzf/key-bindings.bash
+    source_if_exists /usr/share/fzf/key-bindings.bash
 fi
 
 # Shell options
