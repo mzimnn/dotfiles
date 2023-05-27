@@ -77,3 +77,5 @@ unset char_to_int
 unset get_user_color
 unset word_to_color
 unset word_to_int
+
+# vim:filetype=sh
