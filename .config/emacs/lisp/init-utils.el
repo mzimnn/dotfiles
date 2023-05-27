@@ -1,10 +1,14 @@
+(defun mz/derived-mode-p (buffer-or-name modes)
+  "Return non-nil if major mode of BUFFER-OR-NAME is derived from one of MODES."
+  (with-current-buffer buffer-or-name
+    (derived-mode-p modes)))
+
 (defun mz/find-buffers-by-mode (mode)
   "Return all buffers which derive from MODE."
   (let ((buffers ()))
     (dolist (buffer (buffer-list))
-      (with-current-buffer buffer
-        (when (derived-mode-p mode)
-          (push buffer buffers))))
+      (when (mz/derived-mode-p buffer mode)
+        (push buffer buffers)))
     buffers))
 
 (defun mz/other-window-backwards ()
