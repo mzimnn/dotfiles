@@ -78,6 +78,9 @@
 ;; let a single space end a sentence
 (setq sentence-end-double-space nil)
 
+;; ensure `switch-to-buffer' respects display actions
+(setq switch-to-buffer-obey-display-actions t)
+
 ;; flash frame to represent a bell
 (setq visible-bell t)
 
