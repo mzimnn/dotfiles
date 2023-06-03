@@ -10,15 +10,32 @@ the existing term buffer."
         (pop-to-buffer buffer)
       (ansi-term "bash"))))
 
+;; TODO: Generalize this function: It should be a higher order function which
+;; excepts just MODES and returns an appropriate function.
+(defun mz/derived-term-mode-p (buffer-name action)
+  "Return non-nil if major mode of BUFFER-OR-NAME is derived from `term-mode'.
+
+This function can be used as a condition in
+`display-buffer-alist'. The parameter ACTION is ignored."
+  (mz/derived-mode-p buffer-name 'term-mode))
+
 (defun mz/term-handle-exit (process-name msg)
-  "Kill the current buffer.
+  "Kill the current buffer and delete its window.
 
 It can be used to advice `term-handle-exit'."
-  (kill-buffer))
+  (kill-buffer)
+  ;; Only delete window if it is not the only one, otherwise `delete-window'
+  ;; would fail.
+  (unless (one-window-p t)
+    (delete-window)))
 
 (with-eval-after-load 'term
   (define-key term-raw-map (kbd "M-o") nil)
   (define-key term-raw-map (kbd "M-x") nil))
+
+;; open term buffer below the selected window
+(add-to-list 'display-buffer-alist
+             '(mz/derived-term-mode-p (display-buffer-below-selected)))
 
 ;; make URLs and email addresses clickable
 (add-hook 'term-mode-hook #'goto-address-mode)
