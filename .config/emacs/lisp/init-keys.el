@@ -37,8 +37,8 @@
   (define-key help-mode-map "n" 'next-line)
   (define-key help-mode-map "p" 'previous-line))
 
-;; use globally bound command instead of local one
 (with-eval-after-load 'ibuffer
+  ;; use globally bound command instead of local one
   (define-key ibuffer-mode-map (kbd "M-o") nil)) ; ibuffer-visit-buffer-1-window
 
 (with-eval-after-load 'info
