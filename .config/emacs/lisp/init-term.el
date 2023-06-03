@@ -7,7 +7,7 @@ the existing term buffer."
   ;; use first buffer in list
   (let ((buffer (car (mz/find-buffers-by-mode #'term-mode))))
     (if (and buffer (not (eq arg 4)))
-        (display-buffer buffer)
+        (pop-to-buffer buffer)
       (ansi-term "bash"))))
 
 (defun mz/term-handle-exit (process-name msg)
