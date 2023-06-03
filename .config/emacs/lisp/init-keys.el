@@ -21,21 +21,18 @@
 ;; start terminal
 (global-set-key (kbd "C-c t") #'mz/ansi-term)
 
-;; change key bindings in DocView mode
+;; change key bindings in different modes
 (with-eval-after-load 'doc-view
   (define-key doc-view-mode-map (kbd "<home>") #'doc-view-first-page)
   (define-key doc-view-mode-map (kbd "<end>") #'doc-view-last-page))
 
-;; change key bindings in Lisp interaction mode
 (with-eval-after-load 'elisp-mode
   (define-key lisp-interaction-mode-map (kbd "C-j") nil))
 
-;; change key bindings in Flymake mode
 (with-eval-after-load 'flymake
   (define-key flymake-mode-map (kbd "M-n") 'flymake-goto-next-error)
   (define-key flymake-mode-map (kbd "M-p") 'flymake-goto-prev-error))
 
-;; change key bindings in help mode
 (with-eval-after-load 'help-mode
   (define-key help-mode-map "n" 'next-line)
   (define-key help-mode-map "p" 'previous-line))
@@ -44,7 +41,6 @@
 (with-eval-after-load 'ibuffer
   (define-key ibuffer-mode-map (kbd "M-o") nil)) ; ibuffer-visit-buffer-1-window
 
-;; change key bindings in Info mode
 (with-eval-after-load 'info
   (define-key Info-mode-map "n" 'next-line)
   (define-key Info-mode-map "p" 'previous-line)
