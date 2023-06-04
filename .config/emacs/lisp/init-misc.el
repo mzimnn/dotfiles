@@ -67,11 +67,6 @@
 ;; don't show warnings during native compilation
 (setq native-comp-async-report-warnings-errors 'silent)
 
-;; ignore case when completing
-(setq completion-ignore-case t)
-(setq read-file-name-completion-ignore-case t)
-(setq read-buffer-completion-ignore-case t)
-
 ;; type less backslashes
 (setq reb-re-syntax 'string)
 

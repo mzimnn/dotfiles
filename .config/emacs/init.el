@@ -22,6 +22,7 @@
 
 ;; load separate init files
 (require 'init-calendar)
+(require 'init-completion)
 (require 'init-dired)
 (require 'init-evil)
 (require 'init-eww)
