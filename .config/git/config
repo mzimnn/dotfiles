@@ -16,6 +16,7 @@
 	last = log -1 HEAD
 	merge-upstream = merge HEAD@{upstream}
 	r = rebase
+	root = rev-parse --show-toplevel
 	s = status
 	sh = show
 	sw = switch
