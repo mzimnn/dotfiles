@@ -1,7 +1,7 @@
 ;; disable Evil in all modes by default
 (setq evil-default-state 'emacs)
-(setq evil-motion-state-modes nil)
 (setq evil-insert-state-modes nil)
+(setq evil-motion-state-modes nil)
 
 ;; use Emacs key bindings in insert state
 (setq evil-disable-insert-state-bindings t)
