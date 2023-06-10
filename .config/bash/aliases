@@ -31,4 +31,6 @@ then
     __git_complete g __git_main
 fi
 
+unset alias_if_supported
+
 # vim:filetype=sh
