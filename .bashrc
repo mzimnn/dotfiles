@@ -68,6 +68,7 @@ shopt -s histappend
 # Environment variables
 export EDITOR='vim'
 export MANPAGER='less -R --color=d+g --color=u+b'
+GIT_COMPLETION_IGNORE_CASE=1
 HISTCONTROL=ignoreboth
 HISTSIZE=10000
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
