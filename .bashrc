@@ -50,9 +50,9 @@ then
     # normally.
     unset bind
 
-    # Overwrite history search (CTRL-R) with fzf variant
     if is_installed __fzf_history__
     then
+        # Overwrite history search (CTRL-R) with fzf variant
         bind -m emacs-standard -x '"\C-r": __fzf_history__'
         bind -m vi-command -x '"\C-r": __fzf_history__'
         bind -m vi-insert -x '"\C-r": __fzf_history__'
