@@ -35,4 +35,11 @@ If called with a prefix ARG, use European format of date."
   (require 'ispell)
   (when (executable-find ispell-program-name) t))
 
+(defun mz/comment-line ()
+  "Un-/comment current line or each line in the active region."
+  (interactive)
+  (let ((begin (if (use-region-p) (region-beginning) (line-beginning-position)))
+        (end (if (use-region-p) (region-end) (line-end-position))))
+    (comment-or-uncomment-region begin end)))
+
 (provide 'init-utils)

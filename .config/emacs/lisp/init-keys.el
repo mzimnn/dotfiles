@@ -8,6 +8,9 @@
 (global-set-key (kbd "M-o") #'other-window)
 (global-set-key (kbd "M-O") #'mz/other-window-backwards)
 
+;; use own command to un-/comment lines
+(global-set-key (kbd "M-;") #'mz/comment-line)
+
 ;; key bindings to invoke Org features
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c l") 'org-store-link)
