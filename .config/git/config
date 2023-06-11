@@ -47,6 +47,8 @@
 	colorMoved = true
 	colorMovedWS = allow-indentation-change
 	wsErrorHighlight = all
+[diff "org"]
+	xfuncname = "^\\*+ +.*"
 [diff-so-fancy]
 	first-run = false
 	markEmptyLines = false
