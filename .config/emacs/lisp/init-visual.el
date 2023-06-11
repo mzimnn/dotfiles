@@ -10,11 +10,6 @@
 ;; hide welcome screen
 (setq inhibit-startup-screen t)
 
-;; hide visual elements
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-
 ;; load theme
 (require 'modus-themes)
 
