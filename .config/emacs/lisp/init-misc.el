@@ -84,6 +84,8 @@
 
 ;; allow repeating commands more easily
 (repeat-mode)
+;; do not repeat this command to avoid conflicts with key "o" in Evil mode
+(put 'other-window 'repeat-map nil)
 
 ;; specify width of TAB character
 (setq-default tab-width 4)
