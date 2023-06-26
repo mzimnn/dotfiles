@@ -1,7 +1,8 @@
-;; disable Evil in all modes by default
+;; define which modes use Evil by default
 (setq evil-default-state 'emacs)
 (setq evil-insert-state-modes nil)
 (setq evil-motion-state-modes nil)
+(setq evil-normal-state-modes '(conf-mode prog-mode text-mode))
 
 ;; use Emacs key bindings in insert state
 (setq evil-disable-insert-state-bindings t)
