@@ -1,6 +1,6 @@
 ;; define which modes use Evil by default
 (setq evil-default-state 'emacs)
-(setq evil-insert-state-modes nil)
+(setq evil-insert-state-modes '(git-commit-mode))
 (setq evil-motion-state-modes nil)
 (setq evil-normal-state-modes '(conf-mode prog-mode text-mode))
 
