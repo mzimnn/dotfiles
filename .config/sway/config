@@ -92,6 +92,9 @@ input type:touchpad {
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you really want to shutdown?' -b 'Yes, back to real life' 'shutdown now'
+
+    # Take screenshot
+    bindsym Print exec /usr/share/sway/scripts/grimshot --notify save area
 #
 # Media keys:
 #
