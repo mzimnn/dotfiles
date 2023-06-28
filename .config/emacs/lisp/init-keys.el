@@ -21,6 +21,9 @@
 ;; toggle focus mode
 (global-set-key (kbd "C-c f") #'focus-mode)
 
+;; lookup word at point
+(global-set-key (kbd "C-c L") #'dictionary-lookup-definition)
+
 ;; start terminal
 (global-set-key (kbd "C-c t") #'mz/ansi-term)
 
