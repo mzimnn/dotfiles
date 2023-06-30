@@ -73,6 +73,15 @@
                     (mapconcat #'identity (butlast filenames) ", ")
                     " and " (car (last filenames))))))))
 
+(defun mz/git-instant-commit-msg ()
+  "Return instant commit message for current Git repository."
+  (mz/convert-to-instant-commit-msg
+   (mz/sort-alphabetically
+    (mapcar #'file-name-nondirectory
+            (mz/get-paths-from-status-lines
+             (mz/keep-staged-status-lines
+              (mz/retrieve-git-status-lines)))))))
+
 (defun mz/git-instant-commit ()
   "Commit staged changes with an instant commit message."
   (interactive)
@@ -82,14 +91,7 @@
   ;; done before the commit message is generated. Only then all staged files are
   ;; included in the commit message.
   (when (magit-commit-assert ())
-    (magit-commit-create
-     `("-m"
-       ,(mz/convert-to-instant-commit-msg
-         (mz/sort-alphabetically
-          (mapcar #'file-name-nondirectory
-                  (mz/get-paths-from-status-lines
-                   (mz/keep-staged-status-lines
-                    (mz/retrieve-git-status-lines))))))))))
+    (magit-commit-create `("-m" ,(mz/git-instant-commit-msg)))))
 
 (add-hook 'magit-mode-hook
           (lambda ()
