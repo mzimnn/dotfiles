@@ -34,10 +34,7 @@
      `(tab-bar-tab
        ((,c (:box (:line-width (6 . 2) :color ,bg-tab-current)))))
      `(tab-bar-tab-inactive
-       ((,c (:box (:line-width (6 . 2) :color ,bg-tab-other)))))
-
-     ;; adjust coloring of tabs
-     '(whitespace-tab ((t (:background unspecified)))))
+       ((,c (:box (:line-width (6 . 2) :color ,bg-tab-other))))))
 
     ;; colorize priorities in Org mode
     (custom-set-variables
