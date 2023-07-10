@@ -53,4 +53,10 @@
   (define-key Info-mode-map "N" 'Info-next)
   (define-key Info-mode-map "P" 'Info-prev))
 
+(with-eval-after-load 'man
+  (define-key Man-mode-map "n" #'next-line)
+  (define-key Man-mode-map "p" #'previous-line)
+  (define-key Man-mode-map "N" #'Man-next-section)
+  (define-key Man-mode-map "P" #'Man-previous-section))
+
 (provide 'init-keys)
