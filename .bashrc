@@ -77,9 +77,21 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 if is_installed diff-so-fancy
 then
     export GIT_PAGER='diff-so-fancy | less --tabs=5 -FRX'
-    export GIT_CONFIG_COUNT=1
+    export GIT_CONFIG_COUNT=3
     export GIT_CONFIG_KEY_0='interactive.diffFilter'
     export GIT_CONFIG_VALUE_0='diff-so-fancy --patch'
+    export GIT_CONFIG_KEY_1='color.diff-highlight.oldHighlight'
+    export GIT_CONFIG_KEY_2='color.diff-highlight.newHighlight'
+
+    # Check if terminal supports 256 colors
+    if [ "$(tput colors)" -lt 256 ]
+    then
+        export GIT_CONFIG_VALUE_1='white bold red'
+        export GIT_CONFIG_VALUE_2='white bold green'
+    else
+        export GIT_CONFIG_VALUE_1='red bold 52'
+        export GIT_CONFIG_VALUE_2='green bold 22'
+    fi
 fi
 
 # Set LS_COLORS using `dircolors`

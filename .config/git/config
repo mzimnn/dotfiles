@@ -37,10 +37,10 @@
 	new = green bold
 	whitespace = red reverse
 [color "diff-highlight"]
+	# The options "oldHighlight" and "newHighlight" are defined dynamically in
+	# the file ".bashrc".
 	oldNormal = red bold
-	oldHighlight = red bold 52
 	newNormal = green bold
-	newHighlight = green bold 22
 [commit]
 	verbose = true
 [diff]
