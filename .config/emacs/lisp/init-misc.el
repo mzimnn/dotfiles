@@ -98,7 +98,7 @@
 (setq tab-bar-close-button-show nil)
 (setq tab-bar-format
       '(tab-bar-format-history tab-bar-format-tabs tab-bar-separator))
-(setq tab-bar-new-tab-choice "*scratch*")
+(setq tab-bar-new-tab-choice #'get-scratch-buffer-create)
 (setq tab-bar-show 1)
 (tab-bar-mode 1)
 
