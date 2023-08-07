@@ -19,7 +19,8 @@
 
 (defun mz/configure-text-modes ()
   "Configure modes which derive from `text-mode'."
-  (mz/configure-modes-for-editing))
+  (mz/configure-modes-for-editing)
+  (auto-fill-mode))
 
 (add-hook 'conf-mode-hook #'mz/configure-conf-modes)
 (add-hook 'prog-mode-hook #'mz/configure-prog-modes)
