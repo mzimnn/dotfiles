@@ -104,6 +104,8 @@
 (setq tab-bar-show 1)
 (tab-bar-mode 1)
 
+;; shorten display of default prompt in minibuffer
+(setq minibuffer-default-prompt-format " [%s]")
 ;; automatically resize minibuffer to fit input text
 (setq resize-mini-windows t)
 ;; only show default argument in unchanged minibuffer
