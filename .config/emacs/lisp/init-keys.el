@@ -33,7 +33,8 @@
   (define-key doc-view-mode-map (kbd "<end>") #'doc-view-last-page))
 
 (with-eval-after-load 'elisp-mode
-  (define-key lisp-interaction-mode-map (kbd "C-j") nil))
+  ;; use globally bound command instead of local one
+  (define-key lisp-interaction-mode-map (kbd "C-j") nil)) ; eval-print-last-sexp
 
 (with-eval-after-load 'flymake
   (define-key flymake-mode-map (kbd "M-n") 'flymake-goto-next-error)
