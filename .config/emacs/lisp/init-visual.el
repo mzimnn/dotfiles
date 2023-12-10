@@ -24,6 +24,9 @@
   "Set custom faces."
   (modus-themes-with-colors
     (custom-set-faces
+     ;; highlight background of symbol at point
+     `(eglot-highlight-symbol-face ((,c (:background ,bg-inactive))))
+
      ;; adjust coloring of holidays
      `(holiday ((,c (:foreground ,yellow-warmer))))
 
