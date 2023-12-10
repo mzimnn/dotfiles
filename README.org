@@ -4,7 +4,8 @@ You have stumbled upon yet another repository containing a bunch of dotfiles.
 
 ** Installation
 
-To install my dotfiles, run this script in the top directory of this repository:
+To install my dotfiles, run this script in the top-level directory of this
+repository:
 
 #+begin_src shell
 ./install.sh
