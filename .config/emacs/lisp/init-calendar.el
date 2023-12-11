@@ -14,4 +14,7 @@
 ;; set weekday on which a week begins
 (setq calendar-week-start-day 1)
 
+;; highlight today
+(add-hook 'calendar-today-visible-hook #'calendar-mark-today)
+
 (provide 'init-calendar)
