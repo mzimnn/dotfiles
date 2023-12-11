@@ -50,6 +50,9 @@
 ;; don't display a message when a buffer has been reverted
 (setq auto-revert-verbose nil)
 
+;; improve performance of redisplay by disabling RTL text rendering
+(setq-default bidi-paragraph-direction 'left-to-right)
+
 ;; save bookmarks after each change
 (setq bookmark-save-flag 1)
 
