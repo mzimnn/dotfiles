@@ -32,6 +32,9 @@
 
 ;; make URLs and email addresses clickable
 (add-hook 'shell-mode-hook #'goto-address-mode)
+;; don't display output of asynchronous commands
+(add-to-list 'display-buffer-alist
+             `(,shell-command-buffer-name-async (display-buffer-no-window)))
 
 ;; specify when to wrap lines
 (setq-default fill-column 80)
