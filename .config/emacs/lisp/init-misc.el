@@ -99,6 +99,9 @@
 (setq dtrt-indent-verbosity 0)
 (dtrt-indent-global-mode)
 
+;; by default use spaces for indentation
+(setq-default indent-tabs-mode nil)
+
 ;; enable tab-bar-mode
 (setq tab-bar-close-button-show nil)
 (setq tab-bar-format
