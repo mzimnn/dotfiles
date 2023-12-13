@@ -4,8 +4,8 @@
 
 ;; install packages
 (setq package-selected-packages
-      '( corfu diff-hl dtrt-indent evil hide-mode-line hl-todo ledger-mode magit
-         modus-themes olivetti ))
+      '( corfu csv-mode diff-hl dtrt-indent evil hide-mode-line hl-todo
+         ledger-mode magit modus-themes olivetti ))
 
 (unless (seq-every-p #'package-installed-p package-selected-packages)
   (package-refresh-contents)
