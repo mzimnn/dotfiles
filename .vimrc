@@ -53,3 +53,12 @@ nnoremap <Leader>t :term<Esc><C-W>L
 
 " allow saving file as root when starting vim without sudo
 cnoremap w!! w !sudo tee >/dev/null %
+
+" basic key bindings of GNU Emacs
+" inspired by: https://github.com/maxbrunsfeld/vim-emacs-bindings/blob/master/plugin/emacs-bindings.vim
+inoremap <C-a> <Home>
+inoremap <C-b> <Left>
+inoremap <C-d> <Del>
+inoremap <C-e> <End>
+inoremap <C-f> <Right>
+inoremap <C-k> <C-o>D
