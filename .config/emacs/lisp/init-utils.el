@@ -23,7 +23,9 @@ If called with a prefix ARG, use European format of date."
   (interactive "p")
   (when (use-region-p)
     (delete-region (region-beginning) (region-end)))
-  (insert (format-time-string (if (= arg 4) "%d.%m.%Y" "%Y-%m-%d"))))
+  (insert (format-time-string (if (= arg 4) "%d.%m.%Y" "%Y-%m-%d")))
+  (when (eq (bound-and-true-p evil-state) 'normal)
+    (evil-insert-state)))
 
 (defun mz/sort-alphabetically (strings)
   "Sort STRINGS in alphabetical order."
