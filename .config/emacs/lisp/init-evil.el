@@ -19,6 +19,11 @@
 ;; enable CTRL-u to scroll upwards
 (setq evil-want-C-u-scroll t)
 
+;; change key bindings
+(with-eval-after-load 'evil
+  ;; use globally bound command instead of local one
+  (define-key evil-normal-state-map (kbd "M-.") nil)) ; evil-repeat-pop-next
+
 ;; enable Evil
 (evil-mode)
 
