@@ -36,9 +36,6 @@
 (add-to-list 'display-buffer-alist
              `(,shell-command-buffer-name-async (display-buffer-no-window)))
 
-;; specify when to wrap lines
-(setq-default fill-column 80)
-
 ;; use Command key as Meta key
 (setq mac-option-modifier 'super)
 (setq mac-command-modifier 'meta)
@@ -77,33 +74,17 @@
 ;; type less backslashes
 (setq reb-re-syntax 'string)
 
-;; let a single space end a sentence
-(setq sentence-end-double-space nil)
-
 ;; ensure `switch-to-buffer' respects display actions
 (setq switch-to-buffer-obey-display-actions t)
 
 ;; flash frame to represent a bell
 (setq visible-bell t)
 
-;; replace selection with typed text
-(delete-selection-mode)
-
 ;; allow repeating commands more easily
 (repeat-mode)
 ;; do not repeat these commands to avoid conflicts with key "o" in Evil mode
 (dolist (command '(other-window tab-next tab-previous))
   (put command 'repeat-map nil))
-
-;; specify width of TAB character
-(setq-default tab-width 4)
-
-;; guess indentation settings
-(setq dtrt-indent-verbosity 0)
-(dtrt-indent-global-mode)
-
-;; by default use spaces for indentation
-(setq-default indent-tabs-mode nil)
 
 ;; enable tab-bar-mode
 (setq tab-bar-close-button-show nil)

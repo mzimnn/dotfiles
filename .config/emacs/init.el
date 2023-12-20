@@ -24,6 +24,7 @@
 (require 'init-calendar)
 (require 'init-completion)
 (require 'init-dired)
+(require 'init-editing)
 (require 'init-evil)
 (require 'init-eww)
 (require 'init-git)
