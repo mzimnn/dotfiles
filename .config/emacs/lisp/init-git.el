@@ -36,8 +36,8 @@
 (setq diff-hl-show-staged-changes nil)
 (global-diff-hl-mode)
 (diff-hl-flydiff-mode)
-(add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
-(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+(add-hook 'magit-pre-refresh-hook #'diff-hl-magit-pre-refresh)
+(add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)
 
 ;; auto-generate an instant commit message
 (defun mz/retrieve-git-status-lines ()

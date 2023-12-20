@@ -60,16 +60,16 @@
 
 (with-eval-after-load 'eww
   ;; change key bindings in eww mode
-  (define-key eww-mode-map "n" 'next-line)
-  (define-key eww-mode-map "p" 'previous-line)
-  (define-key eww-mode-map "N" 'eww-next-url)
-  (define-key eww-mode-map "P" 'eww-previous-url)
-  (define-key eww-mode-map "V" 'eww-view-source)
+  (define-key eww-mode-map "n" #'next-line)
+  (define-key eww-mode-map "p" #'previous-line)
+  (define-key eww-mode-map "N" #'eww-next-url)
+  (define-key eww-mode-map "P" #'eww-previous-url)
+  (define-key eww-mode-map "V" #'eww-view-source)
   (define-key eww-mode-map "v" nil)
   (define-key eww-mode-map (kbd "M-s") #'mz/eww-display-content-length)
 
   ;; change key bindings in eww bookmarks mode
-  (define-key eww-bookmark-mode-map "n" 'next-line)
-  (define-key eww-bookmark-mode-map "p" 'previous-line))
+  (define-key eww-bookmark-mode-map "n" #'next-line)
+  (define-key eww-bookmark-mode-map "p" #'previous-line))
 
 (provide 'init-eww)

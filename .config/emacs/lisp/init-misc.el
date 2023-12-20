@@ -60,7 +60,7 @@
 (setq bookmark-save-flag 1)
 
 ;; setup all Ediff windows in the current frame
-(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+(setq ediff-window-setup-function #'ediff-setup-windows-plain)
 
 ;; do stop at start/end of buffer when moving to errors
 (setq flymake-wrap-around nil)
