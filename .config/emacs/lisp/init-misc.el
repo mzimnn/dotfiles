@@ -59,6 +59,9 @@
 ;; setup all Ediff windows in the current frame
 (setq ediff-window-setup-function #'ediff-setup-windows-plain)
 
+;; do not use multiple lines in the minibuffer
+(setq eldoc-echo-area-use-multiline-p nil)
+
 ;; do stop at start/end of buffer when moving to errors
 (setq flymake-wrap-around nil)
 
