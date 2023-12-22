@@ -22,7 +22,7 @@
 ;; change key bindings
 (with-eval-after-load 'evil
   ;; use globally bound command instead of local one
-  (define-key evil-normal-state-map (kbd "M-.") nil)) ; evil-repeat-pop-next
+  (keymap-set evil-normal-state-map "M-." nil)) ; evil-repeat-pop-next
 
 ;; enable Evil
 (evil-mode)

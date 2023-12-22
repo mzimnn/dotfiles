@@ -30,8 +30,8 @@ It can be used to advice `term-handle-exit'."
     (delete-window)))
 
 (with-eval-after-load 'term
-  (define-key term-raw-map (kbd "M-o") nil)
-  (define-key term-raw-map (kbd "M-x") nil))
+  (keymap-set term-raw-map "M-o" nil)
+  (keymap-set term-raw-map "M-x" nil))
 
 ;; open term buffer below the selected window
 (add-to-list 'display-buffer-alist
