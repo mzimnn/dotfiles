@@ -16,6 +16,10 @@
 ;; search for symbols instead of words
 (setq evil-symbol-word-search t)
 
+;; allow usage of TAB key (e.g. to toggle headings in Org mode)
+;; TODO: this should only apply in Org mode
+(setq evil-want-C-i-jump nil)
+
 ;; enable CTRL-u to scroll upwards
 (setq evil-want-C-u-scroll t)
 
