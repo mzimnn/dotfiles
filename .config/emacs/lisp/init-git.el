@@ -20,6 +20,8 @@
 (setq magit-diff-refine-hunk 'all)
 ;; highlight whitespace changes
 (setq magit-diff-refine-ignore-whitespace nil)
+;; specify which format `magit-pop-revision-stack' should use
+(setq magit-pop-revision-stack-format '("reference"))
 ;; don't ask when saving buffers automatically
 (setq magit-save-repository-buffers 'dontask)
 (setq vc-suppress-confirm t)
