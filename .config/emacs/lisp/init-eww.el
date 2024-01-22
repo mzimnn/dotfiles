@@ -11,10 +11,8 @@
 (setq eww-search-prefix "https://www.google.com/search?q=")
 
 ;; use lightweight frontends which EWW can render better
-(setq mz/url-replace-host-map '(("reddit.com" . "libreddit.de")
-                                ("old.reddit.com" . "libreddit.de")
-                                ("www.reddit.com" . "libreddit.de")
-                                ("teddit.net" . "libreddit.de")))
+(setq mz/url-replace-host-map '(("reddit.com" . "old.reddit.com")
+                                ("www.reddit.com" . "old.reddit.com")))
 
 (defun mz/url-replace-host (url)
   "Replace host of URL according to `mz/url-replace-host-map'."
