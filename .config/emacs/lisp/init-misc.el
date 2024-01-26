@@ -65,6 +65,9 @@
 ;; do stop at start/end of buffer when moving to errors
 (setq flymake-wrap-around nil)
 
+;; allow pixelwise resize of frames
+(setq frame-resize-pixelwise t)
+
 ;; show number of matches in search prompt
 (setq isearch-lazy-count t)
 
