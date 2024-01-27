@@ -21,7 +21,7 @@ the existing term buffer."
 
 This function can be used as a condition in
 `display-buffer-alist'. The parameter ACTION is ignored."
-  (mz/derived-mode-p buffer-name 'term-mode))
+  (buffer-match-p `(derived-mode . term-mode) buffer-name))
 
 (defun mz/term-handle-exit (process-name msg)
   "Kill the current buffer and delete its window.
