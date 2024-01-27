@@ -8,7 +8,11 @@ the existing term buffer."
   (let ((buffer (car (mz/find-buffers-by-mode #'term-mode))))
     (if (and buffer (not (eq arg 4)))
         (pop-to-buffer buffer)
-      (ansi-term "bash"))))
+      ;; in case of a project use its root directory
+      (let ((default-directory (if (project-current)
+                                   (project-root (project-current))
+                                 default-directory)))
+        (ansi-term "bash")))))
 
 ;; TODO: Generalize this function: It should be a higher order function which
 ;; excepts just MODES and returns an appropriate function.
