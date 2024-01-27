@@ -1,11 +1,3 @@
-(defun mz/find-buffers-by-mode (mode)
-  "Return all buffers which derive from MODE."
-  (let ((buffers ()))
-    (dolist (buffer (buffer-list))
-      (when (buffer-match-p `(derived-mode . ,mode) buffer)
-        (push buffer buffers)))
-    buffers))
-
 (defun mz/other-window-backwards ()
   "Like `other-window' but in reverse."
   (interactive)

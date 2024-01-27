@@ -5,7 +5,7 @@ If called with a prefix ARG, use a new buffer instead of reusing
 the existing term buffer."
   (interactive "p")
   ;; use first buffer in list
-  (let ((buffer (car (mz/find-buffers-by-mode #'term-mode))))
+  (let ((buffer (car (match-buffers '(derived-mode . term-mode)))))
     (if (and buffer (not (eq arg 4)))
         (pop-to-buffer buffer)
       ;; in case of a project use its root directory
