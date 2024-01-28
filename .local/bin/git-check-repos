@@ -74,7 +74,7 @@ to_upper () {
 }
 
 find_git_repo_paths () {
-    # Does a directory contain a .git/ directory then do not traverse it any
+    # If a directory does contain a .git/ directory then do not traverse it any
     # further
     find -L "$1" -type d -exec test -d {}/.git \; -prune -print
 }
