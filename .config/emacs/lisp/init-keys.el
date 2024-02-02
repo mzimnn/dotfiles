@@ -64,4 +64,7 @@
   (keymap-set Man-mode-map "N" #'Man-next-section)
   (keymap-set Man-mode-map "P" #'Man-previous-section))
 
+(with-eval-after-load 'profiler
+  (keymap-set profiler-report-mode-map "RET" #'profiler-report-find-entry))
+
 (provide 'init-keys)
