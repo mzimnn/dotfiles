@@ -22,7 +22,7 @@ alias pacman='pacman --color=auto'
 alias sudo='sudo '
 alias watch='watch '
 
-# -m is not supported by macOS' cal
+# -m is not supported by all systems since it is not POSIX-compliant
 alias_if_supported 'cal' 'cal -m'
 
 # Enable bash completion for alias
