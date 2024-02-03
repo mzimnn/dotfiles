@@ -29,6 +29,8 @@
 ;; follow version-controlled symbolic links without asking
 (setq vc-follow-symlinks t)
 
+;; do not draw borders around fringe indicators
+(setq diff-hl-draw-borders nil)
 ;; highlight uncommitted changes
 ;; TODO: Enable diff-hl-margin-mode if Emacs runs in the terminal. It's not easy
 ;; though to check that. For example it is not possible to just call
