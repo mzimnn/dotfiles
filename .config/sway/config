@@ -240,3 +240,4 @@ bar {
     for_window [app_id="org.keepassxc.KeePassXC"] floating enable
 
 include /etc/sway/config.d/*
+include ~/.config/sway/config.local
