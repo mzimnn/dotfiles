@@ -35,6 +35,16 @@ If called with a prefix ARG, use European format of date."
         (comment-dwim nil)
       (comment-or-uncomment-region begin end))))
 
+(defun mz/delete-this-file ()
+  "Delete file which the current buffer is visiting."
+  (interactive)
+  (unless buffer-file-name
+    (user-error "error: buffer does not visit a file"))
+  (when (yes-or-no-p
+         (format "Do you really want to delete %s? " buffer-file-name))
+    (delete-file buffer-file-name)
+    (kill-buffer)))
+
 (defun mz/display-json-from-clipboard ()
   "Prettify JSON from clipboard and display it."
   (interactive)
