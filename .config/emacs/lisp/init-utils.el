@@ -29,7 +29,11 @@ If called with a prefix ARG, use European format of date."
   (interactive)
   (let ((begin (if (use-region-p) (region-beginning) (line-beginning-position)))
         (end (if (use-region-p) (region-end) (line-end-position))))
-    (comment-or-uncomment-region begin end)))
+    (if (= begin end)
+        ;; This adds a comment on an empty line. `comment-or-uncomment-region'
+        ;; is not able to do this.
+        (comment-dwim nil)
+      (comment-or-uncomment-region begin end))))
 
 (defun mz/display-json-from-clipboard ()
   "Prettify JSON from clipboard and display it."
