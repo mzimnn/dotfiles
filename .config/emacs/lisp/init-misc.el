@@ -112,7 +112,7 @@
 (put 'upcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 
-;; inspired by https://www.emacswiki.org/emacs/HalfScrolling
+;; inspired by: https://www.emacswiki.org/emacs/HalfScrolling
 (defun mz/scroll-half-window-height (&optional arg)
   "Set `next-screen-context-lines' to half window height.
 
