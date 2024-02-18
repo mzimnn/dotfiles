@@ -30,6 +30,10 @@
 (dolist (hook '( eww-mode-hook Info-mode-hook man-common-hook ))
   (add-hook hook #'olivetti-mode))
 
+;; truncate lines in some modes
+(dolist (hook '( grep-mode-hook occur-mode-hook ))
+  (add-hook hook (lambda () (setq truncate-lines t))))
+
 ;; make URLs and email addresses clickable
 (add-hook 'shell-mode-hook #'goto-address-mode)
 ;; don't display output of asynchronous commands
