@@ -56,18 +56,4 @@
   (interactive)
   (mz/url-display-content-length (shr-url-at-point nil)))
 
-(with-eval-after-load 'eww
-  ;; change key bindings in eww mode
-  (keymap-set eww-mode-map "n" #'next-line)
-  (keymap-set eww-mode-map "p" #'previous-line)
-  (keymap-set eww-mode-map "N" #'eww-next-url)
-  (keymap-set eww-mode-map "P" #'eww-previous-url)
-  (keymap-set eww-mode-map "V" #'eww-view-source)
-  (keymap-set eww-mode-map "v" nil)
-  (keymap-set eww-mode-map "M-s" #'mz/eww-display-content-length)
-
-  ;; change key bindings in eww bookmarks mode
-  (keymap-set eww-bookmark-mode-map "n" #'next-line)
-  (keymap-set eww-bookmark-mode-map "p" #'previous-line))
-
 (provide 'init-eww)

@@ -33,10 +33,6 @@ It can be used to advice `term-handle-exit'."
   (unless (one-window-p t)
     (delete-window)))
 
-(with-eval-after-load 'term
-  (keymap-set term-raw-map "M-o" nil)
-  (keymap-set term-raw-map "M-x" nil))
-
 ;; open term buffer below the selected window
 (add-to-list 'display-buffer-alist
              '(mz/derived-term-mode-p (display-buffer-below-selected)))

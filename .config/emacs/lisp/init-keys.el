@@ -40,6 +40,24 @@
   ;; use globally bound command instead of local one
   (keymap-set lisp-interaction-mode-map "C-j" nil)) ; eval-print-last-sexp
 
+(with-eval-after-load 'evil
+  ;; use globally bound command instead of local one
+  (keymap-set evil-normal-state-map "M-." nil)) ; evil-repeat-pop-next
+
+(with-eval-after-load 'eww
+  ;; change key bindings in eww mode
+  (keymap-set eww-mode-map "n" #'next-line)
+  (keymap-set eww-mode-map "p" #'previous-line)
+  (keymap-set eww-mode-map "N" #'eww-next-url)
+  (keymap-set eww-mode-map "P" #'eww-previous-url)
+  (keymap-set eww-mode-map "V" #'eww-view-source)
+  (keymap-set eww-mode-map "v" nil)
+  (keymap-set eww-mode-map "M-s" #'mz/eww-display-content-length)
+
+  ;; change key bindings in eww bookmarks mode
+  (keymap-set eww-bookmark-mode-map "n" #'next-line)
+  (keymap-set eww-bookmark-mode-map "p" #'previous-line))
+
 (with-eval-after-load 'flymake
   (keymap-set flymake-mode-map "M-n" #'flymake-goto-next-error)
   (keymap-set flymake-mode-map "M-p" #'flymake-goto-prev-error))
@@ -66,5 +84,9 @@
 
 (with-eval-after-load 'profiler
   (keymap-set profiler-report-mode-map "RET" #'profiler-report-find-entry))
+
+(with-eval-after-load 'term
+  (keymap-set term-raw-map "M-o" nil)
+  (keymap-set term-raw-map "M-x" nil))
 
 (provide 'init-keys)
