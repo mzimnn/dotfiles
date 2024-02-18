@@ -1,3 +1,7 @@
+;; define leader map
+(define-prefix-command 'mz/leader-map)
+(keymap-global-set "C-c" mz/leader-map)
+
 ;; describe character under point
 (keymap-global-set "C-h c" #'describe-char) ; describe-key-briefly
 
@@ -12,24 +16,24 @@
 (keymap-global-set "M-;" #'mz/comment-line)
 
 ;; key bindings to invoke Org features
-(keymap-global-set "C-c a" #'org-agenda)
-(keymap-global-set "C-c c" #'org-capture)
-(keymap-global-set "C-c l" #'org-store-link)
+(keymap-set mz/leader-map "a" #'org-agenda)
+(keymap-set mz/leader-map "c" #'org-capture)
+(keymap-set mz/leader-map "l" #'org-store-link)
 
 ;; insert current date
-(keymap-global-set "C-c d" #'mz/insert-current-date)
+(keymap-set mz/leader-map "d" #'mz/insert-current-date)
 
 ;; toggle focus mode
-(keymap-global-set "C-c f" #'focus-mode)
+(keymap-set mz/leader-map "f" #'focus-mode)
 
 ;; prettify JSON from clipboard
-(keymap-global-set "C-c j" #'mz/display-json-from-clipboard)
+(keymap-set mz/leader-map "j" #'mz/display-json-from-clipboard)
 
 ;; lookup word at point
-(keymap-global-set "C-c L" #'dictionary-lookup-definition)
+(keymap-set mz/leader-map "L" #'dictionary-lookup-definition)
 
 ;; start terminal
-(keymap-global-set "C-c t" #'mz/ansi-term)
+(keymap-set mz/leader-map "t" #'mz/ansi-term)
 
 ;; change key bindings in different modes
 (with-eval-after-load 'doc-view
