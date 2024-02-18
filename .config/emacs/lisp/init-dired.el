@@ -1,4 +1,4 @@
-;; dereference symlinks before copying
+;; dereference symbolic links before copying
 (setq dired-copy-dereference t)
 
 ;; try to guess target directory

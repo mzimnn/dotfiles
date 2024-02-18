@@ -11,5 +11,5 @@ repository:
 ./install.sh
 #+end_src
 
-This creates a symlink for each configuration file at the proper place on the
-filesystem.
+This creates a symbolic link for each configuration file at the proper place on
+the filesystem.
