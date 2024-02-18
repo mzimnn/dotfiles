@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # files which should not be symlinked
-ignored_files=(
+IGNORED_FILES=(
     install.sh
     README.org
 )
 
 is_file_ignored () {
-    for ignored_file in "${ignored_files[@]}"
+    for ignored_file in "${IGNORED_FILES[@]}"
     do
         if [ "$ignored_file" = "$1" ]
         then
