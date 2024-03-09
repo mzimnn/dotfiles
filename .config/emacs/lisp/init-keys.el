@@ -57,6 +57,8 @@
   (keymap-set eww-mode-map "V" #'eww-view-source)
   (keymap-set eww-mode-map "v" nil)
   (keymap-set eww-mode-map "M-s" #'mz/eww-display-content-length)
+  (keymap-set eww-mode-map "{" #'backward-paragraph)
+  (keymap-set eww-mode-map "}" #'forward-paragraph)
 
   ;; change key bindings in eww bookmarks mode
   (keymap-set eww-bookmark-mode-map "n" #'next-line)
