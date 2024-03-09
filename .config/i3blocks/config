@@ -13,3 +13,8 @@ separator_block_width=15
 [time]
 command=date '+%Y-%m-%d %H:%M:%S'
 interval=1
+
+[battery]
+BATTERY_PATH=/sys/class/power_supply/BAT0
+command=[ -d "$BATTERY_PATH" ] && echo "$(cat "$BATTERY_PATH/capacity")%"
+interval=10
