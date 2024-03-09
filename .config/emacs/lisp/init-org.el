@@ -1,6 +1,9 @@
 ;; do not indent coding in source code block
 (setq org-edit-src-content-indentation 0)
 
+;; render quote/verse blocks like source code blocks
+(setq org-fontify-quote-and-verse-blocks t)
+
 ;; hide emphasis markers
 (setq org-hide-emphasis-markers t)
 
