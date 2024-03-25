@@ -8,6 +8,10 @@
 ;; use much more powerful IBuffer mode to view buffers
 (keymap-global-set "C-x C-b" #'ibuffer)
 
+;; make scrolling more ergonomical
+(keymap-global-set "M-j" #'scroll-up-command)
+(keymap-global-set "M-k" #'scroll-down-command)
+
 ;; switch windows with ease
 (keymap-global-set "M-o" #'other-window)
 (keymap-global-set "M-O" #'mz/other-window-backwards)
