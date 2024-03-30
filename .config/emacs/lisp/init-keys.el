@@ -20,6 +20,7 @@
 (keymap-global-set "M-;" #'mz/comment-line)
 
 ;; key bindings to invoke Org features
+(keymap-global-set "<f12>" #'org-agenda-list)
 (keymap-set mz/leader-map "a" #'org-agenda)
 (keymap-set mz/leader-map "c" #'org-capture)
 (keymap-set mz/leader-map "l" #'org-store-link)
