@@ -20,6 +20,9 @@
 ;; TODO: this should only apply in Org mode
 (setq evil-want-C-i-jump nil)
 
+;; use "Y" to yank to the end of line
+(setq evil-want-Y-yank-to-eol t)
+
 ;; enable Evil
 (evil-mode)
 
