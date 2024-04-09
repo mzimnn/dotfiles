@@ -85,7 +85,9 @@
   (keymap-set Info-mode-map "n" #'next-line)
   (keymap-set Info-mode-map "p" #'previous-line)
   (keymap-set Info-mode-map "N" #'Info-next)
-  (keymap-set Info-mode-map "P" #'Info-prev))
+  (keymap-set Info-mode-map "P" #'Info-prev)
+  (keymap-set Info-mode-map "{" #'backward-paragraph)
+  (keymap-set Info-mode-map "}" #'forward-paragraph))
 
 (with-eval-after-load 'man
   (keymap-set Man-mode-map "n" #'next-line)
