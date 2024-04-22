@@ -37,7 +37,7 @@
 ;; load key bindings
 (require 'init-keys)
 
-;; load machine-specific configurations
+;; load machine-specific configurations if available
 (require 'init-local nil t)
 
 ;; move customization settings into own file but do NOT load them
