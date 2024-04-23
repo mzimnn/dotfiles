@@ -20,9 +20,6 @@
 ;; TODO: this should only apply in Org mode
 (setq evil-want-C-i-jump nil)
 
-;; use C-u to scroll upwards in Normal state
-(setq evil-want-C-u-scroll t)
-
 ;; enable Evil
 (evil-mode)
 
