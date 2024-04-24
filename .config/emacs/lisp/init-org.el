@@ -1,6 +1,10 @@
 ;; do not indent coding in source code block
 (setq org-edit-src-content-indentation 0)
 
+;; if displayable use pretty ellipsis in headings
+(require 'mule-util)
+(setq org-ellipsis (truncate-string-ellipsis))
+
 ;; render quote/verse blocks like source code blocks
 (setq org-fontify-quote-and-verse-blocks t)
 
