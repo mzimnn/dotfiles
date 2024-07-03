@@ -58,4 +58,13 @@ If called with a prefix ARG, use European format of date."
     (pop-to-buffer buffer))
   (message "Reading JSON from clipboard...done"))
 
+(defun mz/temp-buffer ()
+  "Display a newly generated empty buffer."
+  (interactive)
+  (let ((buffer (generate-new-buffer "*tmp*")))
+    (with-current-buffer buffer
+      (text-mode)
+      (evil-insert-state))
+    (pop-to-buffer buffer)))
+
 (provide 'init-utils)

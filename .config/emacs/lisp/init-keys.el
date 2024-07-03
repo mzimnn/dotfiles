@@ -37,6 +37,9 @@
 ;; lookup word at point
 (keymap-set mz/leader-map "L" #'dictionary-lookup-definition)
 
+;; display temporary buffer
+(keymap-set mz/leader-map "n" #'mz/temp-buffer)
+
 ;; start terminal
 (keymap-set mz/leader-map "t" #'mz/ansi-term)
 
