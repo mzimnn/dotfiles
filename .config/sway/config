@@ -76,6 +76,7 @@ input type:touchpad {
 
     # Kill focused window
     bindsym $mod+Shift+q kill
+    bindsym --whole-window $mod+button2 kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
