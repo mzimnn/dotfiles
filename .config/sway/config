@@ -236,6 +236,11 @@ bar {
 # Window configuration:
 #
     # Make windows floating
+    for_window [app_id="firefox" title="^Picture-in-Picture$"] {
+        floating enable
+        resize set width 426px height 240px
+        sticky enable
+    }
     for_window [app_id="mpv"] floating enable
     for_window [app_id="org.keepassxc.KeePassXC"] floating enable
 
