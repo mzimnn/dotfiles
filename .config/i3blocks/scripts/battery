@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -e
+
+battery_count=0
+capacity_sum=0
+
+for path in /sys/class/power_supply/BAT*
+do
+    if [ -d "$path" ]
+    then
+        capacity="$(cat "$path/capacity")"
+        capacity_sum="$((capacity_sum + capacity))"
+        battery_count="$((battery_count + 1))"
+    fi
+done
+
+if [ "$battery_count" -ge 1 ]
+then
+    echo "$(( capacity_sum * 100 / (battery_count * 100) ))%"
+fi
