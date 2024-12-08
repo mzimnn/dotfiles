@@ -39,24 +39,7 @@ unset files
 # Dump terminals (e.g. Emacs shell-mode) do not support these key bindings
 if [ "$TERM" != "dumb" ]
 then
-    # Make builtin "bind" a no-op so that invocations of "bind" are ignored in
-    # the following script which is sourced. I don't like these key bindings,
-    # therefore I bind it myself afterwards.
-    bind () { :; }
-
-    source_if_exists /usr/share/fzf/key-bindings.bash
-
-    # Use default implementation of builtin "bind" again so it can be used
-    # normally.
-    unset bind
-
-    if is_installed __fzf_history__
-    then
-        # Overwrite history search (CTRL-R) with fzf variant
-        bind -m emacs-standard -x '"\C-r": __fzf_history__'
-        bind -m vi-command -x '"\C-r": __fzf_history__'
-        bind -m vi-insert -x '"\C-r": __fzf_history__'
-    fi
+    FZF_ALT_C_COMMAND= source_if_exists /usr/share/fzf/key-bindings.bash
 fi
 
 # Shell options
