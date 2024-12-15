@@ -230,6 +230,7 @@ main () {
             warn "$repo_path is not a valid Git repository"
             continue
         else
+            # TODO: do not use deprecated variant of "git config"
             skip_repo="$(git -C "$repo_path" config \
                             --local --type bool --get checkrepos.skip || true)"
 
