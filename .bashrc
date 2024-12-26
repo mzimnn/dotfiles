@@ -66,8 +66,9 @@ then
     export GIT_CONFIG_KEY_1='color.diff-highlight.oldHighlight'
     export GIT_CONFIG_KEY_2='color.diff-highlight.newHighlight'
 
-    # Check if terminal supports 256 colors
-    if [ "$(tput colors)" -lt 256 ]
+    # Check if terminal supports less than 256 colors or a light background is
+    # used
+    if [ "$(tput colors)" -lt 256 ] || [ "$BACKGROUND" = 'light' ]
     then
         export GIT_CONFIG_VALUE_1='white bold red'
         export GIT_CONFIG_VALUE_2='white bold green'

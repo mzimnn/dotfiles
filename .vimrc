@@ -13,10 +13,18 @@ set shiftwidth=4
 set expandtab
 
 " tell what background the terminal uses
-set background=dark
+if getenv('BACKGROUND') ==# 'light'
+    set background=light
+else
+    set background=dark
+endif
 " highlight current line
 set cursorline
-highlight CursorLine cterm=NONE ctermbg=235
+if getenv('BACKGROUND') ==# 'light'
+    highlight CursorLine cterm=NONE ctermbg=254
+else
+    highlight CursorLine cterm=NONE ctermbg=235
+endif
 
 " change color of the line number
 highlight LineNr cterm=NONE ctermfg=DarkGrey
