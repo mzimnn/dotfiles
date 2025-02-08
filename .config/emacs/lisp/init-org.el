@@ -24,4 +24,16 @@
 (setq org-todo-keywords
       '((sequence "TODO(t)" "HOLD(h)" "WAIT(w)" "|" "DONE(d)" )))
 
+;; display unlinked references in Org-roam buffer
+(require 'org-roam-mode)
+(add-to-list 'org-roam-mode-sections #'org-roam-unlinked-references-section t)
+
+;; display Org-roam buffer in side window
+(add-to-list 'display-buffer-alist
+             '("\\*org-roam\\*"
+               (display-buffer-in-side-window)
+               (side . right)
+               (window-width . 0.33)
+               (window-parameters . ((no-delete-other-windows . t)))))
+
 (provide 'init-org)

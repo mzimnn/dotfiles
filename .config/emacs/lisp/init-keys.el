@@ -2,6 +2,17 @@
 (define-prefix-command 'mz/leader-map)
 (keymap-global-set "C-c" mz/leader-map)
 
+;; define Org-roam map
+(define-prefix-command 'mz/org-roam-map)
+(keymap-set mz/leader-map "r" mz/org-roam-map)
+(keymap-set mz/org-roam-map "a a" #'org-roam-alias-add)
+(keymap-set mz/org-roam-map "a r" #'org-roam-alias-remove)
+(keymap-set mz/org-roam-map "b" #'org-roam-buffer-toggle)
+(keymap-set mz/org-roam-map "f" #'org-roam-node-find)
+(keymap-set mz/org-roam-map "g" #'org-roam-graph)
+(keymap-set mz/org-roam-map "i" #'org-roam-node-insert)
+(keymap-set mz/org-roam-map "r" #'org-roam-node-random)
+
 ;; describe character under point
 (keymap-global-set "C-h c" #'describe-char) ; describe-key-briefly
 
