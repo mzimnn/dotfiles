@@ -1,3 +1,6 @@
+;; support linking to man pages
+(require 'ol-man)
+
 ;; do not indent coding in source code block
 (setq org-edit-src-content-indentation 0)
 
