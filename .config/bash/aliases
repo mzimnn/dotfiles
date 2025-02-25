@@ -21,6 +21,7 @@ alias mkdir='mkdir -p -v'
 alias pacman='pacman --color=auto'
 alias sudo='sudo '
 alias watch='watch '
+alias y='yt-dlp'
 alias yay='yay --color=auto'
 
 # -m is not supported by all systems since it is not POSIX-compliant
