@@ -6,8 +6,7 @@
 ;; install packages
 (setq package-selected-packages
       '( corfu csv-mode diff-hl dtrt-indent evil haskell-mode hide-mode-line
-         hl-todo ledger-mode magit markdown-mode modus-themes olivetti
-         org-roam ))
+         hl-todo ledger-mode magit markdown-mode olivetti org-roam ))
 
 (unless (seq-every-p #'package-installed-p package-selected-packages)
   (package-refresh-contents)

@@ -11,10 +11,8 @@
 (setq inhibit-startup-screen t)
 
 ;; load theme
-(require 'modus-themes)
-
 (setq modus-themes-to-toggle '(modus-operandi-tinted modus-vivendi-tinted))
-(load-theme (car modus-themes-to-toggle) t)
+(load-theme (car modus-themes-to-toggle))
 
 ;; show tabs and trailing whitespace
 (setq whitespace-style
