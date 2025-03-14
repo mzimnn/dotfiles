@@ -63,6 +63,9 @@
 ;; Save bookmarks after each change
 (setopt bookmark-save-flag 1)
 
+;; Scroll to first error in compilation buffer
+(setopt compilation-scroll-output 'first-error)
+
 ;; Setup all Ediff windows in the current frame
 (setopt ediff-window-setup-function #'ediff-setup-windows-plain)
 
