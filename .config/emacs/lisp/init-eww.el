@@ -1,15 +1,15 @@
 ;; wrap lines after column 80
-(setq shr-max-width 80)
+(setopt shr-max-width 80)
 ;; do not render colors
-(setq shr-use-colors nil)
+(setopt shr-use-colors nil)
 ;; always use monospaced fonts
-(setq shr-use-fonts nil)
+(setopt shr-use-fonts nil)
 ;; do not display images
-(setq shr-inhibit-images t)
+(setopt shr-inhibit-images t)
 
 ;; use lightweight frontends which EWW can render better
-(setq mz/url-replace-host-map '(("reddit.com" . "old.reddit.com")
-                                ("www.reddit.com" . "old.reddit.com")))
+(setopt mz/url-replace-host-map '(("reddit.com" . "old.reddit.com")
+                                  ("www.reddit.com" . "old.reddit.com")))
 
 (defun mz/url-replace-host (url)
   "Replace host of URL according to `mz/url-replace-host-map'."

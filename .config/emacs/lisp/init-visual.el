@@ -1,22 +1,22 @@
 ;; ensure point blinks forever
-(setq blink-cursor-blinks -1)
+(setopt blink-cursor-blinks -1)
 
 ;; show current column
-(setq column-number-mode t)
+(setopt column-number-mode t)
 
 ;; show relative line numbers
-(setq display-line-numbers-type 'visual)
+(setopt display-line-numbers-type 'visual)
 
 ;; hide welcome screen
-(setq inhibit-startup-screen t)
+(setopt inhibit-startup-screen t)
 
 ;; load theme
-(setq modus-themes-to-toggle '(modus-operandi-tinted modus-vivendi-tinted))
+(setopt modus-themes-to-toggle '(modus-operandi-tinted modus-vivendi-tinted))
 (load-theme (car modus-themes-to-toggle))
 
 ;; show tabs and trailing whitespace
-(setq whitespace-style
-      '(face space-before-tab tabs trailing tab-mark))
+(setopt whitespace-style
+        '(face space-before-tab tabs trailing tab-mark))
 
 (defun mz/set-custom-faces ()
   "Set custom faces."

@@ -4,9 +4,9 @@
              '("melpa" . "https://melpa.org/packages/"))
 
 ;; install packages
-(setq package-selected-packages
-      '( corfu csv-mode diff-hl dtrt-indent evil haskell-mode hide-mode-line
-         hl-todo ledger-mode magit markdown-mode olivetti org-roam ))
+(setopt package-selected-packages
+        '( corfu csv-mode diff-hl dtrt-indent evil haskell-mode hide-mode-line
+           hl-todo ledger-mode magit markdown-mode olivetti org-roam ))
 
 (unless (seq-every-p #'package-installed-p package-selected-packages)
   (package-refresh-contents)
@@ -41,4 +41,4 @@
 (require 'init-local nil t)
 
 ;; move customization settings into own file but do NOT load them
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(setopt custom-file (expand-file-name "custom.el" user-emacs-directory))

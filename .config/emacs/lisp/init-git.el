@@ -2,12 +2,12 @@
 (require 'magit-extras)
 
 ;; highlight too long commit summary
-(setq git-commit-summary-max-length 50)
+(setopt git-commit-summary-max-length 50)
 
 (defun mz/configure-git-commit-mode ()
   "Configure `git-commit-mode'."
   ;; specify when to wrap lines
-  (setq fill-column 72)
+  (setopt fill-column 72)
   ;; enable spellchecker
   (when (mz/ispell-program-installed-p)
     (flyspell-mode)))
@@ -15,29 +15,29 @@
 (add-hook 'git-commit-mode-hook #'mz/configure-git-commit-mode)
 
 ;; don't show relevant diff when committing
-(setq magit-commit-show-diff nil)
+(setopt magit-commit-show-diff nil)
 ;; highlight differences within a line
-(setq magit-diff-refine-hunk 'all)
+(setopt magit-diff-refine-hunk 'all)
 ;; highlight whitespace changes
-(setq magit-diff-refine-ignore-whitespace nil)
+(setopt magit-diff-refine-ignore-whitespace nil)
 ;; specify which format `magit-pop-revision-stack' should use
-(setq magit-pop-revision-stack-format '("reference"))
+(setopt magit-pop-revision-stack-format '("reference"))
 ;; don't ask when saving buffers automatically
-(setq magit-save-repository-buffers 'dontask)
-(setq vc-suppress-confirm t)
+(setopt magit-save-repository-buffers 'dontask)
+(setopt vc-suppress-confirm t)
 
 ;; follow version-controlled symbolic links without asking
-(setq vc-follow-symlinks t)
+(setopt vc-follow-symlinks t)
 
 ;; do not draw borders around fringe indicators
-(setq diff-hl-draw-borders nil)
+(setopt diff-hl-draw-borders nil)
 ;; highlight uncommitted changes
 ;; TODO: Enable diff-hl-margin-mode if Emacs runs in the terminal. It's not easy
 ;; though to check that. For example it is not possible to just call
 ;; display-graphic-p here, since Emacs can also be started as a daemon. In that
 ;; case this function would always return nil.
 ;; See: https://emacsredux.com/blog/2022/06/03/detecting-whether-emacs-is-running-in-terminal-or-gui-mode/
-(setq diff-hl-show-staged-changes nil)
+(setopt diff-hl-show-staged-changes nil)
 (global-diff-hl-mode)
 (diff-hl-flydiff-mode)
 (add-hook 'magit-pre-refresh-hook #'diff-hl-magit-pre-refresh)
