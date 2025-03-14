@@ -17,5 +17,5 @@ done
 
 if [ "$battery_count" -ge 1 ]
 then
-    echo "$(( capacity_sum * 100 / (battery_count * 100) ))%"
+    echo "$(( capacity_sum / battery_count ))%"
 fi
