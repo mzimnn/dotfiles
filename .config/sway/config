@@ -240,6 +240,7 @@ bar {
 # Window configuration:
 #
     # Make windows floating
+    for_window [app_id="blueman-manager"] floating enable
     for_window [app_id="firefox" title="^About Mozilla Firefox$"] floating enable
     for_window [app_id="firefox" title="^Picture-in-Picture$"] {
         floating enable
