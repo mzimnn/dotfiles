@@ -7,7 +7,7 @@
 (defun mz/configure-git-commit-mode ()
   "Configure `git-commit-mode'."
   ;; specify when to wrap lines
-  (setopt fill-column 72)
+  (setq-local fill-column 72)
   ;; enable spellchecker
   (when (mz/ispell-program-installed-p)
     (flyspell-mode)))

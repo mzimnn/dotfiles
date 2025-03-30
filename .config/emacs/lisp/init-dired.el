@@ -12,7 +12,7 @@
 (defun mz/configure-dired-mode ()
   "Configure `dired-mode'."
   ;; truncate lines if they do not fit on the screen
-  (setopt truncate-lines t)
+  (setq-local truncate-lines t)
   ;; automatically update Dired buffer if something changed on the file system
   (auto-revert-mode)
   ;; highlight files with uncommitted changes

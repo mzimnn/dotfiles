@@ -3,7 +3,7 @@
   (unless buffer-read-only
     (display-line-numbers-mode)
     (whitespace-mode))
-  (setopt truncate-lines t))
+  (setq-local truncate-lines t))
 
 (defun mz/configure-conf-modes ()
   "Configure modes which derive from `conf-mode'."
@@ -32,7 +32,7 @@
 
 ;; truncate lines in some modes
 (dolist (hook '( grep-mode-hook occur-mode-hook ))
-  (add-hook hook (lambda () (setopt truncate-lines t))))
+  (add-hook hook (lambda () (setq-local truncate-lines t))))
 
 ;; make URLs and email addresses clickable
 (add-hook 'shell-mode-hook #'goto-address-mode)
