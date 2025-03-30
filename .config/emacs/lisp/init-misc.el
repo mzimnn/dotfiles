@@ -55,7 +55,7 @@
 (setopt auto-revert-verbose nil)
 
 ;; improve performance of redisplay by disabling RTL text rendering
-(setq-default bidi-paragraph-direction 'left-to-right)
+(setopt bidi-paragraph-direction 'left-to-right)
 
 ;; save bookmarks after each change
 (setopt bookmark-save-flag 1)
