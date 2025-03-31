@@ -1,6 +1,6 @@
 * My dotfiles
 
-You have stumbled upon yet another repository containing a bunch of dotfiles.
+You have stumbled upon yet another repository that contains a bunch of dotfiles.
 
 ** Installation
 
