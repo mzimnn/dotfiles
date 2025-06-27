@@ -7,10 +7,8 @@ COLOR_RESET='\033[0m'
 COLOR_BLUE='\033[34m'
 COLOR_GREEN='\033[32m'
 COLOR_RED='\033[31m'
-COLOR_YELLOW='\033[33m'
 
 STATUS_BRANCH_DIFFERS='d'
-STATUS_BRANCH_NOT_SET='n'
 STATUS_BRANCH_UPDATED='u'
 
 STATUS_WORKTREE_CLEAN=' '
@@ -30,19 +28,18 @@ then the current directory is searched. Alternatively a file can be provided
 where each line specifies a path to a Git repository.
 
 By default up-to-date repositories are suppressed from the output. A repository
-is considered up-to-date if the local branch matches its upstream branch and
+is considered up-to-date if all local branches match their upstream branch and
 there are no stash entries.
 
 If the configuration variable "checkrepos.skip" is set in a found repository
 then it will be ignored.
 
 The paths of the found repositories are prefixed by three status fields in the
-output. The first field indicates the relation of the local branch to its
+output. The first field indicates the relation of the local branches to their
 upstream branch. Possible values are:
 
- - "$STATUS_BRANCH_DIFFERS" = local and upstream branch differ
- - "$STATUS_BRANCH_NOT_SET" = no upstream branch set
- - "$STATUS_BRANCH_UPDATED" = local and upstream branch match
+ - "$STATUS_BRANCH_DIFFERS" = some local branches do not match their upstream
+ - "$STATUS_BRANCH_UPDATED" = all local branches match their upstream
 
 The second field indicates the state of the working tree. Possible values are:
 
@@ -99,20 +96,18 @@ list_git_repo_paths () {
 }
 
 get_status_upstream_branch () {
-    # Check if local branch has a upstream branch
-    if git -C "$1" rev-parse @{u} 2>/dev/null >&2
+    # This Git command outputs tracking information for all local branches. Each
+    # line corresponds to a local branch, if it's in sync with its upstream
+    # branch, the line contains '='. grep exists with exit status zero if any
+    # line does not match '='.
+    if git -C "$1" for-each-ref --format='%(upstream:trackshort)' refs/heads | \
+       grep -qv '^=$'
     then
-        if [ "$(git -C "$1" rev-parse HEAD)" = "$(git -C "$1" rev-parse @{u})" ]
-        then
-            # Local branch is up-to-date
-            echo "$STATUS_BRANCH_UPDATED"
-        else
-            # Local branch and upstream branch differ
-            echo "$STATUS_BRANCH_DIFFERS"
-        fi
+        # Some local branches do not match their upstream
+        echo "$STATUS_BRANCH_DIFFERS"
     else
-        # No upstream branch set
-        echo "$STATUS_BRANCH_NOT_SET"
+        # All local branches match their upstream
+        echo "$STATUS_BRANCH_UPDATED"
     fi
 }
 
@@ -141,9 +136,6 @@ get_status_branch_color () {
     case "$(to_lower "$1")" in
         "$STATUS_BRANCH_DIFFERS")
             printf "$COLOR_RED"
-            ;;
-        "$STATUS_BRANCH_NOT_SET")
-            printf "$COLOR_YELLOW"
             ;;
         "$STATUS_BRANCH_UPDATED")
             printf "$COLOR_GREEN"
