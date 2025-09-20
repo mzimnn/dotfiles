@@ -96,6 +96,9 @@ input type:touchpad {
 
     # Take screenshot
     bindsym Print exec grimshot --notify save area
+
+    # Copy text from screen using OCR to the clipboard
+    bindsym $mod+Shift+t exec grimshot save area - | tesseract - - | wl-copy
 #
 # Media keys:
 #
