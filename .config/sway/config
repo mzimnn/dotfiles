@@ -95,7 +95,7 @@ input type:touchpad {
     bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you really want to shutdown?' -B 'Yes, back to real life' 'shutdown now'
 
     # Take screenshot
-    bindsym Print exec /usr/share/sway-contrib/grimshot --notify save area
+    bindsym Print exec grimshot --notify save area
 #
 # Media keys:
 #
