@@ -16,6 +16,9 @@ STATUS_BRANCH_UPDATED='u'
 STATUS_WORKTREE_CLEAN=' '
 STATUS_WORKTREE_CHANGES='w'
 
+STASH_COUNT_ZERO=' '
+STASH_COUNT_OVERFLOW='+'
+
 is_piped=0
 
 usage () {
@@ -27,12 +30,13 @@ then the current directory is searched. Alternatively a file can be provided
 where each line specifies a path to a Git repository.
 
 By default up-to-date repositories are suppressed from the output. A repository
-is considered up-to-date if the local branch matches its upstream branch.
+is considered up-to-date if the local branch matches its upstream branch and
+there are no stash entries.
 
 If the configuration variable "checkrepos.skip" is set in a found repository
 then it will be ignored.
 
-The paths of the found repositories are prefixed by two status fields in the
+The paths of the found repositories are prefixed by three status fields in the
 output. The first field indicates the relation of the local branch to its
 upstream branch. Possible values are:
 
@@ -44,6 +48,12 @@ The second field indicates the state of the working tree. Possible values are:
 
  - "$STATUS_WORKTREE_CHANGES" = there are changes in the working tree
  - "$STATUS_WORKTREE_CLEAN" = working tree is clean
+
+The third field represents the number of stash entries found in the repository.
+However, there are two special cases:
+
+ - "$STASH_COUNT_ZERO" = there are no stash entries
+ - "$STASH_COUNT_OVERFLOW" = there are ten or more stash entries
 
 Available options:
  -a  do not suppress up-to-date repositories
@@ -155,9 +165,10 @@ get_status_worktree_color () {
 print_repo_info () {
     local status_upstream_branch="$1"
     local status_worktree="$2"
-    local repo_path="$3"
-    local branch_name="$4"
-    local use_color="$5"
+    local stash_count="$3"
+    local repo_path="$4"
+    local branch_name="$5"
+    local use_color="$6"
 
     want_colored "$use_color" \
                  "$(get_status_branch_color "$status_upstream_branch")" \
@@ -165,6 +176,18 @@ print_repo_info () {
     want_colored "$use_color" \
                  "$(get_status_worktree_color "$status_worktree")" \
                  "$status_worktree"
+
+    if [ "$stash_count" -eq 0 ]
+    then
+        stash_count="$STASH_COUNT_ZERO"
+    elif [ "$stash_count" -ge 10 ]
+    then
+        # Just print a single character to simplify parsing of the output
+        stash_count="$STASH_COUNT_OVERFLOW"
+    fi
+
+    want_colored "$use_color" "$COLOR_RED" "$stash_count"
+
     printf ' '
     printf '%s' "$repo_path"
     printf ' '
@@ -260,6 +283,7 @@ main () {
 
         local status_upstream_branch="$(get_status_upstream_branch "$repo_path")"
         local status_worktree="$(get_status_worktree "$repo_path")"
+        local stash_count="$(git -C "$repo_path" stash list | wc -l)"
 
         if [ "$status_upstream_branch" = "$STATUS_BRANCH_DIFFERS" ] &&
            [ "$do_update" -eq 1 ]
@@ -273,6 +297,7 @@ main () {
 
         if [ "$status_upstream_branch" = "$STATUS_BRANCH_UPDATED" ] &&
            [ "$status_worktree" = "$STATUS_WORKTREE_CLEAN" ] &&
+           [ "$stash_count" -eq 0 ] &&
            [ "$show_all" -eq 0 ] &&
            [ "$show_all_and_skipped" -eq 0 ]
         then
@@ -293,7 +318,7 @@ main () {
         fi
 
         print_repo_info "$status_upstream_branch" "$status_worktree" \
-                        "$repo_path" "$branch_name" "$use_color"
+                        "$stash_count" "$repo_path" "$branch_name" "$use_color"
     done | sort
 }
 
