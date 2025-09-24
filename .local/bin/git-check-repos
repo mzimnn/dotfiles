@@ -153,14 +153,24 @@ get_status_worktree_color () {
 }
 
 print_repo_info () {
-    want_colored "$5" "$(get_status_branch_color "$1")" "$1"
-    want_colored "$5" "$(get_status_worktree_color "$2")" "$2"
+    local status_upstream_branch="$1"
+    local status_worktree="$2"
+    local repo_path="$3"
+    local branch_name="$4"
+    local use_color="$5"
+
+    want_colored "$use_color" \
+                 "$(get_status_branch_color "$status_upstream_branch")" \
+                 "$status_upstream_branch"
+    want_colored "$use_color" \
+                 "$(get_status_worktree_color "$status_worktree")" \
+                 "$status_worktree"
     printf ' '
-    printf '%s' "$3"
+    printf '%s' "$repo_path"
     printf ' '
-    [ -n "$4" ] && printf '['
-    want_colored "$5" "$COLOR_BLUE" "$4"
-    [ -n "$4" ] && printf ']'
+    [ -n "$branch_name" ] && printf '['
+    want_colored "$use_color" "$COLOR_BLUE" "$branch_name"
+    [ -n "$branch_name" ] && printf ']'
     echo
 }
 
