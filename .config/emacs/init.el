@@ -20,8 +20,9 @@
   (package-refresh-contents)
   (package-install-selected-packages t))
 
+;; TODO: can be removed after release of Emacs 31.1
 ;; Use local directory to modularize this init file
-(add-to-list 'load-path (expand-file-name "lisp/" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "user-lisp/" user-emacs-directory))
 
 ;; Load own modes
 (require 'focus-mode)
