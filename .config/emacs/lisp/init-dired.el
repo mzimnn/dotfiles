@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; dereference symbolic links before copying
 (setopt dired-copy-dereference t)
 

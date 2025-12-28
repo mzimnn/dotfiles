@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (defun mz/other-window-backwards ()
   "Like `other-window' but in reverse."
   (interactive)

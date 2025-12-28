@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (defun mz/configure-modes-for-editing ()
   "Configure modes for editing."
   (unless buffer-read-only

@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; ensure Magit can be accessed via project.el
 (require 'magit-extras)
 

@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; define which modes use Evil by default
 (setopt evil-default-state 'emacs)
 (setopt evil-insert-state-modes '(git-commit-mode))

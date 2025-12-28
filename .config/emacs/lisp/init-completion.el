@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; ignore case when completing
 (setopt completion-ignore-case t)
 (setopt read-file-name-completion-ignore-case t)

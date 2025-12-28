@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; add aliases
 (defalias 'cal #'calendar)
 

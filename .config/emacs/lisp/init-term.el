@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (defun mz/ansi-term (&optional arg)
   "Start a terminal-emulator using bash.
 

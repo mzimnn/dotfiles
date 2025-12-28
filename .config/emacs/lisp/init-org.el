@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; support linking to man pages
 (require 'ol-man)
 

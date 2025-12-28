@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; define leader map
 (define-prefix-command 'mz/leader-map)
 (keymap-global-set "C-c" mz/leader-map)

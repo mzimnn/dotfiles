@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; ensure point blinks forever
 (setopt blink-cursor-blinks -1)
 

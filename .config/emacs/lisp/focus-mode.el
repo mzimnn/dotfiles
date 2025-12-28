@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (defun focus-turn-on ()
   "Enable Focus mode."
   (hide-mode-line-mode)

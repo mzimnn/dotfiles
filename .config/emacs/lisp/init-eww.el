@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; wrap lines after column 80
 (setopt shr-max-width 80)
 ;; do not render colors

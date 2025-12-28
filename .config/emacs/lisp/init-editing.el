@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; specify when to wrap lines
 (setopt fill-column 80)
 
