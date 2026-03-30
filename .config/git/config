@@ -51,7 +51,6 @@
 [diff "org"]
 	xfuncname = "^\\*+ +.*"
 [diff-so-fancy]
-	first-run = false
 	markEmptyLines = false
 	stripLeadingSymbols = false
 [fetch]
