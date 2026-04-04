@@ -60,7 +60,7 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 if is_installed diff-so-fancy
 then
-    export GIT_PAGER='diff-so-fancy | less --tabs=5 -FRX'
+    export GIT_PAGER='diff-so-fancy | less --tabs=5 -FR'
     export GIT_CONFIG_COUNT=3
     export GIT_CONFIG_KEY_0='interactive.diffFilter'
     export GIT_CONFIG_VALUE_0='diff-so-fancy --patch'
