@@ -6,6 +6,9 @@
 ;; highlight too long commit summary
 (setopt git-commit-summary-max-length 50)
 
+;; do not collapse inline diff while editing commit messages
+(delete #'git-commit-collapse-diff git-commit-setup-hook)
+
 (defun mz/configure-git-commit-mode ()
   "Configure `git-commit-mode'."
   ;; specify when to wrap lines
