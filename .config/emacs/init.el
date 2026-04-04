@@ -4,12 +4,14 @@
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-unsigned-archives "melpa")
 (setopt package-archive-priorities
         '(("gnu" . 20)
           ("nongnu" . 10)
           ("melpa" . 0)))
 
 ;; install packages
+(setopt package-check-signature t)
 (setopt package-selected-packages
         '( corfu csv-mode diff-hl dtrt-indent evil haskell-mode hide-mode-line
            hl-todo ledger-mode magit markdown-mode olivetti org-roam ))
