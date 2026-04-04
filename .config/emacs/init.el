@@ -4,6 +4,10 @@
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
+(setopt package-archive-priorities
+        '(("gnu" . 20)
+          ("nongnu" . 10)
+          ("melpa" . 0)))
 
 ;; install packages
 (setopt package-selected-packages
