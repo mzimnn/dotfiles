@@ -184,7 +184,7 @@ input type:touchpad {
     bindsym $mod+a focus parent
 
     # Hide title bar of windows
-    default_border pixel 2
+    default_border pixel 3
 
     # Hide border if there is only one window
     smart_borders on
