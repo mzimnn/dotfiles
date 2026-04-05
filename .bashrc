@@ -9,17 +9,6 @@ source_if_exists () {
     [ -f "$1" ] && source "$1"
 }
 
-if is_installed tmux &&
-   # Debugging in VSCode is not possible if tmux is started
-   [ "$TERM_PROGRAM" != 'vscode' ] &&
-   # Do not use tmux inside Emacs or Intellij IDEA
-   [ -z "$INSIDE_EMACS" ] &&
-   [ "$TERMINAL_EMULATOR" != 'JetBrains-JediTerm' ]
-then
-    # If not inside a tmux session, start a new session
-    [ -z "${TMUX}" ] && exec tmux
-fi
-
 files=(
     /usr/share/bash-completion/completions/git
     /usr/share/git/completion/git-prompt.sh

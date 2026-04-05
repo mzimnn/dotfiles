@@ -76,7 +76,7 @@ input type:touchpad {
     bindsym $mod+p exec keepassxc
 
     # Start a terminal
-    bindsym $mod+Return exec $term
+    bindsym $mod+Return exec $term -e tmux
 
     # Kill focused window
     bindsym $mod+Shift+q kill
