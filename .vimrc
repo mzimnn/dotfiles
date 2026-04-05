@@ -55,6 +55,7 @@ set showcmd
 autocmd FileType gitcommit setlocal textwidth=72
 
 " mapping
+nnoremap Y y$
 nnoremap <Leader>h :set hlsearch!<Esc>
 nnoremap <Leader>s :set spell!<Esc>
 nnoremap <Leader>t :term<Esc><C-W>L
