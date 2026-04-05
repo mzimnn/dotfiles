@@ -10,6 +10,7 @@
 (keymap-set mz/org-roam-map "a a" #'org-roam-alias-add)
 (keymap-set mz/org-roam-map "a r" #'org-roam-alias-remove)
 (keymap-set mz/org-roam-map "b" #'org-roam-buffer-toggle)
+(keymap-set mz/org-roam-map "e" #'org-roam-extract-subtree)
 (keymap-set mz/org-roam-map "f" #'org-roam-node-find)
 (keymap-set mz/org-roam-map "g" #'org-roam-graph)
 (keymap-set mz/org-roam-map "i" #'org-roam-node-insert)
