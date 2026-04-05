@@ -58,6 +58,11 @@
 (keymap-set mz/leader-map "t" #'mz/ansi-term)
 
 ;; change key bindings in different modes
+(with-eval-after-load 'diff-mode
+  ;; use globally bound command instead of local one
+  (keymap-set diff-mode-map "M-k" nil) ; diff-hunk-kill
+  (keymap-set diff-mode-map "M-o" nil)) ; diff-goto-source
+
 (with-eval-after-load 'doc-view
   (keymap-set doc-view-mode-map "<home>" #'doc-view-first-page)
   (keymap-set doc-view-mode-map "<end>" #'doc-view-last-page))
