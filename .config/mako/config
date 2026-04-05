@@ -1,0 +1,11 @@
+# match background color of swaybar
+background-color=#323232
+
+# use round corners
+border-radius=10
+
+# default timeout (in ms) after which notifications automatically disappear
+default-timeout=10000
+
+# display notifications above fullscreen windows
+layer=overlay
