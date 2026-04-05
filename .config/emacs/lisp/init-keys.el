@@ -115,6 +115,11 @@
 (with-eval-after-load 'profiler
   (keymap-set profiler-report-mode-map "RET" #'profiler-report-find-entry))
 
+(with-eval-after-load 'sgml-mode
+  (keymap-set html-mode-map "C-c M-o" facemenu-keymap)
+  ;; use globally bound command instead of local one
+  (keymap-set html-mode-map "M-o" nil)) ; facemenu-keymap
+
 (with-eval-after-load 'term
   (keymap-set term-raw-map "M-o" nil)
   (keymap-set term-raw-map "M-x" nil))
