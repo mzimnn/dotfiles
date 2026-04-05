@@ -18,6 +18,9 @@
 ;; search for symbols instead of words
 (setopt evil-symbol-word-search t)
 
+;; use built-in undo-redo system
+(setopt evil-undo-system 'undo-redo)
+
 ;; allow usage of TAB key (e.g. to toggle headings in Org mode)
 ;; TODO: this should only apply in Org mode
 (setopt evil-want-C-i-jump nil)
