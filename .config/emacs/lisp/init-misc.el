@@ -65,6 +65,9 @@
 ;; Setup all Ediff windows in the current frame
 (setopt ediff-window-setup-function #'ediff-setup-windows-plain)
 
+;; Place Ediff windows side-by-side
+(setopt ediff-split-window-function #'split-window-horizontally)
+
 ;; Do not use multiple lines in the minibuffer
 (setopt eldoc-echo-area-use-multiline-p nil)
 
