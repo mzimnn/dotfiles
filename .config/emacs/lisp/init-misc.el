@@ -56,7 +56,8 @@
 ;; Don't display a message when a buffer has been reverted
 (setopt auto-revert-verbose nil)
 
-;; Improve performance of redisplay by disabling RTL text rendering
+;; Improve performance of redisplay by disabling BPA and RTL text rendering
+(setopt bidi-inhibit-bpa t)
 (setopt bidi-paragraph-direction 'left-to-right)
 
 ;; Save bookmarks after each change
