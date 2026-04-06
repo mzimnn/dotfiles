@@ -1,6 +1,6 @@
 # -*- mode: sh; -*-
 
-# set bash prompt (PS1)
+# Set bash prompt (PS1)
 COLOR_RESET='\033[0m'
 COLOR_BOLD_RED='\033[1;31m'
 COLOR_BOLD_GREEN='\033[1;32m'
@@ -16,7 +16,7 @@ get_user_color () {
 }
 
 get_proxy () {
-    # preserve exit status
+    # Preserve exit status
     local exit="$?"
 
     if [ -n "$http_proxy" ] || [ -n "$https_proxy" ]

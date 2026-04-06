@@ -1,39 +1,39 @@
 ;; -*- lexical-binding: t; -*-
 
-;; support linking to man pages
+;; Support linking to man pages
 (require 'ol-man)
 
-;; do not indent coding in source code block
+;; Do not indent coding in source code block
 (setopt org-edit-src-content-indentation 0)
 
-;; if displayable use pretty ellipsis in headings
+;; If displayable use pretty ellipsis in headings
 (require 'mule-util)
 (setopt org-ellipsis (truncate-string-ellipsis))
 
-;; render quote/verse blocks like source code blocks
+;; Render quote/verse blocks like source code blocks
 (setopt org-fontify-quote-and-verse-blocks t)
 
-;; hide emphasis markers
+;; Hide emphasis markers
 (setopt org-hide-emphasis-markers t)
 
-;; use relative paths for links
+;; Use relative paths for links
 (setopt org-link-file-path-type 'relative)
 
-;; allow usage of alphabetical lists
+;; Allow usage of alphabetical lists
 (setopt org-list-allow-alphabetical t)
 
-;; enable Org Indent mode
+;; Enable Org Indent mode
 (setopt org-startup-indented t)
 
-;; customize TODO keywords
+;; Customize TODO keywords
 (setopt org-todo-keywords
         '((sequence "TODO(t)" "HOLD(h)" "WAIT(w)" "|" "DONE(d)" )))
 
-;; display unlinked references in Org-roam buffer
+;; Display unlinked references in Org-roam buffer
 (require 'org-roam-mode)
 (add-to-list 'org-roam-mode-sections #'org-roam-unlinked-references-section t)
 
-;; display Org-roam buffer in side window
+;; Display Org-roam buffer in side window
 (add-to-list 'display-buffer-alist
              '("\\*org-roam\\*"
                (display-buffer-in-side-window)

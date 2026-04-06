@@ -1,15 +1,15 @@
 ;; -*- lexical-binding: t; -*-
 
-;; wrap lines after column 80
+;; Wrap lines after column 80
 (setopt shr-max-width 80)
-;; do not render colors
+;; Do not render colors
 (setopt shr-use-colors nil)
-;; always use monospaced fonts
+;; Always use monospaced fonts
 (setopt shr-use-fonts nil)
-;; do not display images
+;; Do not display images
 (setopt shr-inhibit-images t)
 
-;; use lightweight frontends which EWW can render better
+;; Use lightweight frontends which EWW can render better
 (setopt mz/url-replace-host-map '(("reddit.com" . "old.reddit.com")
                                   ("www.reddit.com" . "old.reddit.com")))
 
@@ -23,9 +23,9 @@
       (setf (url-host parsed-url) host-replacement))
     (url-recreate-url parsed-url)))
 
-;; ensure host is correctly displayed while loading the page
+;; Ensure host is correctly displayed while loading the page
 (advice-add 'eww--dwim-expand-url :filter-return #'mz/url-replace-host)
-;; ensure redirects are considered
+;; Ensure redirects are considered
 (advice-add 'url-retrieve-internal :filter-args
             (lambda (args)
               (let ((url (mz/url-replace-host (car args)))

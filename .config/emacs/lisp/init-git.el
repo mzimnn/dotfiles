@@ -1,42 +1,42 @@
 ;; -*- lexical-binding: t; -*-
 
-;; ensure Magit can be accessed via project.el
+;; Ensure Magit can be accessed via project.el
 (require 'magit-extras)
 
-;; highlight too long commit summary
+;; Highlight too long commit summary
 (setopt git-commit-summary-max-length 50)
 
-;; do not collapse inline diff while editing commit messages
+;; Do not collapse inline diff while editing commit messages
 (delete #'git-commit-collapse-diff git-commit-setup-hook)
 
 (defun mz/configure-git-commit-mode ()
   "Configure `git-commit-mode'."
-  ;; specify when to wrap lines
+  ;; Specify when to wrap lines
   (setq-local fill-column 72)
-  ;; enable spellchecker
+  ;; Enable spellchecker
   (when (mz/ispell-program-installed-p)
     (flyspell-mode)))
 
 (add-hook 'git-commit-mode-hook #'mz/configure-git-commit-mode)
 
-;; don't show relevant diff when committing
+;; Don't show relevant diff when committing
 (setopt magit-commit-show-diff nil)
-;; highlight differences within a line
+;; Highlight differences within a line
 (setopt magit-diff-refine-hunk 'all)
-;; highlight whitespace changes
+;; Highlight whitespace changes
 (setopt magit-diff-refine-ignore-whitespace nil)
-;; specify which format `magit-pop-revision-stack' should use
+;; Specify which format `magit-pop-revision-stack' should use
 (setopt magit-pop-revision-stack-format '("reference"))
-;; don't ask when saving buffers automatically
+;; Don't ask when saving buffers automatically
 (setopt magit-save-repository-buffers 'dontask)
 (setopt vc-suppress-confirm t)
 
-;; follow version-controlled symbolic links without asking
+;; Follow version-controlled symbolic links without asking
 (setopt vc-follow-symlinks t)
 
-;; do not draw borders around fringe indicators
+;; Do not draw borders around fringe indicators
 (setopt diff-hl-draw-borders nil)
-;; highlight uncommitted changes
+;; Highlight uncommitted changes
 ;; TODO: Enable diff-hl-margin-mode if Emacs runs in the terminal. It's not easy
 ;; though to check that. For example it is not possible to just call
 ;; display-graphic-p here, since Emacs can also be started as a daemon. In that
@@ -48,7 +48,7 @@
 (add-hook 'magit-pre-refresh-hook #'diff-hl-magit-pre-refresh)
 (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)
 
-;; auto-generate an instant commit message
+;; Auto-generate an instant commit message
 (defun mz/retrieve-git-status-lines ()
   "Parse the output of `git status --porcelain' into a list."
   (mapcar (lambda (status-line)

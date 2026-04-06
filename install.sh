@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# files which should not be symlinked
+# Files which should not be symlinked
 IGNORED_FILES=(
     install.sh
     README.org
@@ -36,7 +36,7 @@ do
 
     if [ "$(readlink "$target")" = "$source" ]
     then
-        # file is already symlinked
+        # File is already symlinked
         continue
     fi
 

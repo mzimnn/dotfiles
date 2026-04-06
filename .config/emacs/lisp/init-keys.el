@@ -1,10 +1,10 @@
 ;; -*- lexical-binding: t; -*-
 
-;; define leader map
+;; Define leader map
 (define-prefix-command 'mz/leader-map)
 (keymap-global-set "C-c" mz/leader-map)
 
-;; define Org-roam map
+;; Define Org-roam map
 (define-prefix-command 'mz/org-roam-map)
 (keymap-set mz/leader-map "r" mz/org-roam-map)
 (keymap-set mz/org-roam-map "a a" #'org-roam-alias-add)
@@ -16,50 +16,50 @@
 (keymap-set mz/org-roam-map "i" #'org-roam-node-insert)
 (keymap-set mz/org-roam-map "r" #'org-roam-node-random)
 
-;; describe character under point
+;; Describe character under point
 (keymap-global-set "C-h c" #'describe-char) ; describe-key-briefly
 
-;; use much more powerful IBuffer mode to view buffers
+;; Use much more powerful IBuffer mode to view buffers
 (keymap-global-set "C-x C-b" #'ibuffer)
 
-;; make scrolling more ergonomical
+;; Make scrolling more ergonomical
 (keymap-global-set "M-j" #'scroll-up-command)
 (keymap-global-set "M-k" #'scroll-down-command)
 
-;; switch windows with ease
+;; Switch windows with ease
 (keymap-global-set "M-o" #'other-window)
 (keymap-global-set "M-O" #'mz/other-window-backwards)
 
-;; use own command to un-/comment lines
+;; Use own command to un-/comment lines
 (keymap-global-set "M-;" #'mz/comment-line)
 
-;; key bindings to invoke Org features
+;; Key bindings to invoke Org features
 (keymap-global-set "<f12>" #'org-agenda-list)
 (keymap-set mz/leader-map "a" #'org-agenda)
 (keymap-set mz/leader-map "c" #'org-capture)
 (keymap-set mz/leader-map "l" #'org-store-link)
 
-;; insert current date
+;; Insert current date
 (keymap-set mz/leader-map "d" #'mz/insert-current-date)
 
-;; toggle focus mode
+;; Toggle focus mode
 (keymap-set mz/leader-map "f" #'focus-mode)
 
-;; prettify JSON from clipboard
+;; Prettify JSON from clipboard
 (keymap-set mz/leader-map "j" #'mz/display-json-from-clipboard)
 
-;; lookup word at point
+;; Lookup word at point
 (keymap-set mz/leader-map "L" #'dictionary-lookup-definition)
 
-;; display temporary buffer
+;; Display temporary buffer
 (keymap-set mz/leader-map "n" #'mz/temp-buffer)
 
-;; start terminal
+;; Start terminal
 (keymap-set mz/leader-map "t" #'mz/ansi-term)
 
-;; change key bindings in different modes
+;; Change key bindings in different modes
 (with-eval-after-load 'diff-mode
-  ;; use globally bound command instead of local one
+  ;; Use globally bound command instead of local one
   (keymap-set diff-mode-map "M-k" nil) ; diff-hunk-kill
   (keymap-set diff-mode-map "M-o" nil)) ; diff-goto-source
 
@@ -68,15 +68,15 @@
   (keymap-set doc-view-mode-map "<end>" #'doc-view-last-page))
 
 (with-eval-after-load 'elisp-mode
-  ;; use globally bound command instead of local one
+  ;; Use globally bound command instead of local one
   (keymap-set lisp-interaction-mode-map "C-j" nil)) ; eval-print-last-sexp
 
 (with-eval-after-load 'evil
-  ;; use globally bound command instead of local one
+  ;; Use globally bound command instead of local one
   (keymap-set evil-normal-state-map "M-." nil)) ; evil-repeat-pop-next
 
 (with-eval-after-load 'eww
-  ;; change key bindings in eww mode
+  ;; Change key bindings in eww mode
   (keymap-set eww-mode-map "n" #'next-line)
   (keymap-set eww-mode-map "p" #'previous-line)
   (keymap-set eww-mode-map "N" #'eww-next-url)
@@ -87,7 +87,7 @@
   (keymap-set eww-mode-map "{" #'backward-paragraph)
   (keymap-set eww-mode-map "}" #'forward-paragraph)
 
-  ;; change key bindings in eww bookmarks mode
+  ;; Change key bindings in eww bookmarks mode
   (keymap-set eww-bookmark-mode-map "n" #'next-line)
   (keymap-set eww-bookmark-mode-map "p" #'previous-line))
 
@@ -100,7 +100,7 @@
   (keymap-set help-mode-map "p" #'previous-line))
 
 (with-eval-after-load 'ibuffer
-  ;; use globally bound command instead of local one
+  ;; Use globally bound command instead of local one
   (keymap-set ibuffer-mode-map "M-o" nil)) ; ibuffer-visit-buffer-1-window
 
 (with-eval-after-load 'info
@@ -122,7 +122,7 @@
 
 (with-eval-after-load 'sgml-mode
   (keymap-set html-mode-map "C-c M-o" facemenu-keymap)
-  ;; use globally bound command instead of local one
+  ;; Use globally bound command instead of local one
   (keymap-set html-mode-map "M-o" nil)) ; facemenu-keymap
 
 (with-eval-after-load 'term

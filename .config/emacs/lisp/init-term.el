@@ -6,11 +6,11 @@
 If called with a prefix ARG, use a new buffer instead of reusing
 the existing term buffer."
   (interactive "p")
-  ;; use first buffer in list
+  ;; Use first buffer in list
   (let ((buffer (car (match-buffers '(derived-mode . term-mode)))))
     (if (and buffer (not (eq arg 4)))
         (pop-to-buffer buffer)
-      ;; in case of a project use its root directory
+      ;; In case of a project use its root directory
       (let ((default-directory (if (project-current)
                                    (project-root (project-current))
                                  default-directory)))
@@ -35,14 +35,14 @@ It can be used to advice `term-handle-exit'."
   (unless (one-window-p t)
     (delete-window)))
 
-;; open term buffer below the selected window
+;; Open term buffer below the selected window
 (add-to-list 'display-buffer-alist
              '(mz/derived-term-mode-p (display-buffer-below-selected)))
 
-;; make URLs and email addresses clickable
+;; Make URLs and email addresses clickable
 (add-hook 'term-mode-hook #'goto-address-mode)
 
-;; kill term buffer after exit
+;; Kill term buffer after exit
 (advice-add #'term-handle-exit :after #'mz/term-handle-exit)
 
 (provide 'init-term)

@@ -24,7 +24,7 @@
 	tags = tag --list
 	tree = log --oneline --graph
 
-	# un-/hide files locally
+	# Un-/hide files locally
 	hide = update-index --skip-worktree
 	hide-all = !git status --porcelain | grep '^ M' | cut -c4- | xargs git hide
 	ls-hidden = !git ls-files -v | grep '^S' | cut -c3-
