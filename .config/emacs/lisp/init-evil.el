@@ -30,5 +30,6 @@
 
 ;; Enable Evil
 (evil-mode)
+(global-evil-surround-mode)
 
 (provide 'init-evil)
