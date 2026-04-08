@@ -125,6 +125,9 @@
   ;; Use globally bound command instead of local one
   (keymap-set html-mode-map "M-o" nil)) ; facemenu-keymap
 
+(with-eval-after-load 'tab-bar
+  (keymap-set tab-prefix-map "!" #'tab-window-detach))
+
 (with-eval-after-load 'term
   (keymap-set term-raw-map "M-o" nil)
   (keymap-set term-raw-map "M-x" nil))
