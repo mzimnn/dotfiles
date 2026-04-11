@@ -43,7 +43,7 @@
 (keymap-set mz/leader-map "d" #'mz/insert-current-date)
 
 ;; Toggle focus mode
-(keymap-set mz/leader-map "f" #'focus-mode)
+(keymap-set mz/leader-map "F" #'focus-mode)
 
 ;; Prettify JSON from clipboard
 (keymap-set mz/leader-map "j" #'mz/display-json-from-clipboard)
