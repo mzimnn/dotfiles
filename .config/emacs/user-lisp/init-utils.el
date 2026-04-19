@@ -26,14 +26,20 @@ If called with a prefix ARG, use European format of date."
   (require 'ispell)
   (when (executable-find ispell-program-name) t))
 
+(defun mz/line-blank-p ()
+  "Check if current line is blank."
+  (save-excursion
+    (beginning-of-line)
+    (looking-at-p "[ \t]*$")))
+
 (defun mz/comment-line ()
   "Un-/comment current line or each line in the active region."
   (interactive)
   (let ((begin (if (use-region-p) (region-beginning) (line-beginning-position)))
         (end (if (use-region-p) (region-end) (line-end-position))))
-    (if (= begin end)
-        ;; This adds a comment on an empty line. `comment-or-uncomment-region'
-        ;; is not able to do this.
+    (if (mz/line-blank-p)
+        ;; This adds a comment on a blank line. `comment-or-uncomment-region' is
+        ;; not able to do this.
         (comment-dwim nil)
       (comment-or-uncomment-region begin end))))
 
