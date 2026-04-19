@@ -101,6 +101,7 @@
 
 (with-eval-after-load 'ibuffer
   ;; Use globally bound command instead of local one
+  (keymap-set ibuffer-mode-map "M-j" nil)  ; ibuffer-jump-to-filter-group
   (keymap-set ibuffer-mode-map "M-o" nil)) ; ibuffer-visit-buffer-1-window
 
 (with-eval-after-load 'info
