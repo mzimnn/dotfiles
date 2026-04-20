@@ -93,6 +93,9 @@
 ;; Type less backslashes
 (setopt reb-re-syntax 'string)
 
+;; Kill buffer after the shell process terminates
+(setopt shell-kill-buffer-on-exit t)
+
 ;; Ensure `switch-to-buffer' respects display actions
 (setopt switch-to-buffer-obey-display-actions t)
 
