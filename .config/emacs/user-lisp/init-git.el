@@ -99,7 +99,9 @@
   ;; function magit-commit-create also invokes this assertion but this has to be
   ;; done before the commit message is generated. Only then all staged files are
   ;; included in the commit message.
-  (when (magit-commit-assert ())
+  (when (setq args (magit-commit-assert nil))
+    (when (member "--all" args)
+      (magit-run-git "add" "-u"))
     (magit-commit-create `("-m" ,(mz/git-instant-commit-msg)))))
 
 (add-hook 'magit-mode-hook
