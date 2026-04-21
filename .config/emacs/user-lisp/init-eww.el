@@ -23,18 +23,6 @@
       (setf (url-host parsed-url) host-replacement))
     (url-recreate-url parsed-url)))
 
-;; Ensure host is correctly displayed while loading the page
-(advice-add 'eww--dwim-expand-url :filter-return #'mz/url-replace-host)
-;; Ensure redirects are considered
-(advice-add 'url-retrieve-internal :filter-args
-            (lambda (args)
-              (let ((url (mz/url-replace-host (car args)))
-                    (status (car (caddr args))))
-                (when (plist-get status :redirect)
-                  (plist-put status :redirect url))
-                (cons url (cdr args))))
-            '((name . "mz/url-replace-host")))
-
 (defun mz/url-get-content-length (url)
   "Request URL and return value of header \"Content-Length\"."
   (let ((url-request-method "HEAD"))
@@ -54,5 +42,8 @@
   "In EWW, display content length of url under point."
   (interactive)
   (mz/url-display-content-length (shr-url-at-point nil)))
+
+(with-eval-after-load 'eww
+  (add-to-list 'eww-url-transformers #'mz/url-replace-host))
 
 (provide 'init-eww)
