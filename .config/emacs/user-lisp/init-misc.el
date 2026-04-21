@@ -93,6 +93,9 @@
 ;; Type less backslashes
 (setopt reb-re-syntax 'string)
 
+;; Save clipboard to `kill-ring' prior to any kill operation
+(setopt save-interprogram-paste-before-kill t)
+
 ;; Kill buffer after the shell process terminates
 (setopt shell-kill-buffer-on-exit t)
 
