@@ -1,5 +1,15 @@
 ;; -*- lexical-binding: t; -*-
 
+;; Define global key bindings
+(keymap-global-set "C-h c" #'describe-char) ; describe-key-briefly
+(keymap-global-set "M-j" #'scroll-up-command)
+(keymap-global-set "M-k" #'scroll-down-command)
+(keymap-global-set "M-o" #'other-window)
+(keymap-global-set "M-O" #'mz/other-window-backwards)
+(keymap-global-set "<f12>" #'org-agenda-list)
+(keymap-global-set "<remap> <comment-dwim>" #'mz/comment-line)
+(keymap-global-set "<remap> <list-buffers>" #'ibuffer)
+
 ;; Define leader map
 (define-prefix-command 'mz/leader-map)
 (keymap-global-set "C-c" mz/leader-map)
@@ -24,26 +34,6 @@
 (keymap-set mz/org-roam-map "g" #'org-roam-graph)
 (keymap-set mz/org-roam-map "i" #'org-roam-node-insert)
 (keymap-set mz/org-roam-map "r" #'org-roam-node-random)
-
-;; Describe character under point
-(keymap-global-set "C-h c" #'describe-char) ; describe-key-briefly
-
-;; Use much more powerful IBuffer mode to view buffers
-(keymap-global-set "<remap> <list-buffers>" #'ibuffer)
-
-;; Make scrolling more ergonomical
-(keymap-global-set "M-j" #'scroll-up-command)
-(keymap-global-set "M-k" #'scroll-down-command)
-
-;; Switch windows with ease
-(keymap-global-set "M-o" #'other-window)
-(keymap-global-set "M-O" #'mz/other-window-backwards)
-
-;; Use own command to un-/comment lines
-(keymap-global-set "<remap> <comment-dwim>" #'mz/comment-line)
-
-;; Key bindings to invoke Org features
-(keymap-global-set "<f12>" #'org-agenda-list)
 
 ;; Change key bindings in different modes
 (with-eval-after-load 'diff-mode
