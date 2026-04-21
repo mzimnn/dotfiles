@@ -20,7 +20,7 @@
 (keymap-global-set "C-h c" #'describe-char) ; describe-key-briefly
 
 ;; Use much more powerful IBuffer mode to view buffers
-(keymap-global-set "C-x C-b" #'ibuffer)
+(keymap-global-set "<remap> <list-buffers>" #'ibuffer)
 
 ;; Make scrolling more ergonomical
 (keymap-global-set "M-j" #'scroll-up-command)
@@ -31,7 +31,7 @@
 (keymap-global-set "M-O" #'mz/other-window-backwards)
 
 ;; Use own command to un-/comment lines
-(keymap-global-set "M-;" #'mz/comment-line)
+(keymap-global-set "<remap> <comment-dwim>" #'mz/comment-line)
 
 ;; Key bindings to invoke Org features
 (keymap-global-set "<f12>" #'org-agenda-list)
