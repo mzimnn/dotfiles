@@ -16,6 +16,7 @@
 (delete-selection-mode)
 
 ;; Guess indentation settings
+(setopt dtrt-indent-lighter nil)
 (setopt dtrt-indent-verbosity 0)
 (dtrt-indent-global-mode)
 
