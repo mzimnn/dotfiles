@@ -3,6 +3,15 @@
 ;; Define leader map
 (define-prefix-command 'mz/leader-map)
 (keymap-global-set "C-c" mz/leader-map)
+(keymap-set mz/leader-map "a" #'org-agenda)
+(keymap-set mz/leader-map "c" #'org-capture)
+(keymap-set mz/leader-map "d" #'mz/insert-current-date)
+(keymap-set mz/leader-map "F" #'focus-mode)
+(keymap-set mz/leader-map "j" #'mz/display-json-from-clipboard)
+(keymap-set mz/leader-map "l" #'org-store-link)
+(keymap-set mz/leader-map "L" #'dictionary-lookup-definition)
+(keymap-set mz/leader-map "n" #'mz/temp-buffer)
+(keymap-set mz/leader-map "t" #'mz/ansi-term)
 
 ;; Define Org-roam map
 (define-prefix-command 'mz/org-roam-map)
@@ -35,27 +44,6 @@
 
 ;; Key bindings to invoke Org features
 (keymap-global-set "<f12>" #'org-agenda-list)
-(keymap-set mz/leader-map "a" #'org-agenda)
-(keymap-set mz/leader-map "c" #'org-capture)
-(keymap-set mz/leader-map "l" #'org-store-link)
-
-;; Insert current date
-(keymap-set mz/leader-map "d" #'mz/insert-current-date)
-
-;; Toggle focus mode
-(keymap-set mz/leader-map "F" #'focus-mode)
-
-;; Prettify JSON from clipboard
-(keymap-set mz/leader-map "j" #'mz/display-json-from-clipboard)
-
-;; Lookup word at point
-(keymap-set mz/leader-map "L" #'dictionary-lookup-definition)
-
-;; Display temporary buffer
-(keymap-set mz/leader-map "n" #'mz/temp-buffer)
-
-;; Start terminal
-(keymap-set mz/leader-map "t" #'mz/ansi-term)
 
 ;; Change key bindings in different modes
 (with-eval-after-load 'diff-mode
