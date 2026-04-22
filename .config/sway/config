@@ -145,6 +145,7 @@ input type:touchpad {
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+    bindsym $mod+Tab workspace back_and_forth
     bindsym Control+$mod+$left workspace prev
     bindsym Control+$mod+$right workspace next
     # Move focused container to workspace
