@@ -94,11 +94,11 @@
 (defun mz/git-instant-commit ()
   "Commit staged changes with an instant commit message."
   (interactive)
-  ;; magit-commit-assert checks if there are any staged changes, if not it
+  ;; `magit-commit-assert' checks if there are any staged changes, if not it
   ;; prompts the user if he/she wants to stage all unstaged changes. The
-  ;; function magit-commit-create also invokes this assertion but this has to be
-  ;; done before the commit message is generated. Only then all staged files are
-  ;; included in the commit message.
+  ;; function `magit-commit-create' also invokes this assertion but this has to
+  ;; be done before the commit message is generated. Only then all staged files
+  ;; are included in the commit message.
   (when (setq args (magit-commit-assert nil))
     (when (member "--all" args)
       (magit-run-git "add" "-u"))
