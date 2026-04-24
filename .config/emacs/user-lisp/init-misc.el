@@ -90,6 +90,9 @@
 ;; Don't show warnings during native compilation
 (setopt native-comp-async-report-warnings-errors 'silent)
 
+;; Make display of processes colorful
+(setopt proced-enable-color-flag t)
+
 ;; Type less backslashes
 (setopt reb-re-syntax 'string)
 
