@@ -51,6 +51,7 @@
 [diff "org"]
 	xfuncname = "^\\*+ +.*"
 [diff-so-fancy]
+	fileNameRulerShape = ruler
 	markEmptyLines = false
 	stripLeadingSymbols = false
 [fetch]
