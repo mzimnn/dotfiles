@@ -12,6 +12,8 @@
 
 ;; Install packages
 (setopt package-check-signature t)
+;; See: https://github.com/emacs-evil/evil/issues/1983
+(setopt package-pinned-packages '((evil . "melpa")))
 (setopt package-selected-packages
         '( corfu csv-mode diff-hl dtrt-indent evil evil-surround hide-mode-line
            hl-todo ledger-mode magit markdown-mode olivetti org-roam ))
